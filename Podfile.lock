@@ -2,6 +2,7 @@ PODS:
   - Action (3.0.0):
     - RxCocoa (~> 3.4.0)
     - RxSwift (~> 3.4.0)
+  - Dotzu (1.8)
   - NSObject+Rx (2.1.0):
     - RxSwift
   - Realm (2.6.2):
@@ -18,18 +19,24 @@ PODS:
     - RealmSwift (~> 2.5)
     - RxSwift (~> 3.2)
   - RxSwift (3.4.1)
+  - SwiftyImage (1.1.0)
+  - Whisper (5.0.0)
 
 DEPENDENCIES:
   - Action
+  - Dotzu
   - NSObject+Rx
   - RealmSwift
   - RxCocoa
   - RxDataSources
   - RxRealm
   - RxSwift
+  - SwiftyImage
+  - Whisper
 
 SPEC CHECKSUMS:
   Action: fed388b9160ad787a58cb34b5064db6dbaae7e45
+  Dotzu: e787896f08474f4e4574baa20ec556361dfebf0c
   NSObject+Rx: '09277ba78aa12a8e454c82429eb4e31bfb413131'
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
   RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
@@ -37,7 +44,9 @@ SPEC CHECKSUMS:
   RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
   RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
+  SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
+  Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: d7914df4247f0b7a534114d16f666161e3889e29
+PODFILE CHECKSUM: 583dd167675c2abf94a555b57bd76af39b465517
 
 COCOAPODS: 1.2.1

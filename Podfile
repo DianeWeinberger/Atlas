@@ -10,4 +10,7 @@ target 'Atlas' do
 	pod 'RxDataSources'
 	pod 'Action'
 	pod 'NSObject+Rx'
+	pod 'Dotzu'
+	pod 'Whisper'
+	pod 'SwiftyImage'
 end
