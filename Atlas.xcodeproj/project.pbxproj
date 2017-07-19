@@ -16,7 +16,6 @@
 		2385A2B11F1EACAF00DD0FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AF1F1EACAF00DD0FDE /* LaunchScreen.storyboard */; };
 		23C8C2161F1FDF140056B4F2 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2151F1FDF140056B4F2 /* LandingViewController.swift */; };
 		23C8C2181F1FE0B40056B4F2 /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2171F1FE0B40056B4F2 /* CoordinatorType.swift */; };
-		23C8C21B1F1FE1B20056B4F2 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C21A1F1FE1B20056B4F2 /* Scene.swift */; };
 		23C8C21D1F1FE1DF0056B4F2 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C21C1F1FE1DF0056B4F2 /* LandingViewModel.swift */; };
 		23C8C21F1F1FE30E0056B4F2 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C21E1F1FE30E0056B4F2 /* BindableType.swift */; };
 		23C8C2241F1FE4200056B4F2 /* TransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2231F1FE4200056B4F2 /* TransitionType.swift */; };
@@ -26,6 +25,9 @@
 		23C8C22E1F1FE7960056B4F2 /* Run.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C8C22D1F1FE7960056B4F2 /* Run.storyboard */; };
 		23C8C2301F1FE7A80056B4F2 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C8C22F1F1FE7A80056B4F2 /* Messages.storyboard */; };
 		23C8C2321F1FE7B30056B4F2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C8C2311F1FE7B30056B4F2 /* Profile.storyboard */; };
+		23C8C2351F1FEA9F0056B4F2 /* SceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2341F1FEA9F0056B4F2 /* SceneType.swift */; };
+		23C8C2371F1FEACE0056B4F2 /* AuthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2361F1FEACE0056B4F2 /* AuthScene.swift */; };
+		23C8C2391F1FECBD0056B4F2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2381F1FECBD0056B4F2 /* Coordinator.swift */; };
 		69AF444DA16B29D2728F947B /* Pods_Atlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF380FC0BB4B728207972622 /* Pods_Atlas.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +43,6 @@
 		2385A2B21F1EACAF00DD0FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23C8C2151F1FDF140056B4F2 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		23C8C2171F1FE0B40056B4F2 /* CoordinatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
-		23C8C21A1F1FE1B20056B4F2 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		23C8C21C1F1FE1DF0056B4F2 /* LandingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
 		23C8C21E1F1FE30E0056B4F2 /* BindableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		23C8C2231F1FE4200056B4F2 /* TransitionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionType.swift; sourceTree = "<group>"; };
@@ -51,6 +52,9 @@
 		23C8C22D1F1FE7960056B4F2 /* Run.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Run.storyboard; sourceTree = "<group>"; };
 		23C8C22F1F1FE7A80056B4F2 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		23C8C2311F1FE7B30056B4F2 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		23C8C2341F1FEA9F0056B4F2 /* SceneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneType.swift; sourceTree = "<group>"; };
+		23C8C2361F1FEACE0056B4F2 /* AuthScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScene.swift; sourceTree = "<group>"; };
+		23C8C2381F1FECBD0056B4F2 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3829EB387CBB4C9E808588D9 /* Pods-Atlas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.debug.xcconfig"; sourceTree = "<group>"; };
 		94A21020256249F402D96D5C /* Pods-Atlas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.release.xcconfig"; sourceTree = "<group>"; };
 		CF380FC0BB4B728207972622 /* Pods_Atlas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Atlas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +100,7 @@
 				2385A2BE1F1EACF500DD0FDE /* Extensions */,
 				2385A2C31F1EAD5300DD0FDE /* Models */,
 				2385A2BF1F1EACFA00DD0FDE /* Protocols */,
+				23C8C2331F1FEA600056B4F2 /* Scenes */,
 				2385A2BD1F1EACEF00DD0FDE /* Services */,
 				2385A2C41F1EAD6200DD0FDE /* Resources */,
 				2385A2B91F1EACCF00DD0FDE /* Views */,
@@ -127,6 +132,11 @@
 			isa = PBXGroup;
 			children = (
 				23C8C2201F1FE3CF0056B4F2 /* Auth */,
+				23C8C23A1F1FEFCF0056B4F2 /* Home */,
+				23C8C23B1F1FEFD30056B4F2 /* Connect */,
+				23C8C23F1F1FF0040056B4F2 /* Run */,
+				23C8C23D1F1FEFF80056B4F2 /* Messages */,
+				23C8C23C1F1FEFF40056B4F2 /* Profile */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -135,6 +145,11 @@
 			isa = PBXGroup;
 			children = (
 				23C8C2211F1FE3DD0056B4F2 /* Auth */,
+				23C8C2441F1FF02A0056B4F2 /* Home */,
+				23C8C2431F1FF0230056B4F2 /* Connect */,
+				23C8C2421F1FF01D0056B4F2 /* Run */,
+				23C8C2411F1FF0180056B4F2 /* Messages */,
+				23C8C2401F1FF0140056B4F2 /* Profile */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -159,6 +174,7 @@
 				23C8C2171F1FE0B40056B4F2 /* CoordinatorType.swift */,
 				23C8C21E1F1FE30E0056B4F2 /* BindableType.swift */,
 				23C8C2231F1FE4200056B4F2 /* TransitionType.swift */,
+				23C8C2341F1FEA9F0056B4F2 /* SceneType.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -220,7 +236,7 @@
 		23C8C2191F1FE1A00056B4F2 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				23C8C21A1F1FE1B20056B4F2 /* Scene.swift */,
+				23C8C2381F1FECBD0056B4F2 /* Coordinator.swift */,
 			);
 			name = Coordinators;
 			sourceTree = "<group>";
@@ -239,6 +255,84 @@
 				23C8C21C1F1FE1DF0056B4F2 /* LandingViewModel.swift */,
 			);
 			name = Auth;
+			sourceTree = "<group>";
+		};
+		23C8C2331F1FEA600056B4F2 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				23C8C2361F1FEACE0056B4F2 /* AuthScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		23C8C23A1F1FEFCF0056B4F2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		23C8C23B1F1FEFD30056B4F2 /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Connect;
+			sourceTree = "<group>";
+		};
+		23C8C23C1F1FEFF40056B4F2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		23C8C23D1F1FEFF80056B4F2 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		23C8C23F1F1FF0040056B4F2 /* Run */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Run;
+			sourceTree = "<group>";
+		};
+		23C8C2401F1FF0140056B4F2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		23C8C2411F1FF0180056B4F2 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		23C8C2421F1FF01D0056B4F2 /* Run */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Run;
+			sourceTree = "<group>";
+		};
+		23C8C2431F1FF0230056B4F2 /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Connect;
+			sourceTree = "<group>";
+		};
+		23C8C2441F1FF02A0056B4F2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 		8A17AE504830B891ECBEB311 /* Frameworks */ = {
@@ -393,10 +487,12 @@
 				23C8C2241F1FE4200056B4F2 /* TransitionType.swift in Sources */,
 				2385A2A71F1EACAF00DD0FDE /* AppDelegate.swift in Sources */,
 				23C8C21F1F1FE30E0056B4F2 /* BindableType.swift in Sources */,
-				23C8C21B1F1FE1B20056B4F2 /* Scene.swift in Sources */,
+				23C8C2351F1FEA9F0056B4F2 /* SceneType.swift in Sources */,
+				23C8C2371F1FEACE0056B4F2 /* AuthScene.swift in Sources */,
 				230986371F1FB44400C5BC16 /* User.swift in Sources */,
 				23C8C2161F1FDF140056B4F2 /* LandingViewController.swift in Sources */,
 				23C8C21D1F1FE1DF0056B4F2 /* LandingViewModel.swift in Sources */,
+				23C8C2391F1FECBD0056B4F2 /* Coordinator.swift in Sources */,
 				2309863E1F1FB75C00C5BC16 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
