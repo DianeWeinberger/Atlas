@@ -33,7 +33,7 @@ class Coordinator: CoordinatorType {
     let viewController = scene.viewController
     switch type {
     case .root:
-      currentViewController = AuthCoordinator.actualViewController(for: viewController)
+      currentViewController = Coordinator.actualViewController(for: viewController)
       window.rootViewController = viewController
       subject.onCompleted()
       
@@ -45,15 +45,15 @@ class Coordinator: CoordinatorType {
       _ = navigationController.rx.delegate
         .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
         .map { _ in }
-        .bindTo(subject)
+        .bind(to: subject)
       navigationController.pushViewController(viewController, animated: true)
-      currentViewController = AuthCoordinator.actualViewController(for: viewController)
+      currentViewController = Coordinator.actualViewController(for: viewController)
       
     case .modal:
       currentViewController.present(viewController, animated: true) {
         subject.onCompleted()
       }
-      currentViewController = AuthCoordinator.actualViewController(for: viewController)
+      currentViewController = Coordinator.actualViewController(for: viewController)
     }
     return subject.asObservable()
       .take(1)
@@ -66,7 +66,7 @@ class Coordinator: CoordinatorType {
     if let presenter = currentViewController.presentingViewController {
       // dismiss a modal controller
       currentViewController.dismiss(animated: animated) {
-        self.currentViewController = AuthCoordinator.actualViewController(for: presenter)
+        self.currentViewController = Coordinator.actualViewController(for: presenter)
         subject.onCompleted()
       }
     } else if let navigationController = currentViewController.navigationController {
@@ -75,11 +75,11 @@ class Coordinator: CoordinatorType {
       _ = navigationController.rx.delegate
         .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
         .map { _ in }
-        .bindTo(subject)
+        .bind(to: subject)
       guard navigationController.popViewController(animated: animated) != nil else {
         fatalError("can't navigate back from \(currentViewController)")
       }
-      currentViewController = AuthCoordinator.actualViewController(for: navigationController.viewControllers.last!)
+      currentViewController = Coordinator.actualViewController(for: navigationController.viewControllers.last!)
     } else {
       fatalError("Not a modal, no navigation controller: can't navigate back from \(currentViewController)")
     }
