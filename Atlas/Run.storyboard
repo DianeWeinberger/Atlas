@@ -6,13 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Run-->
         <scene sceneID="XRs-3m-ft0">
             <objects>
-                <viewController id="DYs-BS-4f3" sceneMemberID="viewController">
+                <viewController id="DYs-BS-4f3" customClass="RunViewController" customModule="Atlas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4jA-EQ-Gw1"/>
                         <viewControllerLayoutGuide type="bottom" id="vgR-Qh-8wn"/>
@@ -21,21 +24,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Run" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TO-rw-YGY">
-                                <rect key="frame" x="166" y="294" width="30" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWj-Su-2AN">
+                                <rect key="frame" x="0.0" y="87" width="375" height="531"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oQ-3u-rrP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFG-NW-e3q">
+                                        <rect key="frame" x="119" y="16" width="137" height="56.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="41"/>
+                                        <color key="textColor" red="0.0" green="0.078431372549019607" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmd-mh-NzA">
+                                        <rect key="frame" x="67" y="65" width="53.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                        <color key="textColor" red="0.0" green="0.078431372550000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 min/mile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SR-dt-0jd">
+                                        <rect key="frame" x="228" y="65" width="107" height="22"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                        <color key="textColor" red="0.0" green="0.078431372550000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIST." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYc-FR-Out">
+                                        <rect key="frame" x="44.5" y="68" width="18.5" height="11"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="8"/>
+                                        <color key="textColor" red="0.0" green="0.078431372550000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PACE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxi-Xo-kb6">
+                                        <rect key="frame" x="204" y="68" width="20" height="11"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="8"/>
+                                        <color key="textColor" red="0.0" green="0.078431372550000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="vFG-NW-e3q" firstAttribute="centerY" secondItem="9oQ-3u-rrP" secondAttribute="centerY" id="0jH-MI-P4f"/>
+                                    <constraint firstItem="Nmd-mh-NzA" firstAttribute="centerX" secondItem="9oQ-3u-rrP" secondAttribute="centerX" multiplier="0.5" id="Ilf-UW-yYx"/>
+                                    <constraint firstItem="XYc-FR-Out" firstAttribute="firstBaseline" secondItem="Nmd-mh-NzA" secondAttribute="centerY" id="MC7-zV-z80"/>
+                                    <constraint firstItem="0SR-dt-0jd" firstAttribute="leading" secondItem="Hxi-Xo-kb6" secondAttribute="trailing" constant="4" id="Y5I-6P-Nqp"/>
+                                    <constraint firstItem="Nmd-mh-NzA" firstAttribute="leading" secondItem="XYc-FR-Out" secondAttribute="trailing" constant="4" id="iFD-pA-fW1"/>
+                                    <constraint firstItem="vFG-NW-e3q" firstAttribute="centerX" secondItem="9oQ-3u-rrP" secondAttribute="centerX" id="tCu-YS-S52"/>
+                                    <constraint firstItem="0SR-dt-0jd" firstAttribute="centerX" secondItem="9oQ-3u-rrP" secondAttribute="centerX" multiplier="1.5" id="wJ6-Gz-nu8"/>
+                                    <constraint firstItem="Hxi-Xo-kb6" firstAttribute="centerY" secondItem="XYc-FR-Out" secondAttribute="centerY" priority="999" id="xLx-RI-b45"/>
+                                    <constraint firstItem="Nmd-mh-NzA" firstAttribute="centerY" secondItem="9oQ-3u-rrP" secondAttribute="centerY" multiplier="1.75" id="xQa-bh-APZ"/>
+                                    <constraint firstItem="0SR-dt-0jd" firstAttribute="centerY" secondItem="Nmd-mh-NzA" secondAttribute="centerY" priority="999" id="zSn-py-bJa"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QP-JF-fY4">
+                                <rect key="frame" x="113" y="485.5" width="148" height="30"/>
+                                <state key="normal" title="PAUSE - Hold to Stop"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1TO-rw-YGY" firstAttribute="centerY" secondItem="k3T-Us-FFS" secondAttribute="centerY" id="Mjs-RX-s9E"/>
-                            <constraint firstItem="1TO-rw-YGY" firstAttribute="centerX" secondItem="k3T-Us-FFS" secondAttribute="centerX" id="epH-di-HCq"/>
+                            <constraint firstAttribute="trailing" secondItem="nWj-Su-2AN" secondAttribute="trailing" id="39k-8a-9Vu"/>
+                            <constraint firstItem="vgR-Qh-8wn" firstAttribute="top" secondItem="nWj-Su-2AN" secondAttribute="bottom" id="M9v-zt-aSd"/>
+                            <constraint firstItem="nWj-Su-2AN" firstAttribute="height" secondItem="k3T-Us-FFS" secondAttribute="height" multiplier="531/667" id="PZS-zW-GXN"/>
+                            <constraint firstItem="4QP-JF-fY4" firstAttribute="centerX" secondItem="k3T-Us-FFS" secondAttribute="centerX" id="S6n-ny-3Ih"/>
+                            <constraint firstItem="nWj-Su-2AN" firstAttribute="leading" secondItem="k3T-Us-FFS" secondAttribute="leading" id="Y9P-uk-AeY"/>
+                            <constraint firstItem="4QP-JF-fY4" firstAttribute="centerY" secondItem="k3T-Us-FFS" secondAttribute="centerY" multiplier="1.5" id="hYa-Vv-Kbx"/>
+                            <constraint firstItem="9oQ-3u-rrP" firstAttribute="leading" secondItem="k3T-Us-FFS" secondAttribute="leading" id="nDD-8l-ZQj"/>
+                            <constraint firstItem="9oQ-3u-rrP" firstAttribute="top" secondItem="k3T-Us-FFS" secondAttribute="top" id="oEp-1V-i0f"/>
+                            <constraint firstAttribute="trailing" secondItem="9oQ-3u-rrP" secondAttribute="trailing" id="rZM-mc-bKG"/>
+                            <constraint firstItem="nWj-Su-2AN" firstAttribute="top" secondItem="9oQ-3u-rrP" secondAttribute="bottom" id="tei-c7-vPR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Run" id="VRu-hS-sP5"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="distanceLabel" destination="Nmd-mh-NzA" id="q5T-Al-zSq"/>
+                        <outlet property="mapView" destination="nWj-Su-2AN" id="brM-a8-Jff"/>
+                        <outlet property="paceLabel" destination="0SR-dt-0jd" id="41a-jq-QMo"/>
+                        <outlet property="pauseButton" destination="4QP-JF-fY4" id="wEI-Fx-2Ry"/>
+                        <outlet property="timeLabel" destination="vFG-NW-e3q" id="tNa-RG-S53"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSC-CR-Ljo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

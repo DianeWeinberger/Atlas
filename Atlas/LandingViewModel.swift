@@ -9,5 +9,13 @@
 import Foundation
 
 struct LandingViewModel  {
+  var coordinator: CoordinatorType
   
+  // MARK: Input
+  
+  // MARK: Output
+  
+  init(coordinator: CoordinatorType) {
+    self.coordinator = coordinator
+  }
 }

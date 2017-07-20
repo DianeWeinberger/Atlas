@@ -69,6 +69,14 @@ class Coordinator: CoordinatorType {
         self.currentViewController = Coordinator.actualViewController(for: presenter)
         subject.onCompleted()
       }
+    } else if currentViewController is UITabBarController {
+      guard let modal = currentViewController.presentedViewController else {
+        fatalError("\(currentViewController) is not presenting a view controller")
+      }
+      
+      modal.dismiss(animated: animated) {
+        subject.onCompleted()
+      }
     } else if let navigationController = currentViewController.navigationController {
       // navigate up the stack
       // one-off subscription to be notified when pop complete

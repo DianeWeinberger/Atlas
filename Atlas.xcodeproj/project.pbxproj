@@ -14,6 +14,16 @@
 		2385A2AC1F1EACAF00DD0FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AA1F1EACAF00DD0FDE /* Main.storyboard */; };
 		2385A2AE1F1EACAF00DD0FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AD1F1EACAF00DD0FDE /* Assets.xcassets */; };
 		2385A2B11F1EACAF00DD0FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AF1F1EACAF00DD0FDE /* LaunchScreen.storyboard */; };
+		23BF37591F20F9730066DC9D /* MKMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37571F20F9730066DC9D /* MKMapView+Rx.swift */; };
+		23BF375A1F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */; };
+		23BF375C1F20F9B60066DC9D /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */; };
+		23BF375E1F20F9D70066DC9D /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF375D1F20F9D70066DC9D /* RunViewController.swift */; };
+		23BF37601F20FA2E0066DC9D /* RunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF375F1F20FA2E0066DC9D /* RunViewModel.swift */; };
+		23BF37621F2101340066DC9D /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37611F2101340066DC9D /* MainScene.swift */; };
+		23BF377D1F213AB10066DC9D /* AtlasTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF377C1F213AB10066DC9D /* AtlasTabBarController.swift */; };
+		23BF377F1F2141DB0066DC9D /* UITabBarController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF377E1F2141DB0066DC9D /* UITabBarController+Rx.swift */; };
+		23BF37811F2149C60066DC9D /* AtlasTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37801F2149C60066DC9D /* AtlasTabBarViewModel.swift */; };
+		23BF37831F214CF70066DC9D /* RunScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37821F214CF70066DC9D /* RunScene.swift */; };
 		23C8C2161F1FDF140056B4F2 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2151F1FDF140056B4F2 /* LandingViewController.swift */; };
 		23C8C2181F1FE0B40056B4F2 /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2171F1FE0B40056B4F2 /* CoordinatorType.swift */; };
 		23C8C21D1F1FE1DF0056B4F2 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C21C1F1FE1DF0056B4F2 /* LandingViewModel.swift */; };
@@ -41,6 +51,16 @@
 		2385A2AD1F1EACAF00DD0FDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2385A2B01F1EACAF00DD0FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2385A2B21F1EACAF00DD0FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23BF37571F20F9730066DC9D /* MKMapView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Rx.swift"; sourceTree = "<group>"; };
+		23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxMKMapViewDelegateProxy.swift; sourceTree = "<group>"; };
+		23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		23BF375D1F20F9D70066DC9D /* RunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewController.swift; sourceTree = "<group>"; };
+		23BF375F1F20FA2E0066DC9D /* RunViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewModel.swift; sourceTree = "<group>"; };
+		23BF37611F2101340066DC9D /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		23BF377C1F213AB10066DC9D /* AtlasTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasTabBarController.swift; sourceTree = "<group>"; };
+		23BF377E1F2141DB0066DC9D /* UITabBarController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Rx.swift"; sourceTree = "<group>"; };
+		23BF37801F2149C60066DC9D /* AtlasTabBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasTabBarViewModel.swift; sourceTree = "<group>"; };
+		23BF37821F214CF70066DC9D /* RunScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunScene.swift; sourceTree = "<group>"; };
 		23C8C2151F1FDF140056B4F2 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		23C8C2171F1FE0B40056B4F2 /* CoordinatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		23C8C21C1F1FE1DF0056B4F2 /* LandingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
@@ -164,6 +184,10 @@
 		2385A2BE1F1EACF500DD0FDE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				23BF37571F20F9730066DC9D /* MKMapView+Rx.swift */,
+				23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */,
+				23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */,
+				23BF377E1F2141DB0066DC9D /* UITabBarController+Rx.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				23C8C2361F1FEACE0056B4F2 /* AuthScene.swift */,
+				23BF37611F2101340066DC9D /* MainScene.swift */,
+				23BF37821F214CF70066DC9D /* RunScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -268,6 +294,7 @@
 		23C8C23A1F1FEFCF0056B4F2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				23BF377C1F213AB10066DC9D /* AtlasTabBarController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -296,6 +323,7 @@
 		23C8C23F1F1FF0040056B4F2 /* Run */ = {
 			isa = PBXGroup;
 			children = (
+				23BF375D1F20F9D70066DC9D /* RunViewController.swift */,
 			);
 			name = Run;
 			sourceTree = "<group>";
@@ -317,6 +345,7 @@
 		23C8C2421F1FF01D0056B4F2 /* Run */ = {
 			isa = PBXGroup;
 			children = (
+				23BF375F1F20FA2E0066DC9D /* RunViewModel.swift */,
 			);
 			name = Run;
 			sourceTree = "<group>";
@@ -331,6 +360,7 @@
 		23C8C2441F1FF02A0056B4F2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				23BF37801F2149C60066DC9D /* AtlasTabBarViewModel.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -482,17 +512,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23BF37831F214CF70066DC9D /* RunScene.swift in Sources */,
 				23C8C2181F1FE0B40056B4F2 /* CoordinatorType.swift in Sources */,
 				230986391F1FB68800C5BC16 /* Run.swift in Sources */,
 				23C8C2241F1FE4200056B4F2 /* TransitionType.swift in Sources */,
 				2385A2A71F1EACAF00DD0FDE /* AppDelegate.swift in Sources */,
+				23BF37601F20FA2E0066DC9D /* RunViewModel.swift in Sources */,
+				23BF37591F20F9730066DC9D /* MKMapView+Rx.swift in Sources */,
+				23BF375A1F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift in Sources */,
+				23BF375E1F20F9D70066DC9D /* RunViewController.swift in Sources */,
 				23C8C21F1F1FE30E0056B4F2 /* BindableType.swift in Sources */,
 				23C8C2351F1FEA9F0056B4F2 /* SceneType.swift in Sources */,
 				23C8C2371F1FEACE0056B4F2 /* AuthScene.swift in Sources */,
 				230986371F1FB44400C5BC16 /* User.swift in Sources */,
 				23C8C2161F1FDF140056B4F2 /* LandingViewController.swift in Sources */,
+				23BF377F1F2141DB0066DC9D /* UITabBarController+Rx.swift in Sources */,
 				23C8C21D1F1FE1DF0056B4F2 /* LandingViewModel.swift in Sources */,
+				23BF375C1F20F9B60066DC9D /* CLLocationManager+Rx.swift in Sources */,
+				23BF377D1F213AB10066DC9D /* AtlasTabBarController.swift in Sources */,
+				23BF37621F2101340066DC9D /* MainScene.swift in Sources */,
 				23C8C2391F1FECBD0056B4F2 /* Coordinator.swift in Sources */,
+				23BF37811F2149C60066DC9D /* AtlasTabBarViewModel.swift in Sources */,
 				2309863E1F1FB75C00C5BC16 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

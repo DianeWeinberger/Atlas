@@ -13,4 +13,5 @@ target 'Atlas' do
 	pod 'Dotzu'
 	pod 'Whisper'
 	pod 'SwiftyImage'
+	pod 'RxGesture'
 end
