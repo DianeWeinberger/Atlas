@@ -22,11 +22,16 @@ struct RunViewModel {
   
   // MARK: Output
   let currentLocation = Variable<CLLocation>(CLLocation())
+  let elapsedTime = Variable<String>("0:00:00")
+  
+  private let isRunning = Variable<Bool>(true)
+  private let timer = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
   
   // MARK: Actions
   lazy var pauseAction: Action<Void, Void> = { this in
     return Action { _ in
-      this.locationManager.stopUpdatingLocation()
+      this.locationManager.stopUpdatingLocation() // Have this flip too
+      this.isRunning.value = !this.isRunning.value
       return Observable.empty()
     }
   }(self)
@@ -42,9 +47,19 @@ struct RunViewModel {
 //      .filter { $0.horizontalAccuracy < kCLLocationAccuracyBest }
       .bind(to: currentLocation)
       .addDisposableTo(bag)
-
+    
+    timer
+      .withLatestFrom(isRunning.asObservable(), resultSelector: {_, running in running})
+      .filter {running in running}
+      .scan(0, accumulator: {(acc, _) in
+        return acc+1
+      })
+      .startWith(0)
+      .map(stringFrom)
+      .bind(to: elapsedTime)
+      .addDisposableTo(bag)
   }
-  
+
   // MARK: Methods
   func requestAuthorization() {
     self.locationManager.requestWhenInUseAuthorization()
@@ -62,5 +77,11 @@ struct RunViewModel {
   func pauseButtonWasLongPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
     coordinator.pop()
   }
-  
+
+  private func stringFrom(time: Int) -> String {
+    let hours = Int(time) / 3600
+    let minutes = Int(time) / 60 % 60
+    let seconds = Int(time) % 60
+    return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+  }
 }

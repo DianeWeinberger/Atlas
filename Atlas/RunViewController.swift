@@ -30,18 +30,18 @@ class RunViewController: UIViewController, BindableType {
 
     mapView.showsUserLocation = true
     
-//    pauseButton.rx.action
+    pauseButton.rx.action = viewModel.pauseAction
     
     pauseButton.rx.longPressGesture()
       .when(UIGestureRecognizerState.began)
       .subscribe(onNext: viewModel.pauseButtonWasLongPress)
       .addDisposableTo(rx_disposeBag)
     
-    
+    viewModel.elapsedTime.asObservable()
+      .subscribe(<#T##on: (Event<String>) -> Void##(Event<String>) -> Void#>)
   }
   
   func bindViewModel() {
-    print("Binding")
     
     viewModel.requestAuthorization()
     
@@ -61,7 +61,6 @@ class RunViewController: UIViewController, BindableType {
       .addDisposableTo(rx_disposeBag)
     
 
-    
     viewModel.startLocationManager()
   }
 }
