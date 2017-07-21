@@ -115,6 +115,11 @@ class RunViewModel {
       .bind(to: self.locations)
       .addDisposableTo(disposeBag)
     
+    self.distance
+      .subscribe(onNext: { d in
+        print(d)
+      })
+      .addDisposableTo(disposeBag)
   }
   
   

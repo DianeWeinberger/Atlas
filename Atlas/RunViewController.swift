@@ -70,7 +70,7 @@ extension RunViewController {
         if (location.horizontalAccuracy <= kCLLocationAccuracyNearestTenMeters) {
           Whisper.show(shout: Announcement(title: "Accurate Location"), to: self)
         }
-        let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+        let span = MKCoordinateSpan(latitudeDelta: 0.008, longitudeDelta: 0.008)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
         self.mapView.setRegion(region, animated: true)
       })
