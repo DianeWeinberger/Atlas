@@ -22,9 +22,6 @@ extension MainScene {
     case .main(let viewModels):
       var tabbar = storyboard.instantiateViewController(withIdentifier: "main") as! AtlasTabBarController
       tabbar.bindViewModel(to: viewModels.tabbar)
-      
-      var runViewController = tabbar.viewControllers![2] as! RunViewController
-      runViewController.bindViewModel(to: viewModels.run)
       return tabbar
     }
   }
