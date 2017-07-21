@@ -14,4 +14,5 @@ target 'Atlas' do
 	pod 'Whisper'
 	pod 'SwiftyImage'
 	pod 'RxGesture'
+	pod 'RxSwiftExt'
 end

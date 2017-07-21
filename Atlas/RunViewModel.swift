@@ -8,59 +8,51 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 import Action
 import CoreLocation
 import Dotzu
 
-struct RunViewModel {
+class RunViewModel {
   
-  var coordinator: CoordinatorType
-  let locationManager = CLLocationManager()
-  let bag = DisposeBag()
+  //MARK: Properties
+  private var coordinator: CoordinatorType
+  private let locationManager = CLLocationManager()
+
   
   // MARK: Input
+  var pauseTap: ControlEvent<Void>!
+  
   
   // MARK: Output
-  let currentLocation = Variable<CLLocation>(CLLocation())
-  let elapsedTime = Variable<String>("0:00:00")
+  lazy var currentLocation: Observable<CLLocation> = {
+    return self.locationManager.rx.didUpdateLocations
+      .withLatestFrom(self.isRunning, resultSelector: {loc, running -> ([CLLocation], Bool) in
+        return (loc, running)
+      })
+      .filter { (loc, running) in running }
+      .map { (loc, running) in loc[0] }
+//      .filter { $0.horizontalAccuracy < kCLLocationAccuracyBest }
+  }()
   
-  private let isRunning = Variable<Bool>(true)
-  private let timer = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+  lazy var elapsedTime: Observable<String> = {
+    return Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+      .withLatestFrom(self.isRunning, resultSelector: {_, running in running})
+      .filter { running in running }
+      .scan(0, accumulator: { (acc, _) in acc + 1 })
+      .startWith(0)
+      .map { self.stringFrom(time: $0) }
+      .shareReplayLatestWhileConnected()
+  }()
   
-  // MARK: Actions
-  lazy var pauseAction: Action<Void, Void> = { this in
-    return Action { _ in
-//      this.locationManager.stopUpdatingLocation() // Have this flip too
-      this.isRunning.value = !this.isRunning.value
-      return Observable.empty()
-    }
-  }(self)
+  lazy var isRunning: Observable<Bool> = {
+    return self.pauseTap.scan(false) { last, new in !last }
+      .startWith(false)
+  }()
   
-
   // MARK: Init
   init(coordinator: CoordinatorType) {
     self.coordinator = coordinator
-    
-    locationManager.rx.didUpdateLocations
-      .withLatestFrom(isRunning.asObservable(), resultSelector: {loc, running in (loc, running) })
-      .filter { (loc, running) in running }
-      .map { (loc, running) in loc[0] }
-      .do(onNext: { print("Lat:\($0.coordinate.latitude)\n\($0.coordinate.longitude)") })
-//      .filter { $0.horizontalAccuracy < kCLLocationAccuracyBest }
-      .bind(to: currentLocation)
-      .addDisposableTo(bag)
-    
-    timer
-      .withLatestFrom(isRunning.asObservable(), resultSelector: {_, running in running})
-      .filter {running in running}
-      .scan(0, accumulator: {(acc, _) in
-        return acc + 1
-      })
-      .startWith(0)
-      .map(stringFrom)
-      .shareReplayLatestWhileConnected()
-      .bind(to: elapsedTime)
-      .addDisposableTo(bag)
   }
 
   // MARK: Methods
@@ -69,7 +61,6 @@ struct RunViewModel {
   }
   
   func startLocationManager() {
-    
     self.locationManager.startUpdatingLocation()
   }
   
@@ -78,6 +69,7 @@ struct RunViewModel {
   }
   
   func pauseButtonWasLongPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+    self.locationManager.stopUpdatingLocation()
     coordinator.pop()
   }
 

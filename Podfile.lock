@@ -22,6 +22,10 @@ PODS:
     - RealmSwift (~> 2.5)
     - RxSwift (~> 3.2)
   - RxSwift (3.4.1)
+  - RxSwiftExt (2.5.1):
+    - RxSwiftExt/Core (= 2.5.1)
+  - RxSwiftExt/Core (2.5.1):
+    - RxSwift (~> 3.4)
   - SwiftyImage (1.1.0)
   - Whisper (5.0.0)
 
@@ -35,6 +39,7 @@ DEPENDENCIES:
   - RxGesture
   - RxRealm
   - RxSwift
+  - RxSwiftExt
   - SwiftyImage
   - Whisper
 
@@ -49,9 +54,10 @@ SPEC CHECKSUMS:
   RxGesture: 1f770b247c69e8133fb8f4ef263571efd0ae91a1
   RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
+  RxSwiftExt: ec25c6df68d15ad6fe326792d60452b52e83d606
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: 1c298236315c792b101bf9721847ff4e2d1fadd8
+PODFILE CHECKSUM: 3cd921e43cd4144686a6a035d96dd8dabd50379b
 
 COCOAPODS: 1.2.1

@@ -30,7 +30,7 @@ class RunViewController: UIViewController, BindableType {
 
     mapView.showsUserLocation = true
     
-    pauseButton.rx.action = viewModel.pauseAction
+//    pauseButton.rx.action = viewModel.pauseAction
     
     pauseButton.rx.longPressGesture()
       .when(UIGestureRecognizerState.began)
@@ -48,6 +48,7 @@ class RunViewController: UIViewController, BindableType {
   func bindViewModel() {
     
     viewModel.requestAuthorization()
+    viewModel.pauseTap = pauseButton.rx.tap
     
     viewModel.currentLocation.asObservable()
       .skip(1)
