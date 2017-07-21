@@ -27,7 +27,7 @@ class RunViewModel {
   // MARK: Output
   lazy var currentLocation: Observable<CLLocation> = {
     return self.locationManager.rx.didUpdateLocations
-      .withLatestFrom(self.isRunning, resultSelector: {loc, running -> ([CLLocation], Bool) in
+      .withLatestFrom(self.isRunning.asObservable(), resultSelector: {loc, running -> ([CLLocation], Bool) in
         return (loc, running)
       })
       .filter { (loc, running) in running }
@@ -37,7 +37,7 @@ class RunViewModel {
   
   lazy var elapsedTime: Observable<String> = {
     return Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-      .withLatestFrom(self.isRunning, resultSelector: {_, running in running})
+      .withLatestFrom(self.isRunning.asObservable(), resultSelector: {_, running in running})
       .filter { running in running }
       .scan(0, accumulator: { (acc, _) in acc + 1 })
       .startWith(0)
@@ -45,10 +45,20 @@ class RunViewModel {
       .shareReplayLatestWhileConnected()
   }()
   
-  lazy var isRunning: Observable<Bool> = {
-    return self.pauseTap.scan(false) { last, new in !last }
-      .startWith(false)
+  private let isRunning = Variable<Bool>(true)
+//  lazy var isRunning: Observable<Bool> = {
+//    return self.pauseTap.scan(false) { last, new in !last }
+//      .startWith(false)
+//  }()
+  
+  // MARK: Action
+  lazy var pauseAction: Action<Void, Void> = {
+    return Action { _ in
+      self.isRunning.value = !self.isRunning.value
+      return Observable.empty()
+    }
   }()
+
   
   // MARK: Init
   init(coordinator: CoordinatorType) {
