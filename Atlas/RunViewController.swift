@@ -38,7 +38,11 @@ class RunViewController: UIViewController, BindableType {
       .addDisposableTo(rx_disposeBag)
     
     viewModel.elapsedTime.asObservable()
-      .subscribe(<#T##on: (Event<String>) -> Void##(Event<String>) -> Void#>)
+      .subscribeOn(MainScheduler.instance)
+      .subscribe(onNext: { time in
+        self.timeLabel.text = time
+      })
+      .addDisposableTo(rx_disposeBag)
   }
   
   func bindViewModel() {

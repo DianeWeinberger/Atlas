@@ -30,7 +30,7 @@ struct RunViewModel {
   // MARK: Actions
   lazy var pauseAction: Action<Void, Void> = { this in
     return Action { _ in
-      this.locationManager.stopUpdatingLocation() // Have this flip too
+//      this.locationManager.stopUpdatingLocation() // Have this flip too
       this.isRunning.value = !this.isRunning.value
       return Observable.empty()
     }
@@ -42,8 +42,10 @@ struct RunViewModel {
     self.coordinator = coordinator
     
     locationManager.rx.didUpdateLocations
-      .map { $0[0] }
-//      .do(onNext: { print("Lat:\($0.coordinate.latitude)\n\($0.coordinate.longitude)") })
+      .withLatestFrom(isRunning.asObservable(), resultSelector: {loc, running in (loc, running) })
+      .filter { (loc, running) in running }
+      .map { (loc, running) in loc[0] }
+      .do(onNext: { print("Lat:\($0.coordinate.latitude)\n\($0.coordinate.longitude)") })
 //      .filter { $0.horizontalAccuracy < kCLLocationAccuracyBest }
       .bind(to: currentLocation)
       .addDisposableTo(bag)
@@ -52,10 +54,11 @@ struct RunViewModel {
       .withLatestFrom(isRunning.asObservable(), resultSelector: {_, running in running})
       .filter {running in running}
       .scan(0, accumulator: {(acc, _) in
-        return acc+1
+        return acc + 1
       })
       .startWith(0)
       .map(stringFrom)
+      .shareReplayLatestWhileConnected()
       .bind(to: elapsedTime)
       .addDisposableTo(bag)
   }
