@@ -18,30 +18,72 @@ class RunViewModel {
   //MARK: Properties
   private var coordinator: CoordinatorType
   private let locationManager = CLLocationManager()
-
+  private let disposeBag = DisposeBag()
   
   // MARK: Input
   var pauseTap: ControlEvent<Void>!
   
   
   // MARK: Output
-  lazy var currentLocation: Observable<CLLocation> = {
+  
+  public lazy var timeLabel: Observable<String> = {
+    return self.elapsedTime
+      .map { self.stringFrom(time: $0) }
+  }()
+  
+  public lazy var distanceLabel: Observable<String> = {
+    return self.distance
+      .map { "\($0) mi" }
+  }()
+  
+  public lazy var currentLocation: Observable<CLLocation> = {
     return self.locationManager.rx.didUpdateLocations
       .withLatestFrom(self.isRunning.asObservable(), resultSelector: {loc, running -> ([CLLocation], Bool) in
         return (loc, running)
       })
       .filter { (loc, running) in running }
       .map { (loc, running) in loc[0] }
+      .share()
 //      .filter { $0.horizontalAccuracy < kCLLocationAccuracyBest }
   }()
   
-  lazy var elapsedTime: Observable<String> = {
+  public var locations = Variable<[CLLocation]?>(nil)
+  
+  
+  
+  // MARK: Private Observables
+  
+  private lazy var distance: Observable<Double> = {
+    let previousLocations = self.currentLocation
+      .map { location in
+        return location as CLLocation?
+      }
+      .startWith(nil)
+    
+    return self.currentLocation
+      .withLatestFrom(previousLocations, resultSelector: { current, prev -> (CLLocation, CLLocation?) in
+        return (current, prev)
+      })
+      .map { (current, prev) -> Measurement<UnitLength> in
+        guard let previous = prev else {
+          return Measurement(value: 0, unit: UnitLength.miles)
+        }
+        let distance = current.distance(from: previous)
+        return Measurement(value: distance, unit: UnitLength.miles)
+      }
+      .scan(Measurement(value: 0, unit: UnitLength.miles), accumulator: { (accumulator, distance) -> Measurement<UnitLength> in
+        return accumulator + distance
+      })
+      .map { $0.value }
+      .share()
+  }()
+  
+  private lazy var elapsedTime: Observable<Int> = {
     return Observable<Int>.interval(1, scheduler: MainScheduler.instance)
       .withLatestFrom(self.isRunning.asObservable(), resultSelector: {_, running in running})
       .filter { running in running }
       .scan(0, accumulator: { (acc, _) in acc + 1 })
       .startWith(0)
-      .map { self.stringFrom(time: $0) }
       .shareReplayLatestWhileConnected()
   }()
   
@@ -59,11 +101,23 @@ class RunViewModel {
     }
   }()
 
+
   
   // MARK: Init
   init(coordinator: CoordinatorType) {
     self.coordinator = coordinator
+    
+    // TODO: Try replacing variable with this and subscribe to it in vc and update overlay
+    self.currentLocation
+      .reduce([CLLocation](), accumulator: { (acc, location) -> [CLLocation] in
+        return acc + [location]
+      })
+      .bind(to: self.locations)
+      .addDisposableTo(disposeBag)
+    
   }
+  
+  
 
   // MARK: Methods
   func requestAuthorization() {

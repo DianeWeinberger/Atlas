@@ -37,14 +37,27 @@ class RunViewController: UIViewController, BindableType {
       .subscribe(onNext: viewModel.pauseButtonWasLongPress)
       .addDisposableTo(rx_disposeBag)
     
-    viewModel.elapsedTime.asObservable()
+    viewModel.timeLabel
       .subscribeOn(MainScheduler.instance)
       .subscribe(onNext: { time in
         self.timeLabel.text = time
       })
       .addDisposableTo(rx_disposeBag)
+    
+    viewModel.distanceLabel
+      .subscribeOn(MainScheduler.instance)
+      .subscribe(onNext: { distance in
+        self.distanceLabel.text = distance
+        self.mapView.add(self.polyLine())
+      })
+      .addDisposableTo(rx_disposeBag)
+    
+    
   }
   
+}
+
+extension RunViewController {
   func bindViewModel() {
     
     viewModel.requestAuthorization()
@@ -54,11 +67,9 @@ class RunViewController: UIViewController, BindableType {
       .skip(1)
       .subscribe(onNext: { location in
         
-        if (location.horizontalAccuracy < kCLLocationAccuracyThreeKilometers) {
-          
+        if (location.horizontalAccuracy <= kCLLocationAccuracyNearestTenMeters) {
           Whisper.show(shout: Announcement(title: "Accurate Location"), to: self)
         }
-        print("Lat:\(location.coordinate.latitude)\n\(location.coordinate.longitude)")
         let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
         self.mapView.setRegion(region, animated: true)
@@ -67,5 +78,31 @@ class RunViewController: UIViewController, BindableType {
     
 
     viewModel.startLocationManager()
+  }
+  
+  
+  fileprivate func polyLine() -> MKPolyline {
+    guard let locations = viewModel.locations.value else {
+      return MKPolyline()
+    }
+    
+    let coords: [CLLocationCoordinate2D] = locations.map { location in
+      let coordinate = location.coordinate
+      return CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+    }
+    return MKPolyline(coordinates: coords, count: coords.count)
+  }
+    
+}
+
+extension RunViewController: MKMapViewDelegate {
+  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+    guard let polyline = overlay as? MKPolyline else {
+      return MKOverlayRenderer(overlay: overlay)
+    }
+    let renderer = MKPolylineRenderer(polyline: polyline)
+    renderer.strokeColor = .black
+    renderer.lineWidth = 3
+    return renderer
   }
 }
