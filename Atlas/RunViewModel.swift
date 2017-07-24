@@ -72,6 +72,7 @@ class RunViewModel {
         return Measurement(value: distance, unit: UnitLength.miles)
       }
       .scan(Measurement(value: 0, unit: UnitLength.miles), accumulator: { (accumulator, distance) -> Measurement<UnitLength> in
+        // Possibly replace with reduce
         return accumulator + distance
       })
       .map { $0.value }

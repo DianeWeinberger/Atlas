@@ -10,6 +10,9 @@
 		230986371F1FB44400C5BC16 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230986361F1FB44400C5BC16 /* User.swift */; };
 		230986391F1FB68800C5BC16 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230986381F1FB68800C5BC16 /* Run.swift */; };
 		2309863E1F1FB75C00C5BC16 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309863D1F1FB75C00C5BC16 /* Event.swift */; };
+		230996A81F26380D00F94FD9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230996A71F26380D00F94FD9 /* Colors.swift */; };
+		230996AA1F26384000F94FD9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230996A91F26384000F94FD9 /* UIColor.swift */; };
+		230996AC1F263A0600F94FD9 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230996AB1F263A0600F94FD9 /* Fonts.swift */; };
 		2385A2A71F1EACAF00DD0FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2385A2A61F1EACAF00DD0FDE /* AppDelegate.swift */; };
 		2385A2AC1F1EACAF00DD0FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AA1F1EACAF00DD0FDE /* Main.storyboard */; };
 		2385A2AE1F1EACAF00DD0FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AD1F1EACAF00DD0FDE /* Assets.xcassets */; };
@@ -45,6 +48,9 @@
 		230986361F1FB44400C5BC16 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		230986381F1FB68800C5BC16 /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		2309863D1F1FB75C00C5BC16 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		230996A71F26380D00F94FD9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		230996A91F26384000F94FD9 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		230996AB1F263A0600F94FD9 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		2385A2A31F1EACAF00DD0FDE /* Atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2385A2A61F1EACAF00DD0FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2385A2AB1F1EACAF00DD0FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 				23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */,
 				23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */,
 				23BF377E1F2141DB0066DC9D /* UITabBarController+Rx.swift */,
+				230996A91F26384000F94FD9 /* UIColor.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +220,8 @@
 		2385A2C11F1EAD0700DD0FDE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				230996A71F26380D00F94FD9 /* Colors.swift */,
+				230996AB1F263A0600F94FD9 /* Fonts.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -518,6 +527,7 @@
 				23C8C2241F1FE4200056B4F2 /* TransitionType.swift in Sources */,
 				2385A2A71F1EACAF00DD0FDE /* AppDelegate.swift in Sources */,
 				23BF37601F20FA2E0066DC9D /* RunViewModel.swift in Sources */,
+				230996AC1F263A0600F94FD9 /* Fonts.swift in Sources */,
 				23BF37591F20F9730066DC9D /* MKMapView+Rx.swift in Sources */,
 				23BF375A1F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift in Sources */,
 				23BF375E1F20F9D70066DC9D /* RunViewController.swift in Sources */,
@@ -525,6 +535,8 @@
 				23C8C2351F1FEA9F0056B4F2 /* SceneType.swift in Sources */,
 				23C8C2371F1FEACE0056B4F2 /* AuthScene.swift in Sources */,
 				230986371F1FB44400C5BC16 /* User.swift in Sources */,
+				230996AA1F26384000F94FD9 /* UIColor.swift in Sources */,
+				230996A81F26380D00F94FD9 /* Colors.swift in Sources */,
 				23C8C2161F1FDF140056B4F2 /* LandingViewController.swift in Sources */,
 				23BF377F1F2141DB0066DC9D /* UITabBarController+Rx.swift in Sources */,
 				23C8C21D1F1FE1DF0056B4F2 /* LandingViewModel.swift in Sources */,
