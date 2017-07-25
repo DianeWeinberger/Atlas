@@ -43,6 +43,10 @@
 		23C8C2351F1FEA9F0056B4F2 /* SceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2341F1FEA9F0056B4F2 /* SceneType.swift */; };
 		23C8C2371F1FEACE0056B4F2 /* AuthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2361F1FEACE0056B4F2 /* AuthScene.swift */; };
 		23C8C2391F1FECBD0056B4F2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2381F1FECBD0056B4F2 /* Coordinator.swift */; };
+		23CB16BB1F27A20200310857 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB16BA1F27A20200310857 /* SignUpViewController.swift */; };
+		23CB16BD1F27A21000310857 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB16BC1F27A21000310857 /* LogInViewController.swift */; };
+		23CB16BF1F27A21F00310857 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB16BE1F27A21F00310857 /* SignUpViewModel.swift */; };
+		23CB16C11F27A2A200310857 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB16C01F27A2A200310857 /* LogInViewModel.swift */; };
 		69AF444DA16B29D2728F947B /* Pods_Atlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF380FC0BB4B728207972622 /* Pods_Atlas.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +89,10 @@
 		23C8C2341F1FEA9F0056B4F2 /* SceneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneType.swift; sourceTree = "<group>"; };
 		23C8C2361F1FEACE0056B4F2 /* AuthScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScene.swift; sourceTree = "<group>"; };
 		23C8C2381F1FECBD0056B4F2 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		23CB16BA1F27A20200310857 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		23CB16BC1F27A21000310857 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		23CB16BE1F27A21F00310857 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		23CB16C01F27A2A200310857 /* LogInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		3829EB387CBB4C9E808588D9 /* Pods-Atlas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.debug.xcconfig"; sourceTree = "<group>"; };
 		94A21020256249F402D96D5C /* Pods-Atlas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.release.xcconfig"; sourceTree = "<group>"; };
 		CF380FC0BB4B728207972622 /* Pods_Atlas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Atlas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,6 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				23C8C2151F1FDF140056B4F2 /* LandingViewController.swift */,
+				23CB16BA1F27A20200310857 /* SignUpViewController.swift */,
+				23CB16BC1F27A21000310857 /* LogInViewController.swift */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -292,6 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				23C8C21C1F1FE1DF0056B4F2 /* LandingViewModel.swift */,
+				23CB16BE1F27A21F00310857 /* SignUpViewModel.swift */,
+				23CB16C01F27A2A200310857 /* LogInViewModel.swift */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -535,12 +547,15 @@
 				2385A2A71F1EACAF00DD0FDE /* AppDelegate.swift in Sources */,
 				23BF37601F20FA2E0066DC9D /* RunViewModel.swift in Sources */,
 				230996AC1F263A0600F94FD9 /* Fonts.swift in Sources */,
+				23CB16BF1F27A21F00310857 /* SignUpViewModel.swift in Sources */,
+				23CB16BD1F27A21000310857 /* LogInViewController.swift in Sources */,
 				23BF37591F20F9730066DC9D /* MKMapView+Rx.swift in Sources */,
 				23BF375A1F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift in Sources */,
 				23BF375E1F20F9D70066DC9D /* RunViewController.swift in Sources */,
 				23C8C21F1F1FE30E0056B4F2 /* BindableType.swift in Sources */,
 				23C8C2351F1FEA9F0056B4F2 /* SceneType.swift in Sources */,
 				23C8C2371F1FEACE0056B4F2 /* AuthScene.swift in Sources */,
+				23CB16C11F27A2A200310857 /* LogInViewModel.swift in Sources */,
 				230986371F1FB44400C5BC16 /* User.swift in Sources */,
 				230996AA1F26384000F94FD9 /* UIColor.swift in Sources */,
 				230996A81F26380D00F94FD9 /* Colors.swift in Sources */,
@@ -549,6 +564,7 @@
 				23C8C21D1F1FE1DF0056B4F2 /* LandingViewModel.swift in Sources */,
 				23BF375C1F20F9B60066DC9D /* CLLocationManager+Rx.swift in Sources */,
 				23BF377D1F213AB10066DC9D /* AtlasTabBarController.swift in Sources */,
+				23CB16BB1F27A20200310857 /* SignUpViewController.swift in Sources */,
 				23BF37621F2101340066DC9D /* MainScene.swift in Sources */,
 				23C8C2391F1FECBD0056B4F2 /* Coordinator.swift in Sources */,
 				23BF37811F2149C60066DC9D /* AtlasTabBarViewModel.swift in Sources */,

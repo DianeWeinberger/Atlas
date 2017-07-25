@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       Dotzu.sharedManager.enable()
     #endif
     
-    let loggedIn = true
+    let loggedIn = false
     
     let coordinator = Coordinator(window: window!)
     

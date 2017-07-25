@@ -10,6 +10,8 @@ import UIKit
 
 enum AuthScene: SceneType {
   case landing(LandingViewModel)
+  case login(LogInViewModel)
+  case signup(SignUpViewModel)
 }
 
 extension AuthScene {
@@ -22,6 +24,17 @@ extension AuthScene {
       var viewController = navController.viewControllers.first as! LandingViewController
       viewController.bindViewModel(to: viewModel)
       return navController
+      
+    case .login(let viewModel):
+      var viewController = storyboard.instantiateViewController(withIdentifier: "login") as! LogInViewController
+      viewController.bindViewModel(to: viewModel)
+      return viewController
+      
+    case .signup(let viewModel):
+      var viewController = storyboard.instantiateViewController(withIdentifier: "signup") as! SignUpViewController
+      viewController.bindViewModel(to: viewModel)
+      return viewController
     }
+    
   }
 }
