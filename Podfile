@@ -15,4 +15,7 @@ target 'Atlas' do
 	pod 'SwiftyImage'
 	pod 'RxGesture'
 	pod 'RxSwiftExt'
+	pod 'AWSCognito'
+	pod 'AWSCognitoIdentityProvider'
+	pod 'AWSCognitoAuth'
 end

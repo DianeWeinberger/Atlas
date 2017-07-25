@@ -2,6 +2,12 @@ PODS:
   - Action (3.0.0):
     - RxCocoa (~> 3.4.0)
     - RxSwift (~> 3.4.0)
+  - AWSCognito (2.5.9):
+    - AWSCore (= 2.5.9)
+  - AWSCognitoAuth (2.5.9)
+  - AWSCognitoIdentityProvider (2.5.9):
+    - AWSCore (= 2.5.9)
+  - AWSCore (2.5.9)
   - Dotzu (1.8)
   - NSObject+Rx (2.1.0):
     - RxSwift
@@ -31,6 +37,9 @@ PODS:
 
 DEPENDENCIES:
   - Action
+  - AWSCognito
+  - AWSCognitoAuth
+  - AWSCognitoIdentityProvider
   - Dotzu
   - NSObject+Rx
   - RealmSwift
@@ -45,6 +54,10 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Action: fed388b9160ad787a58cb34b5064db6dbaae7e45
+  AWSCognito: 5dfe4120e7f77b2e77396b4532e4aacacc4ae08d
+  AWSCognitoAuth: d757400ea04271a998bb9f71b2f244b053f22850
+  AWSCognitoIdentityProvider: 4655e97cfbb4347591db74b33e8c89309ca25131
+  AWSCore: c71840dd51f271dc0af8de8fd6f352767ebde8b4
   Dotzu: e787896f08474f4e4574baa20ec556361dfebf0c
   NSObject+Rx: '09277ba78aa12a8e454c82429eb4e31bfb413131'
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
@@ -58,6 +71,6 @@ SPEC CHECKSUMS:
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: 3cd921e43cd4144686a6a035d96dd8dabd50379b
+PODFILE CHECKSUM: e569fc4190c3eb6cef90c6673601da6890c27f24
 
 COCOAPODS: 1.2.1

@@ -8,6 +8,7 @@
 
 import UIKit
 import Dotzu
+import AWSCognitoAuth
 import NSObject_Rx
 import RealmSwift
 
@@ -65,6 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     return true
+  }
+  
+  func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    return AWSCognitoAuth.default().application(app, open: url, options: options)
   }
 
 }
