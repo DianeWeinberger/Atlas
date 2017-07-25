@@ -12,13 +12,15 @@ import RealmSwift
 
 class Run: Object {
   dynamic var id: String = ""
+  dynamic var category: String = "Personal"
   dynamic var timestamp: Date = Date()
   dynamic var type: String = ""
   dynamic var time: TimeInterval = 0
   dynamic var distance: Double = 0
   dynamic var pace: Double = 0
-  dynamic var runner: User = User()
+  dynamic var runner: User? = User()
   
+  dynamic var screenShotUrl: String = ""
   override static func primaryKey() -> String? {
     return "id"
   }

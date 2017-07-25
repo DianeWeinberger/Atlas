@@ -9,6 +9,7 @@
 import UIKit
 import Dotzu
 import NSObject_Rx
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let loggedIn = true
     
     let coordinator = Coordinator(window: window!)
+    
+    /*
+    let realm = try! Realm()
+    let ironMan = realm.object(ofType: User.self, forPrimaryKey: "0")
+    
+    if ironMan == nil {
+      let tony = MockUser.ironMan()
+      let steve = MockUser.captainAmerica()
+      let bruce = MockUser.hulk()
+      
+      tony.friends.append(objectsIn: [steve, bruce])
+      do {
+        try realm.write {
+          realm.add([tony, steve, bruce])
+        }
+      } catch {
+        print("Could not save to realm")
+      }
+    }
+     */
     
     if loggedIn {
       let runViewModel = RunViewModel(coordinator: coordinator)

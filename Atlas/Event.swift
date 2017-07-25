@@ -14,7 +14,7 @@ class Event: Object {
   dynamic var id: String = ""
   dynamic var timestamp: Date = Date()
   dynamic var title: String = ""
-  
+  dynamic var type: String = ""
   override static func primaryKey() -> String? {
     return "id"
   }

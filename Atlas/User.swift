@@ -15,10 +15,13 @@ class User: Object {
   dynamic var firstName: String = ""
   dynamic var lastName: String = ""
   dynamic var email: String = ""
+  dynamic var gender: String = ""
   var phoneNumber: RealmOptional<Int> = RealmOptional<Int>()
   dynamic var height: Double = 0
   dynamic var weight: Double = 0
   dynamic var zipCode: Int = 0
+  dynamic var runPreference: String = "Free"
+  dynamic var imageURL: String = ""
 //  dynamic var goals: List<String> = List<String()
   var runs: List<Run> = List<Run>()
   var history: List<Event> = List<Event>()
