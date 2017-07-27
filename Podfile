@@ -18,4 +18,5 @@ target 'Atlas' do
   pod 'Auth0'
   pod 'SimpleKeychain'
   pod 'Lock'
+  pod 'TwicketSegmentedControl'
 end

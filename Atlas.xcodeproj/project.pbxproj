@@ -16,6 +16,8 @@
 		230996AE1F263DA100F94FD9 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230996AD1F263DA100F94FD9 /* MockUser.swift */; };
 		230996B01F2641B800F94FD9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230996AF1F2641B800F94FD9 /* Date.swift */; };
 		23218F231F2A457000F651CC /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23218F221F2A457000F651CC /* Auth0.plist */; };
+		2334739E1F2A9A97003DB1C8 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2334739D1F2A9A97003DB1C8 /* ConnectViewController.swift */; };
+		233473A11F2A9B93003DB1C8 /* ConnectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233473A01F2A9B93003DB1C8 /* ConnectTableViewCell.swift */; };
 		2385A2A71F1EACAF00DD0FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2385A2A61F1EACAF00DD0FDE /* AppDelegate.swift */; };
 		2385A2AC1F1EACAF00DD0FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AA1F1EACAF00DD0FDE /* Main.storyboard */; };
 		2385A2AE1F1EACAF00DD0FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AD1F1EACAF00DD0FDE /* Assets.xcassets */; };
@@ -61,6 +63,8 @@
 		230996AD1F263DA100F94FD9 /* MockUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 		230996AF1F2641B800F94FD9 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		23218F221F2A457000F651CC /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		2334739D1F2A9A97003DB1C8 /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		233473A01F2A9B93003DB1C8 /* ConnectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTableViewCell.swift; sourceTree = "<group>"; };
 		2385A2A31F1EACAF00DD0FDE /* Atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2385A2A61F1EACAF00DD0FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2385A2AB1F1EACAF00DD0FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,6 +116,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2334739F1F2A9B6E003DB1C8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		2385A29A1F1EACAF00DD0FDE = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +196,7 @@
 		2385A2BB1F1EACDC00DD0FDE /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				2334739F1F2A9B6E003DB1C8 /* Cells */,
 				23C8C2211F1FE3DD0056B4F2 /* Auth */,
 				23C8C2441F1FF02A0056B4F2 /* Home */,
 				23C8C2431F1FF0230056B4F2 /* Connect */,
@@ -246,6 +258,7 @@
 		2385A2C21F1EAD3700DD0FDE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				233473A01F2A9B93003DB1C8 /* ConnectTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -332,6 +345,7 @@
 		23C8C23B1F1FEFD30056B4F2 /* Connect */ = {
 			isa = PBXGroup;
 			children = (
+				2334739D1F2A9A97003DB1C8 /* ConnectViewController.swift */,
 			);
 			name = Connect;
 			sourceTree = "<group>";
@@ -564,6 +578,7 @@
 				230996AA1F26384000F94FD9 /* UIColor.swift in Sources */,
 				230996A81F26380D00F94FD9 /* Colors.swift in Sources */,
 				23C8C2161F1FDF140056B4F2 /* LandingViewController.swift in Sources */,
+				233473A11F2A9B93003DB1C8 /* ConnectTableViewCell.swift in Sources */,
 				23BF377F1F2141DB0066DC9D /* UITabBarController+Rx.swift in Sources */,
 				23C8C21D1F1FE1DF0056B4F2 /* LandingViewModel.swift in Sources */,
 				23BF375C1F20F9B60066DC9D /* CLLocationManager+Rx.swift in Sources */,
@@ -574,6 +589,7 @@
 				23BF37811F2149C60066DC9D /* AtlasTabBarViewModel.swift in Sources */,
 				230996B01F2641B800F94FD9 /* Date.swift in Sources */,
 				2309863E1F1FB75C00C5BC16 /* Event.swift in Sources */,
+				2334739E1F2A9A97003DB1C8 /* ConnectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,6 +35,7 @@ PODS:
     - RxSwift (~> 3.4)
   - SimpleKeychain (0.8.0)
   - SwiftyImage (1.1.0)
+  - TwicketSegmentedControl (0.1.2)
   - Whisper (5.0.0)
 
 DEPENDENCIES:
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - RxSwiftExt
   - SimpleKeychain
   - SwiftyImage
+  - TwicketSegmentedControl
   - Whisper
 
 SPEC CHECKSUMS:
@@ -70,8 +72,9 @@ SPEC CHECKSUMS:
   RxSwiftExt: ec25c6df68d15ad6fe326792d60452b52e83d606
   SimpleKeychain: 84c748463eec601dfee5e7990f55cc82edc5488d
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
+  TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: '097877375c0e262c9cdba8917dc6070710bf5f53'
+PODFILE CHECKSUM: b629221193f0f8a999311ea6c1396903bcda7fc8
 
 COCOAPODS: 1.2.1
