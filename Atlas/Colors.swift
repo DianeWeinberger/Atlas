@@ -9,15 +9,15 @@
 import UIKit
 
 struct Colors {
-  let orange = UIColor(255, 99, 40)
-  let green = UIColor(24, 211, 139)
-  let yellow = UIColor(224, 241, 24)
-  let fadedOrange = UIColor(255, 99, 40, 0.3)
-  let darkGray = UIColor(76, 64, 44)
-  let navy = UIColor(0, 20, 137)
-  let lightBlue = UIColor(61, 177, 228)
-  let pauseBlue = UIColor(0, 101, 158)
-  let pauseBlueLight = UIColor(0, 129, 191)
-  let musicRed = UIColor(241, 24, 85)
-  let musicRedLight = UIColor(255, 109, 150)
+  static let orange = UIColor(255, 99, 40)
+  static let green = UIColor(24, 211, 139)
+  static let yellow = UIColor(224, 241, 24)
+  static let fadedOrange = UIColor(255, 99, 40, 0.3)
+  static let darkGray = UIColor(76, 64, 44)
+  static let navy = UIColor(0, 20, 137)
+  static let lightBlue = UIColor(61, 177, 228)
+  static let pauseBlue = UIColor(0, 101, 158)
+  static let pauseBlueLight = UIColor(0, 129, 191)
+  static let musicRed = UIColor(241, 24, 85)
+  static let musicRedLight = UIColor(255, 109, 150)
 }

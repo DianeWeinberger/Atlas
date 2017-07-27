@@ -12,6 +12,8 @@ import RxSwift
 protocol CoordinatorType {
   init(window: UIWindow)
   
+  var currentViewController: UIViewController { get set }
+
   /// transition to another scene
   @discardableResult
   func transition(to scene: SceneType, type: TransitionType) -> Observable<Void>

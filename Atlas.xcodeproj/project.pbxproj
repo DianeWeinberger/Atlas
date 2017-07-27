@@ -15,6 +15,7 @@
 		230996AC1F263A0600F94FD9 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230996AB1F263A0600F94FD9 /* Fonts.swift */; };
 		230996AE1F263DA100F94FD9 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230996AD1F263DA100F94FD9 /* MockUser.swift */; };
 		230996B01F2641B800F94FD9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230996AF1F2641B800F94FD9 /* Date.swift */; };
+		23218F231F2A457000F651CC /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23218F221F2A457000F651CC /* Auth0.plist */; };
 		2385A2A71F1EACAF00DD0FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2385A2A61F1EACAF00DD0FDE /* AppDelegate.swift */; };
 		2385A2AC1F1EACAF00DD0FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AA1F1EACAF00DD0FDE /* Main.storyboard */; };
 		2385A2AE1F1EACAF00DD0FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AD1F1EACAF00DD0FDE /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		230996AB1F263A0600F94FD9 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		230996AD1F263DA100F94FD9 /* MockUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 		230996AF1F2641B800F94FD9 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		23218F221F2A457000F651CC /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		2385A2A31F1EACAF00DD0FDE /* Atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2385A2A61F1EACAF00DD0FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2385A2AB1F1EACAF00DD0FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				2385A2BB1F1EACDC00DD0FDE /* View Models */,
 				2385A2C11F1EAD0700DD0FDE /* Utilities */,
 				2385A2B21F1EACAF00DD0FDE /* Info.plist */,
+				23218F221F2A457000F651CC /* Auth0.plist */,
 			);
 			path = Atlas;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				23C8C2301F1FE7A80056B4F2 /* Messages.storyboard in Resources */,
 				23C8C22E1F1FE7960056B4F2 /* Run.storyboard in Resources */,
 				2385A2B11F1EACAF00DD0FDE /* LaunchScreen.storyboard in Resources */,
+				23218F231F2A457000F651CC /* Auth0.plist in Resources */,
 				23C8C22C1F1FE78E0056B4F2 /* Connect.storyboard in Resources */,
 				23C8C2321F1FE7B30056B4F2 /* Profile.storyboard in Resources */,
 				2385A2AE1F1EACAF00DD0FDE /* Assets.xcassets in Resources */,

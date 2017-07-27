@@ -2,13 +2,14 @@ PODS:
   - Action (3.0.0):
     - RxCocoa (~> 3.4.0)
     - RxSwift (~> 3.4.0)
-  - AWSCognito (2.5.9):
-    - AWSCore (= 2.5.9)
-  - AWSCognitoAuth (2.5.9)
-  - AWSCognitoIdentityProvider (2.5.9):
-    - AWSCore (= 2.5.9)
-  - AWSCore (2.5.9)
+  - Auth0 (1.7.1):
+    - SimpleKeychain
   - Dotzu (1.8)
+  - Lock (2.3.1):
+    - Auth0 (~> 1.6)
+    - Lock/Classic (= 2.3.1)
+  - Lock/Classic (2.3.1):
+    - Auth0 (~> 1.6)
   - NSObject+Rx (2.1.0):
     - RxSwift
   - Realm (2.6.2):
@@ -32,15 +33,15 @@ PODS:
     - RxSwiftExt/Core (= 2.5.1)
   - RxSwiftExt/Core (2.5.1):
     - RxSwift (~> 3.4)
+  - SimpleKeychain (0.8.0)
   - SwiftyImage (1.1.0)
   - Whisper (5.0.0)
 
 DEPENDENCIES:
   - Action
-  - AWSCognito
-  - AWSCognitoAuth
-  - AWSCognitoIdentityProvider
+  - Auth0
   - Dotzu
+  - Lock
   - NSObject+Rx
   - RealmSwift
   - RxCocoa
@@ -49,16 +50,15 @@ DEPENDENCIES:
   - RxRealm
   - RxSwift
   - RxSwiftExt
+  - SimpleKeychain
   - SwiftyImage
   - Whisper
 
 SPEC CHECKSUMS:
   Action: fed388b9160ad787a58cb34b5064db6dbaae7e45
-  AWSCognito: 5dfe4120e7f77b2e77396b4532e4aacacc4ae08d
-  AWSCognitoAuth: d757400ea04271a998bb9f71b2f244b053f22850
-  AWSCognitoIdentityProvider: 4655e97cfbb4347591db74b33e8c89309ca25131
-  AWSCore: c71840dd51f271dc0af8de8fd6f352767ebde8b4
+  Auth0: b23f0d9f45bdcd70652f5427d3411519d79ddaa1
   Dotzu: e787896f08474f4e4574baa20ec556361dfebf0c
+  Lock: ff300a4039e2191bc1b2a29f6ed956412c252ffd
   NSObject+Rx: '09277ba78aa12a8e454c82429eb4e31bfb413131'
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
   RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
@@ -68,9 +68,10 @@ SPEC CHECKSUMS:
   RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
   RxSwiftExt: ec25c6df68d15ad6fe326792d60452b52e83d606
+  SimpleKeychain: 84c748463eec601dfee5e7990f55cc82edc5488d
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: e569fc4190c3eb6cef90c6673601da6890c27f24
+PODFILE CHECKSUM: '097877375c0e262c9cdba8917dc6070710bf5f53'
 
 COCOAPODS: 1.2.1

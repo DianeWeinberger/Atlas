@@ -12,7 +12,7 @@ import RxCocoa
 
 class Coordinator: CoordinatorType {
   fileprivate var window: UIWindow
-  fileprivate var currentViewController: UIViewController
+  var currentViewController: UIViewController
   
   required init(window: UIWindow) {
     self.window = window
