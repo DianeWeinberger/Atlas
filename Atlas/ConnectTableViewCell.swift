@@ -14,18 +14,9 @@ class ConnectTableViewCell: UITableViewCell {
   @IBOutlet weak var nameTextLabel: UILabel!
   @IBOutlet weak var locationTextLabel: UILabel!
   @IBOutlet weak var paceTextLabel: UILabel!
-  
-    override func awakeFromNib() {
-        super.awakeFromNib()
-      
-      avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
-        // Initialization code
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+  override func layoutSubviews() {
+    avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
+    avatarImageView.layer.masksToBounds = true
+  }
 }

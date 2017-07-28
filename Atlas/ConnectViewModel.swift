@@ -17,25 +17,24 @@ class ConnectViewModel  {
   var selectedIndex: Observable<Int>!
   
   // MARK: Output
-    lazy var displayedUsers: Observable<[User]> = {
-      return self.selectedIndex
-        .flatMapLatest { index -> Observable<[User]> in          
-          print(index)
-          switch index {
-          case 0:
-            return self.allUsers.asObservable()
-          case 1:
-            return self.friends
-          case 2:
-            return Observable.of([])
-          default:
-            return Observable.empty()
-          }
-      }
-    }()
+  lazy var displayedUsers: Observable<[User]> = {
+    return self.selectedIndex
+      .flatMapLatest { index -> Observable<[User]> in          
+        print(index)
+        switch index {
+        case 0:
+          return self.allUsers.asObservable()
+        case 1:
+          return self.friends
+        case 2:
+          return Observable.of([])
+        default:
+          return Observable.empty()
+        }
+    }
+  }()
   
   fileprivate let allUsers = Variable<[User]>([MockUser.ironMan(), MockUser.hulk(), MockUser.captainAmerica()])
-  
   
   fileprivate let user = Variable<User>(MockUser.ironMan())
 

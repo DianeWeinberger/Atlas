@@ -4,6 +4,7 @@ PODS:
     - RxSwift (~> 3.4.0)
   - Auth0 (1.7.1):
     - SimpleKeychain
+  - DeckTransition (0.3.0)
   - Dotzu (1.8)
   - Lock (2.3.1):
     - Auth0 (~> 1.6)
@@ -43,6 +44,7 @@ PODS:
 DEPENDENCIES:
   - Action
   - Auth0
+  - DeckTransition
   - Dotzu
   - Lock
   - NSObject+Rx
@@ -61,6 +63,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Action: fed388b9160ad787a58cb34b5064db6dbaae7e45
   Auth0: b23f0d9f45bdcd70652f5427d3411519d79ddaa1
+  DeckTransition: 00ccc14e8a2347725241512d8b66ee5f0ae48116
   Dotzu: e787896f08474f4e4574baa20ec556361dfebf0c
   Lock: ff300a4039e2191bc1b2a29f6ed956412c252ffd
   NSObject+Rx: '09277ba78aa12a8e454c82429eb4e31bfb413131'
@@ -77,6 +80,6 @@ SPEC CHECKSUMS:
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: 3d5cdd902982cd0bc3e7187f2b374d4917ab5020
+PODFILE CHECKSUM: fe1948b9d72f38ba06e0d2a73d97e1dae54e70e9
 
 COCOAPODS: 1.2.1

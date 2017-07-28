@@ -19,4 +19,5 @@ target 'Atlas' do
   pod 'SimpleKeychain'
   pod 'Lock'
   pod 'SDWebImage'
+  pod "DeckTransition"
 end

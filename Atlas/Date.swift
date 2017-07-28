@@ -9,6 +9,14 @@
 import Foundation
 
 extension Date {
+  var shortDate: String {
+    return DateFormatter.string(from: self, date: .short, time: .none)
+  }
+  
+  var shortTime: String {
+    return DateFormatter.string(from: self, date: .none, time: .short)
+  }
+  
   func after(months: Int) -> Date {
     return Calendar.current.date(byAdding: .month,
                                  value: months,
@@ -55,5 +63,29 @@ extension Date {
     return Calendar.current.date(byAdding: .minute,
                                  value: -minutes,
                                  to: self) ?? self
+  }
+}
+
+// Mark: DateFormatter Extensions
+extension DateFormatter {
+  class func string(from fromDate: Date,
+                    date dateStyle: DateFormatter.Style,
+                    time timeStyle: DateFormatter.Style) -> String {
+    let dateFormater = DateFormatter()
+    dateFormater.dateStyle = dateStyle
+    dateFormater.timeStyle = timeStyle
+    return dateFormater.string(from: fromDate)
+  }
+  
+  class func string(from fromDate: Date, format: String) -> String {
+    let dateFormater = DateFormatter()
+    dateFormater.dateFormat = format
+    return dateFormater.string(from: fromDate)
+  }
+  
+  convenience init (format: String) {
+    self.init()
+    dateFormat = format
+    locale = Locale.current
   }
 }

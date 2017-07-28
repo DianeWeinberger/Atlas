@@ -18,6 +18,7 @@
 		23218F231F2A457000F651CC /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23218F221F2A457000F651CC /* Auth0.plist */; };
 		2334739E1F2A9A97003DB1C8 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2334739D1F2A9A97003DB1C8 /* ConnectViewController.swift */; };
 		233473A11F2A9B93003DB1C8 /* ConnectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233473A01F2A9B93003DB1C8 /* ConnectTableViewCell.swift */; };
+		2376D8081F2BD30900AE4084 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2376D8071F2BD30900AE4084 /* UserDetailViewController.swift */; };
 		2385A2A71F1EACAF00DD0FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2385A2A61F1EACAF00DD0FDE /* AppDelegate.swift */; };
 		2385A2AC1F1EACAF00DD0FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AA1F1EACAF00DD0FDE /* Main.storyboard */; };
 		2385A2AE1F1EACAF00DD0FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AD1F1EACAF00DD0FDE /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		23218F221F2A457000F651CC /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		2334739D1F2A9A97003DB1C8 /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		233473A01F2A9B93003DB1C8 /* ConnectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTableViewCell.swift; sourceTree = "<group>"; };
+		2376D8071F2BD30900AE4084 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		2385A2A31F1EACAF00DD0FDE /* Atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2385A2A61F1EACAF00DD0FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2385A2AB1F1EACAF00DD0FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				2334739D1F2A9A97003DB1C8 /* ConnectViewController.swift */,
+				2376D8071F2BD30900AE4084 /* UserDetailViewController.swift */,
 			);
 			name = Connect;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 			files = (
 				23E0D66E1F2BBB7D005E8E9F /* UIViewShadowExtension.swift in Sources */,
 				23BF37831F214CF70066DC9D /* RunScene.swift in Sources */,
+				2376D8081F2BD30900AE4084 /* UserDetailViewController.swift in Sources */,
 				23C8C2181F1FE0B40056B4F2 /* CoordinatorType.swift in Sources */,
 				230996AE1F263DA100F94FD9 /* MockUser.swift in Sources */,
 				23E0D66C1F2BBB7D005E8E9F /* Palette.swift in Sources */,

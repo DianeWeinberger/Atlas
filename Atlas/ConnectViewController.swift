@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SDWebImage
+import DeckTransition
 
 class ConnectViewController: UIViewController, BindableType {
 
@@ -22,12 +23,14 @@ class ConnectViewController: UIViewController, BindableType {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationController?.navigationBar.barTintColor = Colors.orange
+    navigationController?.navigationBar.titleTextAttributes = [
+      NSForegroundColorAttributeName: UIColor.white,
+      NSFontAttributeName: UIFont(name: "Avenir", size: 10)!
+    ]
+    
     configureSearchBar()
-    
-    segmentedControl.defaultTextColor = Colors.darkGray
-    segmentedControl.sliderBackgroundColor = Colors.orange
-    
-    segmentedControl.setSegmentItems(["Find", "Friends", "Requests"])
+    configureSegmentedControl()
     viewModel.selectedIndex = segmentedControl.didSelect.asObservable()
     
     configureTableView() // Do last. Requires observables to be set up.
@@ -53,6 +56,21 @@ extension ConnectViewController {
         //        cell.locationTextLabel.text =
       }
       .addDisposableTo(rx_disposeBag)
+    
+    
+    tableView.rx.modelSelected(User.self)
+      .subscribe(onNext: { [weak self] user in
+        OperationQueue.main.addOperation {
+          
+          let modal = UIStoryboard(name: "Connect", bundle: nil).instantiateViewController(withIdentifier: "userDetail") as! UserDetailViewController
+          modal.user.value = user
+          let transitionDelegate = DeckTransitioningDelegate()
+          modal.transitioningDelegate = transitionDelegate
+          modal.modalPresentationStyle = .custom
+          self?.navigationController?.present(modal, animated: true, completion: nil)
+        }
+      })
+      .addDisposableTo(rx_disposeBag)
   }
   
   func configureSearchBar() {
@@ -60,5 +78,11 @@ extension ConnectViewController {
     if let searchTextField = self.searchBar.value(forKey: "searchField") as? UITextField {
       searchTextField.textColor = UIColor.white
     }
+  }
+  
+  func configureSegmentedControl() {
+    segmentedControl.defaultTextColor = Colors.darkGray
+    segmentedControl.sliderBackgroundColor = Colors.orange
+    segmentedControl.setSegmentItems(["Find", "Friends", "Requests"])
   }
 }
