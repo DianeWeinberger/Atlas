@@ -7,25 +7,41 @@
 //
 
 import UIKit
-import TwicketSegmentedControl
 import RxSwift
 import RxCocoa
 import SDWebImage
 
-class ConnectViewController: UIViewController {
+class ConnectViewController: UIViewController, BindableType {
 
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var segmentedControl: TwicketSegmentedControl!
-  
-  let user = Variable<User>(MockUser.ironMan())
-  
+    
+  var viewModel: ConnectViewModel!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    print(user.value.friends)
-    user.asObservable()
-      .map { $0.friends.toArray() }
+    configureSearchBar()
+    
+    segmentedControl.defaultTextColor = Colors.darkGray
+    segmentedControl.sliderBackgroundColor = Colors.orange
+    
+    segmentedControl.setSegmentItems(["Find", "Friends", "Requests"])
+    viewModel.selectedIndex = segmentedControl.didSelect.asObservable()
+    
+    configureTableView() // Do last. Requires observables to be set up.
+  }
+  
+  func bindViewModel() {
+    
+  }
+}
+
+
+extension ConnectViewController {
+  func configureTableView() {
+    viewModel.displayedUsers
       .bind(to: tableView.rx.items(cellIdentifier: "CONNECT_TABLEVIEW_CELL", cellType: ConnectTableViewCell.self)) {
         row, user, cell in
         if let url = user.url {
@@ -34,10 +50,15 @@ class ConnectViewController: UIViewController {
           cell.avatarImageView.layer.masksToBounds = true
         }
         cell.nameTextLabel.text = "\(user.firstName) \(user.lastName)"
-//        cell.locationTextLabel.text = 
+        //        cell.locationTextLabel.text =
       }
       .addDisposableTo(rx_disposeBag)
-    // Do any additional setup after loading the view.
   }
   
+  func configureSearchBar() {
+    searchBar.backgroundColor = UIColor(255, 160, 124)
+    if let searchTextField = self.searchBar.value(forKey: "searchField") as? UITextField {
+      searchTextField.textColor = UIColor.white
+    }
+  }
 }

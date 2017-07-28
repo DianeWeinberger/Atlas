@@ -17,6 +17,8 @@ class ConnectTableViewCell: UITableViewCell {
   
     override func awakeFromNib() {
         super.awakeFromNib()
+      
+      avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
         // Initialization code
     }
 

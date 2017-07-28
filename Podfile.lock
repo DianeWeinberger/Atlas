@@ -38,7 +38,6 @@ PODS:
   - SDWebImage/Core (4.0.0)
   - SimpleKeychain (0.8.0)
   - SwiftyImage (1.1.0)
-  - TwicketSegmentedControl (0.1.2)
   - Whisper (5.0.0)
 
 DEPENDENCIES:
@@ -57,7 +56,6 @@ DEPENDENCIES:
   - SDWebImage
   - SimpleKeychain
   - SwiftyImage
-  - TwicketSegmentedControl
   - Whisper
 
 SPEC CHECKSUMS:
@@ -77,9 +75,8 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SimpleKeychain: 84c748463eec601dfee5e7990f55cc82edc5488d
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
-  TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: f1c86d3b75c6858942ccf8926a11f16d1318dbb9
+PODFILE CHECKSUM: 3d5cdd902982cd0bc3e7187f2b374d4917ab5020
 
 COCOAPODS: 1.2.1
