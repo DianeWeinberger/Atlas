@@ -24,6 +24,7 @@ struct MockUser {
     tony.history = List<Event>()
     tony.runs = List<Run>()
     
+    tony.friends.append(objectsIn: [captainAmerica(), hulk()])
     return tony
   }
   
@@ -60,7 +61,7 @@ struct MockUser {
   static func hulk() -> User {
     let bruce = User()
     bruce.id = "2"
-    bruce.firstName = "Bruve"
+    bruce.firstName = "Bruce"
     bruce.lastName = "Banner"
     bruce.email = "bruce@avengers.net"
     bruce.height = 69

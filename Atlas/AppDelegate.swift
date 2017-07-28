@@ -12,6 +12,8 @@ import NSObject_Rx
 import RealmSwift
 import Lock
 
+// TODO: Turn off Allow Arbitrary Loads in NSAppTransportSecurity in Info.plist
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

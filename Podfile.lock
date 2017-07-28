@@ -33,6 +33,9 @@ PODS:
     - RxSwiftExt/Core (= 2.5.1)
   - RxSwiftExt/Core (2.5.1):
     - RxSwift (~> 3.4)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SimpleKeychain (0.8.0)
   - SwiftyImage (1.1.0)
   - TwicketSegmentedControl (0.1.2)
@@ -51,6 +54,7 @@ DEPENDENCIES:
   - RxRealm
   - RxSwift
   - RxSwiftExt
+  - SDWebImage
   - SimpleKeychain
   - SwiftyImage
   - TwicketSegmentedControl
@@ -70,11 +74,12 @@ SPEC CHECKSUMS:
   RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
   RxSwiftExt: ec25c6df68d15ad6fe326792d60452b52e83d606
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SimpleKeychain: 84c748463eec601dfee5e7990f55cc82edc5488d
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: b629221193f0f8a999311ea6c1396903bcda7fc8
+PODFILE CHECKSUM: f1c86d3b75c6858942ccf8926a11f16d1318dbb9
 
 COCOAPODS: 1.2.1

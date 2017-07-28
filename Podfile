@@ -19,4 +19,5 @@ target 'Atlas' do
   pod 'SimpleKeychain'
   pod 'Lock'
   pod 'TwicketSegmentedControl'
+  pod 'SDWebImage'
 end

@@ -27,6 +27,10 @@ class User: Object {
   var history: List<Event> = List<Event>()
   var friends: List<User> = List<User>()
   
+  var url: URL? {
+    return URL(string: self.imageURL)
+  }
+  
   override static func primaryKey() -> String? {
     return "id"
   }
@@ -34,4 +38,5 @@ class User: Object {
   override static func indexedProperties() -> [String] {
     return ["firstName", "lastName", "email", "zipCode"]
   }
+  
 }
