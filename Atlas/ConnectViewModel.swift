@@ -15,6 +15,7 @@ class ConnectViewModel  {
   
   // MARK: Input
   var selectedIndex: Observable<Int>!
+  var filterText: Observable<String?>!
   
   // MARK: Output
   lazy var displayedUsers: Observable<[User]> = {
@@ -31,7 +32,17 @@ class ConnectViewModel  {
         default:
           return Observable.empty()
         }
-    }
+      }
+      .withLatestFrom(self.filterText, resultSelector: {users, query -> ([User], String) in
+        return (users, query ?? "")
+      })
+      .map { users, query -> [User] in
+        print("before")
+        print(users.map({ $0.firstName }))
+        return users.filter { user -> Bool in
+         return user.fullName.contains(query)
+        }
+      }
   }()
   
   fileprivate let allUsers = Variable<[User]>([MockUser.ironMan(), MockUser.hulk(), MockUser.captainAmerica()])

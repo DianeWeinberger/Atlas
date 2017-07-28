@@ -23,21 +23,25 @@ class ConnectViewController: UIViewController, BindableType {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+
     navigationController?.navigationBar.barTintColor = Colors.orange
     navigationController?.navigationBar.titleTextAttributes = [
       NSForegroundColorAttributeName: UIColor.white,
       NSFontAttributeName: UIFont(name: "Open Sans", size: 10)!
     ]
     
+    viewModel.filterText = searchBar.rx.text.asObservable()
+    viewModel.selectedIndex = segmentedControl.didSelect.asObservable()
+
     configureSearchBar()
     configureSegmentedControl()
-    viewModel.selectedIndex = segmentedControl.didSelect.asObservable()
+    
+    
     
     configureTableView() // Do last. Requires observables to be set up.
   }
   
   func bindViewModel() {
-    
   }
 }
 
