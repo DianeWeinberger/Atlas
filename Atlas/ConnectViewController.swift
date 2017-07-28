@@ -26,7 +26,7 @@ class ConnectViewController: UIViewController, BindableType {
     navigationController?.navigationBar.barTintColor = Colors.orange
     navigationController?.navigationBar.titleTextAttributes = [
       NSForegroundColorAttributeName: UIColor.white,
-      NSFontAttributeName: UIFont(name: "Avenir", size: 10)!
+      NSFontAttributeName: UIFont(name: "Open Sans", size: 10)!
     ]
     
     configureSearchBar()
