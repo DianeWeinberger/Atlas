@@ -19,30 +19,35 @@ class ConnectViewModel  {
   
   // MARK: Output
   lazy var displayedUsers: Observable<[User]> = {
+    return Observable.combineLatest(self.filterText, self.selectedUserGroup) {
+        (query, users) -> (String, [User]) in
+        return (query ?? "", users)
+      }
+      .map { query, users in
+        return users.filter { user -> Bool in
+          guard !query.isEmpty else { return true }
+          return user.fullName.contains(query)
+        }
+      }
+  }()
+  
+  // MARK: Observables
+  fileprivate lazy var selectedUserGroup: Observable<[User]> = {
     return self.selectedIndex
-      .flatMapLatest { index -> Observable<[User]> in          
+      .flatMapLatest { index -> Observable<[User]> in
         print(index)
         switch index {
-        case 0:
+        case 0: // Find
           return self.allUsers.asObservable()
-        case 1:
+        case 1: // Friends
           return self.friends
-        case 2:
+        case 2: // Requests
           return Observable.of([])
         default:
+          // TODO: Throw Observable.error instead
           return Observable.empty()
         }
-      }
-      .withLatestFrom(self.filterText, resultSelector: {users, query -> ([User], String) in
-        return (users, query ?? "")
-      })
-      .map { users, query -> [User] in
-        print("before")
-        print(users.map({ $0.firstName }))
-        return users.filter { user -> Bool in
-         return user.fullName.contains(query)
-        }
-      }
+    }
   }()
   
   fileprivate let allUsers = Variable<[User]>([MockUser.ironMan(), MockUser.hulk(), MockUser.captainAmerica()])

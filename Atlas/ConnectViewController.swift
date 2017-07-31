@@ -23,25 +23,16 @@ class ConnectViewController: UIViewController, BindableType {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-
-    navigationController?.navigationBar.barTintColor = Colors.orange
-    navigationController?.navigationBar.titleTextAttributes = [
-      NSForegroundColorAttributeName: UIColor.white,
-      NSFontAttributeName: UIFont(name: "Open Sans", size: 10)!
-    ]
-    
-    viewModel.filterText = searchBar.rx.text.asObservable()
-    viewModel.selectedIndex = segmentedControl.didSelect.asObservable()
-
+    bindViewModel()
+    configureNavigation()
     configureSearchBar()
     configureSegmentedControl()
-    
-    
-    
     configureTableView() // Do last. Requires observables to be set up.
   }
   
   func bindViewModel() {
+    viewModel.filterText = searchBar.rx.text.asObservable().throttle(0.5, scheduler: MainScheduler.instance)
+    viewModel.selectedIndex = segmentedControl.didSelect.asObservable()
   }
 }
 
@@ -88,5 +79,13 @@ extension ConnectViewController {
     segmentedControl.defaultTextColor = Colors.darkGray
     segmentedControl.sliderBackgroundColor = Colors.orange
     segmentedControl.setSegmentItems(["Find", "Friends", "Requests"])
+  }
+  
+  func configureNavigation() {
+    navigationController?.navigationBar.barTintColor = Colors.orange
+    navigationController?.navigationBar.titleTextAttributes = [
+      NSForegroundColorAttributeName: UIColor.white,
+      NSFontAttributeName: UIFont(name: "Open Sans", size: 10)!
+    ]
   }
 }
