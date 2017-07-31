@@ -26,7 +26,9 @@ class ConnectViewModel  {
       .map { query, users in
         return users.filter { user -> Bool in
           guard !query.isEmpty else { return true }
-          return user.fullName.contains(query)
+          
+          return user.fullName.lowercased()
+                  .contains(query.lowercased())
         }
       }
   }()
