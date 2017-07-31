@@ -2,6 +2,7 @@ PODS:
   - Action (3.0.0):
     - RxCocoa (~> 3.4.0)
     - RxSwift (~> 3.4.0)
+  - Arrow (3.0.5)
   - Auth0 (1.7.1):
     - SimpleKeychain
   - DeckTransition (0.3.0)
@@ -38,11 +39,13 @@ PODS:
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - SimpleKeychain (0.8.0)
+  - SteviaLayout (3.2.0)
   - SwiftyImage (1.1.0)
   - Whisper (5.0.0)
 
 DEPENDENCIES:
   - Action
+  - Arrow
   - Auth0
   - DeckTransition
   - Dotzu
@@ -57,11 +60,13 @@ DEPENDENCIES:
   - RxSwiftExt
   - SDWebImage
   - SimpleKeychain
+  - SteviaLayout
   - SwiftyImage
   - Whisper
 
 SPEC CHECKSUMS:
   Action: fed388b9160ad787a58cb34b5064db6dbaae7e45
+  Arrow: b696d6173296da330d1a995019db42f693249cd6
   Auth0: b23f0d9f45bdcd70652f5427d3411519d79ddaa1
   DeckTransition: 00ccc14e8a2347725241512d8b66ee5f0ae48116
   Dotzu: e787896f08474f4e4574baa20ec556361dfebf0c
@@ -77,9 +82,10 @@ SPEC CHECKSUMS:
   RxSwiftExt: ec25c6df68d15ad6fe326792d60452b52e83d606
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SimpleKeychain: 84c748463eec601dfee5e7990f55cc82edc5488d
+  SteviaLayout: 85c405f118ddb8637d0674ef6a79eefb792bf90b
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: fe1948b9d72f38ba06e0d2a73d97e1dae54e70e9
+PODFILE CHECKSUM: 0b727e4f1610dcdd4efe8f821a2d479145836113
 
 COCOAPODS: 1.2.1

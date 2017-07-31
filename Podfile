@@ -19,5 +19,8 @@ target 'Atlas' do
   pod 'SimpleKeychain'
   pod 'Lock'
   pod 'SDWebImage'
-  pod "DeckTransition"
+  pod 'DeckTransition'
+  pod 'SimpleKeychain'
+  pod 'SteviaLayout'
+  pod 'Arrow'
 end

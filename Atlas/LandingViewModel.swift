@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import Action
 import Lock
+import SimpleKeychain
 
 
 class LandingViewModel  {
@@ -50,7 +51,10 @@ class LandingViewModel  {
         }
         // withConnections, withOptions, withStyle, etc
         .onAuth { credentials in
-          // Save the Credentials object
+          guard let accessToken = credentials.accessToken, let refreshToken = credentials.refreshToken else { return }
+          let keychain = A0SimpleKeychain(service: "Auth0")
+          keychain.setString(accessToken, forKey: "access_token")
+          keychain.setString(refreshToken, forKey: "refresh_token")
         }
         .present(from: self.coordinator.currentViewController)
       
