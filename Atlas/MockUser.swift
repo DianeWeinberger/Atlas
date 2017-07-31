@@ -20,10 +20,19 @@ struct MockUser {
     tony.weight = 150
     tony.zipCode = 10001
     tony.imageURL = "http://vignette4.wikia.nocookie.net/marvelmovies/images/9/9a/Iron-man-site-tony-stark.jpg"
-    tony.friends = List<User>()
-    tony.history = List<Event>()
-    tony.runs = List<Run>()
+
+    let event1 = Event()
+    event1.id = "0-1"
+    event1.title = "just improved his speed."
+    event1.timestamp = Date().before(days: 3).after(minutes: 30)
     
+    let event2 = Event()
+    event2.id = "0-2"
+    event2.title = "just completed a 5K!"
+    event2.timestamp = Date().before(days: 4).after(hours: 2)
+
+    tony.history.append(objectsIn: [event1, event2])
+
     tony.friends.append(objectsIn: [captainAmerica(), hulk()])
     return tony
   }
@@ -38,10 +47,6 @@ struct MockUser {
     cap.weight = 180
     cap.zipCode = 10001
     cap.imageURL = "http://cdn3-www.superherohype.com/assets/uploads/gallery/captain_america_4979/captain_america_the_winter_soldier_7927/captws_captainamerica_avatar.jpg"
-    cap.friends = List<User>()
-    cap.history = List<Event>()
-    cap.runs = List<Run>()
-    
     
     let event1 = Event()
     event1.id = "1-1"
@@ -55,6 +60,8 @@ struct MockUser {
 
     cap.history.append(objectsIn: [event1, event2])
     
+//    cap.friends.append(objectsIn: [ironMan(), hulk()])
+
     return cap
   }
   
@@ -68,10 +75,7 @@ struct MockUser {
     bruce.weight = 140
     bruce.zipCode = 10001
     bruce.imageURL = "http://static.tumblr.com/jds6vf6/XS1maszup/avengersmarkruffalobrucebanner.png"
-    bruce.friends = List<User>()
-    bruce.history = List<Event>()
-    bruce.runs = List<Run>()
-    
+
     let event1 = Event()
     event1.id = "2-1"
     event1.title = "just improved his speed."
@@ -89,7 +93,40 @@ struct MockUser {
     
     bruce.history.append(objectsIn: [event1, event2, event3])
     
+//    bruce.friends.append(objectsIn: [ironMan(), captainAmerica()])
+
     return bruce
   }
+  
+  static func dareDevil() -> User {
+    let matt = User()
+    matt.id = "3"
+    matt.firstName = "Matt"
+    matt.lastName = "Murdock"
+    matt.email = "matt@murdockandnelson.com"
+    matt.height = 70
+    matt.weight = 140
+    matt.zipCode = 10010
+    matt.imageURL = "http://orig09.deviantart.net/6b4d/f/2015/210/d/0/woah_baby___matt_murdock_x_reader_by_latte_to_go-d93bxt6.jpg"
 
+    let event1 = Event()
+    event1.id = "3-1"
+    event1.title = "just improved his speed."
+    event1.timestamp = Date().before(days: 1).after(minutes: 20)
+    
+    let event2 = Event()
+    event2.id = "3-2"
+    event2.title = "just ran 11.3 miles!"
+    event2.timestamp = Date().before(days: 3).before(minutes: 50)
+    
+    let event3 = Event()
+    event3.id = "3-3"
+    event3.title = "just completed a 5K!"
+    event3.timestamp = Date().before(days: 5).before(minutes: 30)
+    
+    matt.history.append(objectsIn: [event1, event2, event3])
+    
+    return matt
+  }
+  
 }

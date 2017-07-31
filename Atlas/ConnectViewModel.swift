@@ -52,7 +52,7 @@ class ConnectViewModel  {
     }
   }()
   
-  fileprivate let allUsers = Variable<[User]>([MockUser.ironMan(), MockUser.hulk(), MockUser.captainAmerica()])
+  fileprivate let allUsers = Variable<[User]>([MockUser.dareDevil()])
   
   fileprivate let user = Variable<User>(MockUser.ironMan())
 

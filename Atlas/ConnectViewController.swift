@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import SDWebImage
 import DeckTransition
+import RxKeyboard
 
 class ConnectViewController: UIViewController, BindableType {
 
