@@ -21,8 +21,8 @@ class StatBlockCollectionViewCell: UICollectionViewCell {
     
     layer.cornerRadius = 16/103 * bounds.height
     layer.borderWidth = 3
-    layer.borderColor = Colors.pauseBlue.cgColor
-    layer.backgroundColor =  Colors.pauseBlueLight.cgColor
+    layer.borderColor = Colors.blue.dodger.cgColor
+    layer.backgroundColor =  Colors.blue.azure.cgColor
   }
 }
 

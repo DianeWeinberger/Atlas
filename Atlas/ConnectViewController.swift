@@ -78,12 +78,12 @@ extension ConnectViewController {
   
   func configureSegmentedControl() {
     segmentedControl.defaultTextColor = Colors.darkGray
-    segmentedControl.sliderBackgroundColor = Colors.orange
+    segmentedControl.sliderBackgroundColor = Colors.orange.orangeRed
     segmentedControl.setSegmentItems(["Find", "Friends", "Requests"])
   }
   
   func configureNavigation() {
-    navigationController?.navigationBar.barTintColor = Colors.orange
+    navigationController?.navigationBar.barTintColor = Colors.orange.orangeRed
     navigationController?.navigationBar.titleTextAttributes = [
       NSForegroundColorAttributeName: UIColor.white,
       NSFontAttributeName: UIFont(name: "Open Sans", size: 10)!

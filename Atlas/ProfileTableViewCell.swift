@@ -42,7 +42,7 @@ class ProfileTableViewCell: UITableViewCell {
       self.profileImageView.layer.cornerRadius = dimension / 2
       self.profileImageView.layer.masksToBounds = true
       self.profileImageView.layer.borderWidth = 7
-      self.profileImageView.layer.borderColor = Colors.orange.cgColor
+      self.profileImageView.layer.borderColor = Colors.orange.orangeRed.cgColor
     }
     self.nameLabel.text = user.fullName
     
