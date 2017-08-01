@@ -38,6 +38,7 @@
 		2385A2AE1F1EACAF00DD0FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AD1F1EACAF00DD0FDE /* Assets.xcassets */; };
 		2385A2B11F1EACAF00DD0FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AF1F1EACAF00DD0FDE /* LaunchScreen.storyboard */; };
 		239B2C2C1F30E8DD007BC817 /* ConnectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C2B1F30E8DD007BC817 /* ConnectScene.swift */; };
+		239B2C2E1F30EF2D007BC817 /* RunTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C2D1F30EF2D007BC817 /* RunTableViewCell.swift */; };
 		23BF37591F20F9730066DC9D /* MKMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37571F20F9730066DC9D /* MKMapView+Rx.swift */; };
 		23BF375A1F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */; };
 		23BF375C1F20F9B60066DC9D /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */; };
@@ -108,6 +109,7 @@
 		2385A2B01F1EACAF00DD0FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2385A2B21F1EACAF00DD0FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		239B2C2B1F30E8DD007BC817 /* ConnectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectScene.swift; sourceTree = "<group>"; };
+		239B2C2D1F30EF2D007BC817 /* RunTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunTableViewCell.swift; sourceTree = "<group>"; };
 		23BF37571F20F9730066DC9D /* MKMapView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Rx.swift"; sourceTree = "<group>"; };
 		23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxMKMapViewDelegateProxy.swift; sourceTree = "<group>"; };
 		23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				233473A01F2A9B93003DB1C8 /* ConnectTableViewCell.swift */,
 				237BA7E91F2FE2BD009F3F27 /* ProfileTableViewCell.swift */,
 				237BA7EB1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift */,
+				239B2C2D1F30EF2D007BC817 /* RunTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				23BF375A1F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift in Sources */,
 				23BF375E1F20F9D70066DC9D /* RunViewController.swift in Sources */,
 				237BA7EA1F2FE2BD009F3F27 /* ProfileTableViewCell.swift in Sources */,
+				239B2C2E1F30EF2D007BC817 /* RunTableViewCell.swift in Sources */,
 				23C8C21F1F1FE30E0056B4F2 /* BindableType.swift in Sources */,
 				23C8C2351F1FEA9F0056B4F2 /* SceneType.swift in Sources */,
 				23E0D6651F2B9D2C005E8E9F /* ConnectViewModel.swift in Sources */,

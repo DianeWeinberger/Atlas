@@ -17,6 +17,14 @@ extension Date {
     return DateFormatter.string(from: self, date: .none, time: .short)
   }
   
+  var month: String {
+    return DateFormatter.string(from: self, format: "MMM")
+  }
+  
+  var day: String {
+    return DateFormatter.string(from: self, format: "d")
+  }
+  
   func after(months: Int) -> Date {
     return Calendar.current.date(byAdding: .month,
                                  value: months,

@@ -50,13 +50,13 @@
                                                     <rect key="frame" x="122.5" y="77.5" width="130" height="130"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY PROFILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aba-l1-DVu">
-                                                    <rect key="frame" x="154.5" y="36" width="67.5" height="16.5"/>
+                                                    <rect key="frame" x="154" y="36" width="67.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zach Gordon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VN0-5y-Kdz">
-                                                    <rect key="frame" x="125" y="227.5" width="126.5" height="27.5"/>
+                                                    <rect key="frame" x="124.5" y="227.5" width="126.5" height="27.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -164,6 +164,104 @@
                                             <outlet property="paceLabel" destination="4bj-NR-Sll" id="dEK-XW-otN"/>
                                             <outlet property="profileImageView" destination="6VB-BL-Gb5" id="hvh-8Z-skg"/>
                                             <outlet property="statsCollectionView" destination="XWg-q4-FeS" id="XcD-Zu-cmD"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RunTableViewCell" rowHeight="84" id="9YU-GO-pmF" customClass="RunTableViewCell" customModule="Atlas" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="704" width="375" height="84"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9YU-GO-pmF" id="bvv-uP-1P5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="83.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9e-0T-NZ4">
+                                                    <rect key="frame" x="25" y="18.5" width="46.5" height="46.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfE-gX-ByH">
+                                                            <rect key="frame" x="0.0" y="31.5" width="46.5" height="14.5"/>
+                                                            <color key="backgroundColor" red="0.99215686274509807" green="0.38823529411764707" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="9"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ias-pG-ICe">
+                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="31.5"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
+                                                            <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="ias-pG-ICe" secondAttribute="trailing" id="5Kq-HQ-Qbg"/>
+                                                        <constraint firstItem="ias-pG-ICe" firstAttribute="top" secondItem="Y9e-0T-NZ4" secondAttribute="top" id="7l8-3b-qOQ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="EfE-gX-ByH" secondAttribute="bottom" id="EPK-zG-6ne"/>
+                                                        <constraint firstItem="EfE-gX-ByH" firstAttribute="top" secondItem="ias-pG-ICe" secondAttribute="bottom" id="IdX-tU-RDo"/>
+                                                        <constraint firstAttribute="width" secondItem="Y9e-0T-NZ4" secondAttribute="height" multiplier="1:1" priority="999" id="J6J-jF-iIl"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EfE-gX-ByH" secondAttribute="trailing" id="Q2p-qJ-lQ7"/>
+                                                        <constraint firstItem="ias-pG-ICe" firstAttribute="leading" secondItem="Y9e-0T-NZ4" secondAttribute="leading" id="bGE-Ts-aT5"/>
+                                                        <constraint firstItem="EfE-gX-ByH" firstAttribute="leading" secondItem="Y9e-0T-NZ4" secondAttribute="leading" id="dSN-Ib-40a"/>
+                                                        <constraint firstItem="EfE-gX-ByH" firstAttribute="height" secondItem="Y9e-0T-NZ4" secondAttribute="height" multiplier="13/41" id="iTZ-2W-YVs"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                            <color key="value" red="0.99215686274509807" green="0.38823529411764707" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brooklyn, NY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SjA-lg-1WO">
+                                                    <rect key="frame" x="117" y="18" width="91" height="23.5"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
+                                                    <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q50-xA-F9R">
+                                                    <rect key="frame" x="117" y="42" width="213" height="23"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.9 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF6-zd-33G">
+                                                            <rect key="frame" x="0.0" y="3.5" width="34.5" height="16.5"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                            <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43.8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48H-OZ-s1D">
+                                                            <rect key="frame" x="84" y="3.5" width="24" height="16.5"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                            <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 mins/mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzB-PF-Zd8">
+                                                            <rect key="frame" x="157" y="3.5" width="56" height="16.5"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                            <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="q50-xA-F9R" firstAttribute="height" secondItem="SjA-lg-1WO" secondAttribute="height" priority="998" id="D74-gw-rC4"/>
+                                                <constraint firstItem="q50-xA-F9R" firstAttribute="leading" secondItem="SjA-lg-1WO" secondAttribute="leading" priority="999" id="DCG-Uj-JY1"/>
+                                                <constraint firstItem="SjA-lg-1WO" firstAttribute="top" secondItem="Y9e-0T-NZ4" secondAttribute="top" id="gkF-Y1-A0W"/>
+                                                <constraint firstItem="SjA-lg-1WO" firstAttribute="height" secondItem="Y9e-0T-NZ4" secondAttribute="height" multiplier="0.5" priority="999" id="kJw-qv-hf9"/>
+                                                <constraint firstItem="q50-xA-F9R" firstAttribute="bottom" secondItem="Y9e-0T-NZ4" secondAttribute="bottom" id="lTK-xt-qKE"/>
+                                                <constraint firstItem="Y9e-0T-NZ4" firstAttribute="centerY" secondItem="bvv-uP-1P5" secondAttribute="centerY" id="mvO-1Z-1DK"/>
+                                                <constraint firstItem="Y9e-0T-NZ4" firstAttribute="height" secondItem="bvv-uP-1P5" secondAttribute="height" multiplier="41/73" id="ubK-hn-DQB"/>
+                                                <constraint firstItem="SjA-lg-1WO" firstAttribute="leading" secondItem="Y9e-0T-NZ4" secondAttribute="trailing" constant="45.5" id="xJg-HR-kzl"/>
+                                                <constraint firstItem="Y9e-0T-NZ4" firstAttribute="leading" secondItem="bvv-uP-1P5" secondAttribute="leading" constant="25" id="xVd-CN-glY"/>
+                                                <constraint firstAttribute="trailing" secondItem="q50-xA-F9R" secondAttribute="trailing" constant="45" id="yEO-au-hPB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="calendarView" destination="Y9e-0T-NZ4" id="UiT-Ub-qZJ"/>
+                                            <outlet property="dayLabel" destination="ias-pG-ICe" id="CjZ-01-rYP"/>
+                                            <outlet property="distanceLabel" destination="fF6-zd-33G" id="qs3-JA-BaV"/>
+                                            <outlet property="locationLabel" destination="SjA-lg-1WO" id="mG1-JJ-xWR"/>
+                                            <outlet property="monthLabel" destination="EfE-gX-ByH" id="3NU-sk-PEQ"/>
+                                            <outlet property="paceLabel" destination="KzB-PF-Zd8" id="1ah-vk-eZq"/>
+                                            <outlet property="timeLabel" destination="48H-OZ-s1D" id="K2C-4l-YSL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

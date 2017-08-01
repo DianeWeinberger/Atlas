@@ -33,6 +33,20 @@ struct MockUser {
 
     tony.history.append(objectsIn: [event1, event2])
 
+    let run1 = Run()
+    run1.timestamp = Date().before(months: 1).after(days: 7)
+    run1.distance = 3
+    run1.pace = 2.5
+    run1.time = 100
+    
+    let run2 = Run()
+    run2.timestamp = Date().before(months: 3).after(days: 15)
+    run2.distance = 1
+    run2.pace = 1.8
+    run2.time = 150
+    
+    tony.runs.append(objectsIn: [run1, run2])
+    
     tony.friends.append(objectsIn: [captainAmerica(), hulk()])
     return tony
   }
