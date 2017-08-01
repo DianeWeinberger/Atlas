@@ -53,6 +53,10 @@ extension User {
     return "\(firstName) \(lastName)"
   }
   
+  var displayName: String {
+    return "\(firstName) \(lastName.characters.first!)."
+  }
+  
   var stats: Observable<[StatBlock]> {
     return Observable.of([
       ("Average", "PACE", "\(pace)"),
@@ -60,5 +64,13 @@ extension User {
       ("Average", "DURATION", "\(duration)"),
       ("Total Miles", "RUN", "\(totalMiles)")
     ])
+  }
+  
+  var friendsActivity: Observable<[Event]> {
+    let friendHistory = friends.toArray()
+      .flatMap { $0.history }
+      .sorted(by: Event.sortEarliest)
+    
+    return Observable.of(friendHistory)
   }
 }

@@ -15,11 +15,17 @@ class Event: Object {
   dynamic var timestamp: Date = Date()
   dynamic var title: String = ""
   dynamic var type: String = ""
+  dynamic var user: User? = User()
+
   override static func primaryKey() -> String? {
     return "id"
   }
   
   override static func indexedProperties() -> [String] {
     return ["timestamp", "title"]
+  }
+  
+  static let sortEarliest: (Event, Event) -> Bool = { a, b in
+    return a.timestamp.isBefore(date: b.timestamp)
   }
 }

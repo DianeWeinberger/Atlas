@@ -46,7 +46,7 @@ class UserDetailViewController: UIViewController {
     }
     
     activityLabel.text = "\(user.value.firstName)'s Activity"
-    nameLabel.text = "\(user.value.firstName) \(user.value.lastName.characters.first!)."
+    nameLabel.text = user.value.displayName
     history
       .bind(to: activityTableView.rx.items(cellIdentifier: "Subtitle")) {
         [weak self] row, event, cell in

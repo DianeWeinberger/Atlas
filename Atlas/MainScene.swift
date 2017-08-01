@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias MainViewModels = (tabbar: AtlasTabBarViewModel, connect: ConnectViewModel)
+typealias MainViewModels = (tabbar: AtlasTabBarViewModel, home: HomeViewModel,  connect: ConnectViewModel)
 
 enum MainScene: SceneType {
   case main(MainViewModels)
@@ -23,10 +23,14 @@ extension MainScene {
       var tabbar = storyboard.instantiateViewController(withIdentifier: "main") as! AtlasTabBarController
       tabbar.bindViewModel(to: viewModels.tabbar)
       
+      var home = tabbar.viewControllers![0] as! HomeViewController
+      home.bindViewModel(to: viewModels.home)
 
       let connectNav = tabbar.viewControllers![1] as! UINavigationController
       var connect = connectNav.viewControllers.first! as! ConnectViewController
       connect.bindViewModel(to: viewModels.connect)
+      
+      
 
       return tabbar
     }

@@ -72,6 +72,21 @@ extension Date {
                                  value: -minutes,
                                  to: self) ?? self
   }
+  
+  func isBefore(date: Date) -> Bool {
+    let comparison = Calendar.current.compare(self, to: date, toGranularity: Calendar.Component.second)
+    return comparison == .orderedAscending
+  }
+  
+  func isSame(date: Date) -> Bool {
+    let comparison = Calendar.current.compare(self, to: date, toGranularity: Calendar.Component.second)
+    return comparison == .orderedSame
+  }
+  
+  func isAfter(date: Date) -> Bool {
+    let comparison = Calendar.current.compare(self, to: date, toGranularity: Calendar.Component.second)
+    return comparison == .orderedDescending
+  }
 }
 
 // Mark: DateFormatter Extensions

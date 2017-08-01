@@ -39,6 +39,10 @@
 		2385A2B11F1EACAF00DD0FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AF1F1EACAF00DD0FDE /* LaunchScreen.storyboard */; };
 		239B2C2C1F30E8DD007BC817 /* ConnectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C2B1F30E8DD007BC817 /* ConnectScene.swift */; };
 		239B2C2E1F30EF2D007BC817 /* RunTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C2D1F30EF2D007BC817 /* RunTableViewCell.swift */; };
+		239B2C301F310BF4007BC817 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C2F1F310BF4007BC817 /* ActivityTableViewCell.swift */; };
+		239B2C321F310CF2007BC817 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C311F310CF2007BC817 /* HomeViewController.swift */; };
+		239B2C341F311417007BC817 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C331F311417007BC817 /* HomeViewModel.swift */; };
+		239B2C361F311B27007BC817 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C351F311B27007BC817 /* HomeScene.swift */; };
 		23BF37591F20F9730066DC9D /* MKMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37571F20F9730066DC9D /* MKMapView+Rx.swift */; };
 		23BF375A1F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */; };
 		23BF375C1F20F9B60066DC9D /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */; };
@@ -110,6 +114,10 @@
 		2385A2B21F1EACAF00DD0FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		239B2C2B1F30E8DD007BC817 /* ConnectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectScene.swift; sourceTree = "<group>"; };
 		239B2C2D1F30EF2D007BC817 /* RunTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunTableViewCell.swift; sourceTree = "<group>"; };
+		239B2C2F1F310BF4007BC817 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		239B2C311F310CF2007BC817 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		239B2C331F311417007BC817 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		239B2C351F311B27007BC817 /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 		23BF37571F20F9730066DC9D /* MKMapView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Rx.swift"; sourceTree = "<group>"; };
 		23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxMKMapViewDelegateProxy.swift; sourceTree = "<group>"; };
 		23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
@@ -254,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				23C8C2201F1FE3CF0056B4F2 /* Auth */,
+				23BF377C1F213AB10066DC9D /* AtlasTabBarController.swift */,
 				23C8C23A1F1FEFCF0056B4F2 /* Home */,
 				23C8C23B1F1FEFD30056B4F2 /* Connect */,
 				23C8C23F1F1FF0040056B4F2 /* Run */,
@@ -268,6 +277,7 @@
 			children = (
 				2334739F1F2A9B6E003DB1C8 /* Cells */,
 				23C8C2211F1FE3DD0056B4F2 /* Auth */,
+				23BF37801F2149C60066DC9D /* AtlasTabBarViewModel.swift */,
 				23C8C2441F1FF02A0056B4F2 /* Home */,
 				23C8C2431F1FF0230056B4F2 /* Connect */,
 				23C8C2421F1FF01D0056B4F2 /* Run */,
@@ -335,6 +345,7 @@
 				237BA7E91F2FE2BD009F3F27 /* ProfileTableViewCell.swift */,
 				237BA7EB1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift */,
 				239B2C2D1F30EF2D007BC817 /* RunTableViewCell.swift */,
+				239B2C2F1F310BF4007BC817 /* ActivityTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -405,6 +416,7 @@
 			children = (
 				23C8C2361F1FEACE0056B4F2 /* AuthScene.swift */,
 				23BF37611F2101340066DC9D /* MainScene.swift */,
+				239B2C351F311B27007BC817 /* HomeScene.swift */,
 				23BF37821F214CF70066DC9D /* RunScene.swift */,
 				239B2C2B1F30E8DD007BC817 /* ConnectScene.swift */,
 			);
@@ -414,7 +426,7 @@
 		23C8C23A1F1FEFCF0056B4F2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				23BF377C1F213AB10066DC9D /* AtlasTabBarController.swift */,
+				239B2C311F310CF2007BC817 /* HomeViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -484,7 +496,7 @@
 		23C8C2441F1FF02A0056B4F2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				23BF37801F2149C60066DC9D /* AtlasTabBarViewModel.swift */,
+				239B2C331F311417007BC817 /* HomeViewModel.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -657,6 +669,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				239B2C301F310BF4007BC817 /* ActivityTableViewCell.swift in Sources */,
 				23E0D66E1F2BBB7D005E8E9F /* UIViewShadowExtension.swift in Sources */,
 				23BF37831F214CF70066DC9D /* RunScene.swift in Sources */,
 				2376D8081F2BD30900AE4084 /* UserDetailViewController.swift in Sources */,
@@ -675,6 +688,8 @@
 				23BF375A1F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift in Sources */,
 				23BF375E1F20F9D70066DC9D /* RunViewController.swift in Sources */,
 				237BA7EA1F2FE2BD009F3F27 /* ProfileTableViewCell.swift in Sources */,
+				239B2C341F311417007BC817 /* HomeViewModel.swift in Sources */,
+				239B2C321F310CF2007BC817 /* HomeViewController.swift in Sources */,
 				239B2C2E1F30EF2D007BC817 /* RunTableViewCell.swift in Sources */,
 				23C8C21F1F1FE30E0056B4F2 /* BindableType.swift in Sources */,
 				23C8C2351F1FEA9F0056B4F2 /* SceneType.swift in Sources */,
@@ -699,6 +714,7 @@
 				23C8C2391F1FECBD0056B4F2 /* Coordinator.swift in Sources */,
 				23BF37811F2149C60066DC9D /* AtlasTabBarViewModel.swift in Sources */,
 				230996B01F2641B800F94FD9 /* Date.swift in Sources */,
+				239B2C361F311B27007BC817 /* HomeScene.swift in Sources */,
 				23E0D66D1F2BBB7D005E8E9F /* TwicketSegmentedControl.swift in Sources */,
 				2309863E1F1FB75C00C5BC16 /* Event.swift in Sources */,
 				2334739E1F2A9A97003DB1C8 /* ConnectViewController.swift in Sources */,

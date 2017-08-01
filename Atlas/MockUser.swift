@@ -25,12 +25,13 @@ struct MockUser {
     event1.id = "0-1"
     event1.title = "just improved his speed."
     event1.timestamp = Date().before(days: 3).after(minutes: 30)
+    event1.user = tony
     
     let event2 = Event()
     event2.id = "0-2"
     event2.title = "just completed a 5K!"
     event2.timestamp = Date().before(days: 4).after(hours: 2)
-
+    event2.user = tony
     tony.history.append(objectsIn: [event1, event2])
 
     let run1 = Run()
@@ -38,12 +39,14 @@ struct MockUser {
     run1.distance = 3
     run1.pace = 2.5
     run1.time = 100
+    run1.runner = tony
     
     let run2 = Run()
     run2.timestamp = Date().before(months: 3).after(days: 15)
     run2.distance = 1
     run2.pace = 1.8
     run2.time = 150
+    run1.runner = tony
     
     tony.runs.append(objectsIn: [run1, run2])
     
@@ -66,12 +69,14 @@ struct MockUser {
     event1.id = "1-1"
     event1.title = "just improved his speed."
     event1.timestamp = Date().before(days: 2).after(minutes: 30)
+    event1.user = cap
     
     let event2 = Event()
     event2.id = "1-2"
     event2.title = "just completed a 5K!"
     event2.timestamp = Date().before(days: 2).after(hours: 2)
-
+    event2.user = cap
+    
     cap.history.append(objectsIn: [event1, event2])
     
 //    cap.friends.append(objectsIn: [ironMan(), hulk()])
@@ -94,16 +99,19 @@ struct MockUser {
     event1.id = "2-1"
     event1.title = "just improved his speed."
     event1.timestamp = Date().before(days: 2)
+    event1.user = bruce
     
     let event2 = Event()
     event2.id = "2-2"
     event2.title = "just ran 11.3 miles!"
     event2.timestamp = Date().before(days: 1)
+    event2.user = bruce
     
     let event3 = Event()
     event3.id = "2-3"
     event3.title = "just completed a 5K!"
     event3.timestamp = Date().before(minutes: 30)
+    event3.user = bruce
     
     bruce.history.append(objectsIn: [event1, event2, event3])
     
@@ -127,16 +135,19 @@ struct MockUser {
     event1.id = "3-1"
     event1.title = "just improved his speed."
     event1.timestamp = Date().before(days: 1).after(minutes: 20)
+    event1.user = matt
     
     let event2 = Event()
     event2.id = "3-2"
     event2.title = "just ran 11.3 miles!"
     event2.timestamp = Date().before(days: 3).before(minutes: 50)
+    event2.user = matt
     
     let event3 = Event()
     event3.id = "3-3"
     event3.title = "just completed a 5K!"
     event3.timestamp = Date().before(days: 5).before(minutes: 30)
+    event3.user = matt
     
     matt.history.append(objectsIn: [event1, event2, event3])
     

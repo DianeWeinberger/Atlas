@@ -51,9 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      */
     
     if loggedIn {
+      let homeViewModel = HomeViewModel(coordinator: coordinator)
       let connectViewModel = ConnectViewModel(coordinator: coordinator)
       let tabbarViewModel = AtlasTabBarViewModel(coordinator: coordinator)
-      let viewModels: MainViewModels = (tabbarViewModel, connectViewModel)
+      let viewModels: MainViewModels = (tabbarViewModel, homeViewModel, connectViewModel)
       
       let mainScene = MainScene.main(viewModels)
       coordinator.transition(to: mainScene, type: .root)
