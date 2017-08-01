@@ -43,11 +43,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f4j-ch-Xfv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="407.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deadpool" translatesAutoresizingMaskIntoConstraints="NO" id="6VB-BL-Gb5">
-                                                    <rect key="frame" x="122.5" y="88" width="130" height="130"/>
+                                                    <rect key="frame" x="122.5" y="77.5" width="130" height="130"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY PROFILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aba-l1-DVu">
                                                     <rect key="frame" x="154" y="36" width="67.5" height="16.5"/>
@@ -56,25 +56,25 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zach Gordon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VN0-5y-Kdz">
-                                                    <rect key="frame" x="124.5" y="238" width="126.5" height="27.5"/>
+                                                    <rect key="frame" x="124.5" y="227.5" width="126.5" height="27.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Queens, NY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKX-jg-PbS">
-                                                    <rect key="frame" x="155" y="269.5" width="65.5" height="16.5"/>
+                                                    <rect key="frame" x="155" y="259" width="65.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Pace: 0:45" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bj-NR-Sll">
-                                                    <rect key="frame" x="135" y="290" width="105" height="16.5"/>
+                                                    <rect key="frame" x="135" y="279.5" width="105" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XWg-q4-FeS">
-                                                    <rect key="frame" x="14.5" y="326" width="345" height="345"/>
+                                                    <rect key="frame" x="14.5" y="342" width="345" height="345"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="XWg-q4-FeS" secondAttribute="height" multiplier="1:1" id="Yw0-5r-Qym"/>
@@ -136,14 +136,14 @@
                                                 <constraint firstItem="f4j-ch-Xfv" firstAttribute="width" secondItem="iWc-pG-jUt" secondAttribute="width" id="3xH-Ms-6qA"/>
                                                 <constraint firstItem="f4j-ch-Xfv" firstAttribute="top" secondItem="iWc-pG-jUt" secondAttribute="top" id="40r-G7-X6P"/>
                                                 <constraint firstItem="VN0-5y-Kdz" firstAttribute="top" secondItem="6VB-BL-Gb5" secondAttribute="bottom" constant="20" id="6lQ-hf-QHL"/>
-                                                <constraint firstItem="f4j-ch-Xfv" firstAttribute="height" secondItem="iWc-pG-jUt" secondAttribute="height" multiplier="354/587" id="Fmd-Or-Pfe"/>
+                                                <constraint firstItem="f4j-ch-Xfv" firstAttribute="height" secondItem="iWc-pG-jUt" secondAttribute="height" multiplier="330/587" id="Fmd-Or-Pfe"/>
                                                 <constraint firstItem="Aba-l1-DVu" firstAttribute="centerX" secondItem="f4j-ch-Xfv" secondAttribute="centerX" priority="999" id="JjN-n6-YAh"/>
                                                 <constraint firstItem="6VB-BL-Gb5" firstAttribute="centerY" secondItem="f4j-ch-Xfv" secondAttribute="centerY" multiplier="0.75" priority="999" id="K7Y-qe-ViO"/>
                                                 <constraint firstItem="6VB-BL-Gb5" firstAttribute="height" secondItem="f4j-ch-Xfv" secondAttribute="width" multiplier="130/375" priority="999" id="YFD-gj-BP9"/>
                                                 <constraint firstItem="6VB-BL-Gb5" firstAttribute="centerX" secondItem="f4j-ch-Xfv" secondAttribute="centerX" priority="999" id="YVS-Ce-aK9"/>
                                                 <constraint firstItem="4bj-NR-Sll" firstAttribute="centerX" secondItem="EKX-jg-PbS" secondAttribute="centerX" id="cgb-We-j5x"/>
                                                 <constraint firstItem="4bj-NR-Sll" firstAttribute="top" secondItem="EKX-jg-PbS" secondAttribute="bottom" constant="4" id="d9h-Oo-ldi"/>
-                                                <constraint firstItem="XWg-q4-FeS" firstAttribute="top" secondItem="f4j-ch-Xfv" secondAttribute="bottom" multiplier="0.8" id="eFk-dM-o8l"/>
+                                                <constraint firstItem="XWg-q4-FeS" firstAttribute="top" secondItem="f4j-ch-Xfv" secondAttribute="bottom" multiplier="0.9" id="eFk-dM-o8l"/>
                                                 <constraint firstItem="EKX-jg-PbS" firstAttribute="top" secondItem="VN0-5y-Kdz" secondAttribute="bottom" constant="4" id="mni-cH-zSw"/>
                                                 <constraint firstItem="6VB-BL-Gb5" firstAttribute="width" secondItem="f4j-ch-Xfv" secondAttribute="width" multiplier="130/375" priority="999" id="mwp-Z7-4vb"/>
                                                 <constraint firstItem="XWg-q4-FeS" firstAttribute="width" secondItem="iWc-pG-jUt" secondAttribute="width" constant="-30" id="pWz-L0-VLW"/>

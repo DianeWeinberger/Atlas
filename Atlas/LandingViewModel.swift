@@ -43,7 +43,7 @@ class LandingViewModel  {
           $0.oidcConformant = true
         }
         .withStyle {
-          $0.headerColor = Colors.orange
+          $0.headerColor = Colors.orange.orangeRed
           $0.title = "Atlas"
           $0.titleColor = UIColor.white
           $0.primaryColor = UIColor.purple
