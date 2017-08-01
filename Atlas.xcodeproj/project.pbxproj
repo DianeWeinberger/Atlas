@@ -37,6 +37,7 @@
 		2385A2AC1F1EACAF00DD0FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AA1F1EACAF00DD0FDE /* Main.storyboard */; };
 		2385A2AE1F1EACAF00DD0FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AD1F1EACAF00DD0FDE /* Assets.xcassets */; };
 		2385A2B11F1EACAF00DD0FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AF1F1EACAF00DD0FDE /* LaunchScreen.storyboard */; };
+		239B2C2C1F30E8DD007BC817 /* ConnectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C2B1F30E8DD007BC817 /* ConnectScene.swift */; };
 		23BF37591F20F9730066DC9D /* MKMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37571F20F9730066DC9D /* MKMapView+Rx.swift */; };
 		23BF375A1F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */; };
 		23BF375C1F20F9B60066DC9D /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */; };
@@ -106,6 +107,7 @@
 		2385A2AD1F1EACAF00DD0FDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2385A2B01F1EACAF00DD0FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2385A2B21F1EACAF00DD0FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		239B2C2B1F30E8DD007BC817 /* ConnectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectScene.swift; sourceTree = "<group>"; };
 		23BF37571F20F9730066DC9D /* MKMapView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Rx.swift"; sourceTree = "<group>"; };
 		23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxMKMapViewDelegateProxy.swift; sourceTree = "<group>"; };
 		23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				23C8C2361F1FEACE0056B4F2 /* AuthScene.swift */,
 				23BF37611F2101340066DC9D /* MainScene.swift */,
 				23BF37821F214CF70066DC9D /* RunScene.swift */,
+				239B2C2B1F30E8DD007BC817 /* ConnectScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				230986391F1FB68800C5BC16 /* Run.swift in Sources */,
 				23C8C2241F1FE4200056B4F2 /* TransitionType.swift in Sources */,
 				2385A2A71F1EACAF00DD0FDE /* AppDelegate.swift in Sources */,
+				239B2C2C1F30E8DD007BC817 /* ConnectScene.swift in Sources */,
 				23BF37601F20FA2E0066DC9D /* RunViewModel.swift in Sources */,
 				230996AC1F263A0600F94FD9 /* Fonts.swift in Sources */,
 				23CB16BF1F27A21F00310857 /* SignUpViewModel.swift in Sources */,

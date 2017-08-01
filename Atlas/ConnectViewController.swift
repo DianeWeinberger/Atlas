@@ -43,10 +43,10 @@ extension ConnectViewController {
     viewModel.displayedUsers
       .bind(to: tableView.rx.items(cellIdentifier: ConnectTableViewCell.reuseIdentifier, cellType: ConnectTableViewCell.self)) {
         row, user, cell in
+        cell.avatarImageView.layer.cornerRadius = cell.avatarImageView.frame.width / 2
+        cell.avatarImageView.layer.masksToBounds = true
         if let url = user.url {
           cell.avatarImageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "deadpool"))
-          cell.avatarImageView.layer.cornerRadius = cell.avatarImageView.frame.width / 2
-          cell.avatarImageView.layer.masksToBounds = true
         }
         cell.nameTextLabel.text = "\(user.firstName) \(user.lastName)"
         //        cell.locationTextLabel.text =
@@ -57,7 +57,6 @@ extension ConnectViewController {
     tableView.rx.modelSelected(User.self)
       .subscribe(onNext: { [weak self] user in
         OperationQueue.main.addOperation {
-          
           let modal = UIStoryboard(name: "Connect", bundle: nil).instantiateViewController(withIdentifier: "userDetail") as! UserDetailViewController
           modal.user.value = user
           let transitionDelegate = DeckTransitioningDelegate()

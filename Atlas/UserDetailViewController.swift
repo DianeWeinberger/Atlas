@@ -54,14 +54,6 @@ class UserDetailViewController: UIViewController {
         cell.detailTextLabel?.text = event.timestamp.shortDate
       }
       .addDisposableTo(rx_disposeBag)
+  }
 
-    
-    
-    // Do any additional setup after loading the view.
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
 }
