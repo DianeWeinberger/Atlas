@@ -23,10 +23,11 @@ extension MainScene {
       var tabbar = storyboard.instantiateViewController(withIdentifier: "main") as! AtlasTabBarController
       tabbar.bindViewModel(to: viewModels.tabbar)
       
+
       let connectNav = tabbar.viewControllers![1] as! UINavigationController
       var connect = connectNav.viewControllers.first! as! ConnectViewController
       connect.bindViewModel(to: viewModels.connect)
-      
+
       return tabbar
     }
   }

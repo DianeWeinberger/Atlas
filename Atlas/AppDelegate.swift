@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let coordinator = Coordinator(window: window!)
     
-    print(ProfileTableViewCell.reuseIdentifier)
     /*
     let realm = try! Realm()
     let ironMan = realm.object(ofType: User.self, forPrimaryKey: "0")

@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Run-->
+        <!--Run View Controller-->
         <scene sceneID="XRs-3m-ft0">
             <objects>
                 <viewController id="DYs-BS-4f3" customClass="RunViewController" customModule="Atlas" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFG-NW-e3q">
-                                        <rect key="frame" x="118" y="16.5" width="139.5" height="56"/>
+                                        <rect key="frame" x="118" y="15.5" width="139.5" height="56"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="41"/>
                                         <color key="textColor" red="0.0" green="0.078431372549019607" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -99,7 +99,6 @@
                             <constraint firstItem="nWj-Su-2AN" firstAttribute="top" secondItem="9oQ-3u-rrP" secondAttribute="bottom" id="tei-c7-vPR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Run" id="VRu-hS-sP5"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="distanceLabel" destination="Nmd-mh-NzA" id="q5T-Al-zSq"/>
