@@ -37,7 +37,6 @@ class ConnectViewModel  {
   fileprivate lazy var selectedUserGroup: Observable<[User]> = {
     return self.selectedIndex
       .flatMapLatest { index -> Observable<[User]> in
-        print(index)
         switch index {
         case 0: // Find
           return self.allUsers.asObservable()

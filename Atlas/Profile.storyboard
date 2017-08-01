@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,19 +57,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zach Gordon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VN0-5y-Kdz">
-                                                    <rect key="frame" x="124.5" y="227.5" width="126.5" height="27.5"/>
+                                                    <rect key="frame" x="124.5" y="70" width="126.5" height="27.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Queens, NY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKX-jg-PbS">
-                                                    <rect key="frame" x="155" y="259" width="65.5" height="16.5"/>
+                                                    <rect key="frame" x="155" y="101.5" width="65.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XWg-q4-FeS">
-                                                    <rect key="frame" x="14.5" y="304" width="345" height="345"/>
+                                                    <rect key="frame" x="14.5" y="323" width="345" height="345"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="XWg-q4-FeS" secondAttribute="height" multiplier="1:1" id="Yw0-5r-Qym"/>
@@ -129,13 +130,13 @@
                                                 <constraint firstItem="XWg-q4-FeS" firstAttribute="height" secondItem="iWc-pG-jUt" secondAttribute="height" multiplier="221/375" id="3fS-zB-mkT"/>
                                                 <constraint firstItem="f4j-ch-Xfv" firstAttribute="width" secondItem="iWc-pG-jUt" secondAttribute="width" id="3xH-Ms-6qA"/>
                                                 <constraint firstItem="f4j-ch-Xfv" firstAttribute="top" secondItem="iWc-pG-jUt" secondAttribute="top" id="40r-G7-X6P"/>
-                                                <constraint firstItem="VN0-5y-Kdz" firstAttribute="top" secondItem="6VB-BL-Gb5" secondAttribute="bottom" constant="20" id="6lQ-hf-QHL"/>
+                                                <constraint firstItem="VN0-5y-Kdz" firstAttribute="bottom" secondItem="6VB-BL-Gb5" secondAttribute="top" constant="20" id="6lQ-hf-QHL"/>
                                                 <constraint firstItem="f4j-ch-Xfv" firstAttribute="height" secondItem="iWc-pG-jUt" secondAttribute="height" multiplier="330/587" id="Fmd-Or-Pfe"/>
                                                 <constraint firstItem="Aba-l1-DVu" firstAttribute="centerX" secondItem="f4j-ch-Xfv" secondAttribute="centerX" priority="999" id="JjN-n6-YAh"/>
                                                 <constraint firstItem="6VB-BL-Gb5" firstAttribute="centerY" secondItem="f4j-ch-Xfv" secondAttribute="centerY" multiplier="0.75" priority="999" id="K7Y-qe-ViO"/>
                                                 <constraint firstItem="6VB-BL-Gb5" firstAttribute="height" secondItem="f4j-ch-Xfv" secondAttribute="width" multiplier="130/375" priority="999" id="YFD-gj-BP9"/>
                                                 <constraint firstItem="6VB-BL-Gb5" firstAttribute="centerX" secondItem="f4j-ch-Xfv" secondAttribute="centerX" priority="999" id="YVS-Ce-aK9"/>
-                                                <constraint firstItem="XWg-q4-FeS" firstAttribute="top" secondItem="f4j-ch-Xfv" secondAttribute="bottom" multiplier="0.8" id="eFk-dM-o8l"/>
+                                                <constraint firstItem="XWg-q4-FeS" firstAttribute="top" secondItem="f4j-ch-Xfv" secondAttribute="bottom" multiplier="0.85" id="eFk-dM-o8l"/>
                                                 <constraint firstItem="EKX-jg-PbS" firstAttribute="top" secondItem="VN0-5y-Kdz" secondAttribute="bottom" constant="4" id="mni-cH-zSw"/>
                                                 <constraint firstItem="6VB-BL-Gb5" firstAttribute="width" secondItem="f4j-ch-Xfv" secondAttribute="width" multiplier="130/375" priority="999" id="mwp-Z7-4vb"/>
                                                 <constraint firstItem="XWg-q4-FeS" firstAttribute="width" secondItem="iWc-pG-jUt" secondAttribute="width" constant="-30" id="pWz-L0-VLW"/>
@@ -157,8 +158,47 @@
                                             <outlet property="statsCollectionView" destination="XWg-q4-FeS" id="XcD-Zu-cmD"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChartTableViewCell" rowHeight="104" id="ozo-np-MSO" customClass="ChartTableViewCell" customModule="Atlas" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="704" width="375" height="104"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ozo-np-MSO" id="MwI-MB-SG9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="103.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OVERALL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47T-PN-gQh">
+                                                    <rect key="frame" x="8" y="8" width="63" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
+                                                    <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RUN HISTORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvB-9Z-dhx">
+                                                    <rect key="frame" x="277" y="8" width="90" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                                    <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgp-nq-lnj" customClass="BarChartView" customModule="Charts">
+                                                    <rect key="frame" x="0.0" y="35" width="375" height="69"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="47T-PN-gQh" firstAttribute="leading" secondItem="MwI-MB-SG9" secondAttribute="leadingMargin" id="01L-ZJ-7Ku"/>
+                                                <constraint firstItem="zgp-nq-lnj" firstAttribute="top" secondItem="HvB-9Z-dhx" secondAttribute="bottom" constant="7.5" id="Eqv-2f-eHF"/>
+                                                <constraint firstAttribute="trailing" secondItem="zgp-nq-lnj" secondAttribute="trailing" id="Klg-kt-NCB"/>
+                                                <constraint firstItem="zgp-nq-lnj" firstAttribute="leading" secondItem="MwI-MB-SG9" secondAttribute="leading" id="NhE-rs-u9w"/>
+                                                <constraint firstItem="HvB-9Z-dhx" firstAttribute="top" secondItem="MwI-MB-SG9" secondAttribute="topMargin" id="X1Q-cL-tzF"/>
+                                                <constraint firstAttribute="bottom" secondItem="zgp-nq-lnj" secondAttribute="bottom" id="ety-jS-Ml1"/>
+                                                <constraint firstItem="47T-PN-gQh" firstAttribute="top" secondItem="MwI-MB-SG9" secondAttribute="topMargin" id="paQ-wp-Ob7"/>
+                                                <constraint firstItem="HvB-9Z-dhx" firstAttribute="trailing" secondItem="MwI-MB-SG9" secondAttribute="trailingMargin" id="q4n-pb-GHw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chartView" destination="zgp-nq-lnj" id="Tly-V0-ze0"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RunTableViewCell" rowHeight="84" id="9YU-GO-pmF" customClass="RunTableViewCell" customModule="Atlas" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="704" width="375" height="84"/>
+                                        <rect key="frame" x="0.0" y="808" width="375" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9YU-GO-pmF" id="bvv-uP-1P5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="83.5"/>

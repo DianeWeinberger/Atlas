@@ -43,7 +43,6 @@ class HomeViewModel  {
     return self.selectedIndex
       .startWith(0)
       .flatMapLatest { index -> Observable<[Event]> in
-        print(index)
         switch index {
         case 0: // My Activity
           return self.myActivity

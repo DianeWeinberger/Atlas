@@ -21,4 +21,6 @@ target 'Atlas' do
   pod 'SDWebImage'
   pod 'DeckTransition'
   pod 'RxKeyboard'
+  pod 'Charts'
+  pod 'ChartsRealm'
 end

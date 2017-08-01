@@ -4,6 +4,12 @@ PODS:
     - RxSwift (~> 3.4.0)
   - Auth0 (1.7.1):
     - SimpleKeychain
+  - Charts (3.0.2):
+    - Charts/Core (= 3.0.2)
+  - Charts/Core (3.0.2)
+  - ChartsRealm (3.0.2):
+    - Charts (~> 3.0.2)
+    - RealmSwift (~> 2.4)
   - DeckTransition (0.3.0)
   - Dotzu (1.8)
   - Lock (2.3.1):
@@ -47,6 +53,8 @@ PODS:
 DEPENDENCIES:
   - Action
   - Auth0
+  - Charts
+  - ChartsRealm
   - DeckTransition
   - Dotzu
   - Lock
@@ -67,6 +75,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Action: fed388b9160ad787a58cb34b5064db6dbaae7e45
   Auth0: b23f0d9f45bdcd70652f5427d3411519d79ddaa1
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
+  ChartsRealm: ed0332fd409298188a2b71e9548604165c987d42
   DeckTransition: 00ccc14e8a2347725241512d8b66ee5f0ae48116
   Dotzu: e787896f08474f4e4574baa20ec556361dfebf0c
   Lock: ff300a4039e2191bc1b2a29f6ed956412c252ffd
@@ -85,6 +95,6 @@ SPEC CHECKSUMS:
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: c1a0302c3fbc8b706eb4549011b43d6a1c917310
+PODFILE CHECKSUM: 9ded8977b3184f199607919d23460c2c9fa037d8
 
 COCOAPODS: 1.2.1

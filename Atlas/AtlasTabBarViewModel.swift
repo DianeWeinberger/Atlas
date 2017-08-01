@@ -20,7 +20,6 @@ struct AtlasTabBarViewModel  {
   }
   
   func didSelectRunTabBarItem() {
-    print("DID SELECT")
     let runViewModel = RunViewModel(coordinator: coordinator)
     coordinator.transition(to: RunScene.run(runViewModel), type: .modal)
   }

@@ -33,7 +33,10 @@ class RunViewModel {
   
   public lazy var distanceLabel: Observable<String> = {
     return self.distance
-      .map { "\($0) mi" }
+      .do(onNext: { miles in
+        print(miles.value)
+      })
+      .map { "\($0.value) mi" }
   }()
   
   public lazy var currentLocation: Observable<CLLocation> = {
@@ -53,30 +56,53 @@ class RunViewModel {
   
   // MARK: Private Observables
   
-  private lazy var distance: Observable<Double> = {
-    let previousLocations = self.currentLocation
-      .map { location in
-        return location as CLLocation?
-      }
-      .startWith(nil)
+  private lazy var distance: Observable<Measurement<UnitLength>> = {
+    typealias DistanceLocation = (totalDistance: Measurement<UnitLength>, location: CLLocation?)
     
     return self.currentLocation
-      .withLatestFrom(previousLocations, resultSelector: { current, prev -> (CLLocation, CLLocation?) in
-        return (current, prev)
-      })
-      .map { (current, prev) -> Measurement<UnitLength> in
-        guard let previous = prev else {
-          return Measurement(value: 0, unit: UnitLength.miles)
+      .scan((Measurement(value: 0, unit: UnitLength.miles), nil) as DistanceLocation) {
+        distanceLocation, currentLocation -> DistanceLocation in
+        
+        
+        guard let previousLocation = distanceLocation.location else {
+          return (distanceLocation.totalDistance, currentLocation)
         }
-        let distance = current.distance(from: previous)
-        return Measurement(value: distance, unit: UnitLength.miles)
+        
+        let distance = currentLocation.distance(from: previousLocation)
+        let miles = Measurement(value: distance, unit: UnitLength.miles)
+        
+        let totalMiles = distanceLocation.totalDistance + miles
+        
+        return (totalMiles, currentLocation)
       }
-      .scan(Measurement(value: 0, unit: UnitLength.miles), accumulator: { (accumulator, distance) -> Measurement<UnitLength> in
-        // Possibly replace with reduce
-        return accumulator + distance
-      })
-      .map { $0.value }
-      .share()
+      .map { distLoc -> Measurement<UnitLength> in
+          return distLoc.totalDistance
+      }
+    
+    
+//    let previousLocations = self.currentLocation
+//      .map { location in
+//        return location as CLLocation?
+//      }
+//      .startWith(nil)
+//    
+//    return self.currentLocation
+//      .withLatestFrom(previousLocations, resultSelector: { current, prev -> (CLLocation, CLLocation?) in
+//        return (current, prev)
+//      })
+//      .map { (current, prev) -> Measurement<UnitLength> in
+//        guard let previous = prev else {
+//          return Measurement(value: 0, unit: UnitLength.miles)
+//        }
+//        let distance = current.distance(from: previous)
+//        return Measurement(value: distance, unit: UnitLength.miles)
+//      }
+//      .scan(Measurement(value: 0, unit: UnitLength.miles), accumulator: { (accumulator, distance) -> Measurement<UnitLength> in
+//        // Possibly replace with reduce
+//        return accumulator + distance
+//      })
+//      .map { $0.value }
+//      .share()
   }()
   
   private lazy var elapsedTime: Observable<Int> = {
