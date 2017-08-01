@@ -18,6 +18,10 @@ class HomeViewController: UIViewController, BindableType {
   @IBOutlet weak var segmentedControl: TwicketSegmentedControl!
   
   var viewModel: HomeViewModel!
+  
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
 
 //  let user = Variable<User>(MockUser.ironMan())
   

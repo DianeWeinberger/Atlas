@@ -14,6 +14,10 @@ class ProfileViewController: UIViewController {
   
   let user = MockUser.ironMan()
   
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     

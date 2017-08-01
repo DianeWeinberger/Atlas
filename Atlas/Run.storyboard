@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -80,23 +81,27 @@
                                     <constraint firstItem="0SR-dt-0jd" firstAttribute="centerY" secondItem="Nmd-mh-NzA" secondAttribute="centerY" priority="999" id="zSn-py-bJa"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QP-JF-fY4">
-                                <rect key="frame" x="113" y="485.5" width="148" height="30"/>
-                                <state key="normal" title="PAUSE - Hold to Stop"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QP-JF-fY4">
+                                <rect key="frame" x="132" y="482" width="111" height="111"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4QP-JF-fY4" secondAttribute="height" multiplier="1:1" priority="999" id="oDS-qf-PKB"/>
+                                </constraints>
+                                <state key="normal" image="Pause_btn"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="nWj-Su-2AN" secondAttribute="trailing" id="39k-8a-9Vu"/>
+                            <constraint firstItem="4QP-JF-fY4" firstAttribute="centerX" secondItem="nWj-Su-2AN" secondAttribute="centerX" id="43Q-K3-k20"/>
                             <constraint firstItem="vgR-Qh-8wn" firstAttribute="top" secondItem="nWj-Su-2AN" secondAttribute="bottom" id="M9v-zt-aSd"/>
                             <constraint firstItem="nWj-Su-2AN" firstAttribute="height" secondItem="k3T-Us-FFS" secondAttribute="height" multiplier="531/667" id="PZS-zW-GXN"/>
-                            <constraint firstItem="4QP-JF-fY4" firstAttribute="centerX" secondItem="k3T-Us-FFS" secondAttribute="centerX" id="S6n-ny-3Ih"/>
                             <constraint firstItem="nWj-Su-2AN" firstAttribute="leading" secondItem="k3T-Us-FFS" secondAttribute="leading" id="Y9P-uk-AeY"/>
-                            <constraint firstItem="4QP-JF-fY4" firstAttribute="centerY" secondItem="k3T-Us-FFS" secondAttribute="centerY" multiplier="1.5" id="hYa-Vv-Kbx"/>
+                            <constraint firstItem="4QP-JF-fY4" firstAttribute="bottom" secondItem="nWj-Su-2AN" secondAttribute="bottom" constant="-25" id="j9C-cS-gTu"/>
                             <constraint firstItem="9oQ-3u-rrP" firstAttribute="leading" secondItem="k3T-Us-FFS" secondAttribute="leading" id="nDD-8l-ZQj"/>
                             <constraint firstItem="9oQ-3u-rrP" firstAttribute="top" secondItem="k3T-Us-FFS" secondAttribute="top" id="oEp-1V-i0f"/>
                             <constraint firstAttribute="trailing" secondItem="9oQ-3u-rrP" secondAttribute="trailing" id="rZM-mc-bKG"/>
                             <constraint firstItem="nWj-Su-2AN" firstAttribute="top" secondItem="9oQ-3u-rrP" secondAttribute="bottom" id="tei-c7-vPR"/>
+                            <constraint firstItem="4QP-JF-fY4" firstAttribute="width" secondItem="nWj-Su-2AN" secondAttribute="width" multiplier="111/375" id="tqz-NF-h5w"/>
                         </constraints>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -113,4 +118,7 @@
             <point key="canvasLocation" x="264.80000000000001" y="69.715142428785612"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Pause_btn" width="113" height="113"/>
+    </resources>
 </document>
