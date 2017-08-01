@@ -31,6 +31,8 @@
 		2376D81E1F2BE2BF00AE4084 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2376D8141F2BE2B300AE4084 /* OpenSans-SemiBoldItalic.ttf */; };
 		237BA7E81F2FE24D009F3F27 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237BA7E71F2FE24D009F3F27 /* ProfileViewController.swift */; };
 		237BA7EA1F2FE2BD009F3F27 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237BA7E91F2FE2BD009F3F27 /* ProfileTableViewCell.swift */; };
+		237BA7EC1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237BA7EB1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift */; };
+		237BA7EE1F30C37F009F3F27 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237BA7ED1F30C37F009F3F27 /* CellType.swift */; };
 		2385A2A71F1EACAF00DD0FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2385A2A61F1EACAF00DD0FDE /* AppDelegate.swift */; };
 		2385A2AC1F1EACAF00DD0FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AA1F1EACAF00DD0FDE /* Main.storyboard */; };
 		2385A2AE1F1EACAF00DD0FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2385A2AD1F1EACAF00DD0FDE /* Assets.xcassets */; };
@@ -96,6 +98,8 @@
 		2376D8141F2BE2B300AE4084 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		237BA7E71F2FE24D009F3F27 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		237BA7E91F2FE2BD009F3F27 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		237BA7EB1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatBlockCollectionViewCell.swift; sourceTree = "<group>"; };
+		237BA7ED1F30C37F009F3F27 /* CellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		2385A2A31F1EACAF00DD0FDE /* Atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2385A2A61F1EACAF00DD0FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2385A2AB1F1EACAF00DD0FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -297,6 +301,7 @@
 				23C8C21E1F1FE30E0056B4F2 /* BindableType.swift */,
 				23C8C2231F1FE4200056B4F2 /* TransitionType.swift */,
 				23C8C2341F1FEA9F0056B4F2 /* SceneType.swift */,
+				237BA7ED1F30C37F009F3F27 /* CellType.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 			children = (
 				233473A01F2A9B93003DB1C8 /* ConnectTableViewCell.swift */,
 				237BA7E91F2FE2BD009F3F27 /* ProfileTableViewCell.swift */,
+				237BA7EB1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -665,10 +671,12 @@
 				23C8C21F1F1FE30E0056B4F2 /* BindableType.swift in Sources */,
 				23C8C2351F1FEA9F0056B4F2 /* SceneType.swift in Sources */,
 				23E0D6651F2B9D2C005E8E9F /* ConnectViewModel.swift in Sources */,
+				237BA7EC1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift in Sources */,
 				23C8C2371F1FEACE0056B4F2 /* AuthScene.swift in Sources */,
 				23CB16C11F27A2A200310857 /* LogInViewModel.swift in Sources */,
 				230986371F1FB44400C5BC16 /* User.swift in Sources */,
 				237BA7E81F2FE24D009F3F27 /* ProfileViewController.swift in Sources */,
+				237BA7EE1F30C37F009F3F27 /* CellType.swift in Sources */,
 				230996AA1F26384000F94FD9 /* UIColor.swift in Sources */,
 				230996A81F26380D00F94FD9 /* Colors.swift in Sources */,
 				23C8C2161F1FDF140056B4F2 /* LandingViewController.swift in Sources */,

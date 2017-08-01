@@ -41,7 +41,7 @@ class ConnectViewController: UIViewController, BindableType {
 extension ConnectViewController {
   func configureTableView() {
     viewModel.displayedUsers
-      .bind(to: tableView.rx.items(cellIdentifier: "CONNECT_TABLEVIEW_CELL", cellType: ConnectTableViewCell.self)) {
+      .bind(to: tableView.rx.items(cellIdentifier: ConnectTableViewCell.reuseIdentifier, cellType: ConnectTableViewCell.self)) {
         row, user, cell in
         if let url = user.url {
           cell.avatarImageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "deadpool"))

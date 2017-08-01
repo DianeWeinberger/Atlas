@@ -9,6 +9,7 @@
 import Foundation
 import RxRealm
 import RealmSwift
+import RxSwift
 
 class User: Object {
   dynamic var id: String = ""
@@ -23,6 +24,12 @@ class User: Object {
   dynamic var runPreference: String = "Free"
   dynamic var imageURL: String = ""
 //  dynamic var goals: List<String> = List<String()
+  
+  dynamic var pace: TimeInterval = 0
+  dynamic var distance: Double = 0
+  dynamic var duration: TimeInterval = 0
+  dynamic var totalMiles: Double = 0
+  
   var runs: List<Run> = List<Run>()
   var history: List<Event> = List<Event>()
   var friends: List<User> = List<User>()
@@ -44,5 +51,14 @@ extension User {
   
   var fullName: String {
     return "\(firstName) \(lastName)"
+  }
+  
+  var stats: Observable<[StatBlock]> {
+    return Observable.of([
+      ("Average", "PACE", "\(pace)"),
+      ("Average", "DISTANCE", "\(distance)"),
+      ("Average", "DURATION", "\(duration)"),
+      ("Total Miles", "RUN", "\(totalMiles)")
+    ])
   }
 }

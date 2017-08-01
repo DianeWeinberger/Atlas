@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 import SDWebImage
 
 class ProfileTableViewCell: UITableViewCell {
@@ -19,6 +20,7 @@ class ProfileTableViewCell: UITableViewCell {
 //  @IBOutlet weak var paceBlock: StatBlock!
 //  @IBOutlet weak var distanceBlock: StatBlock!
   
+  @IBOutlet weak var statsCollectionView: UICollectionView!
   
   static let identifier = "PROFILE_TABLEVIEW_CELL"
   
@@ -43,6 +45,29 @@ class ProfileTableViewCell: UITableViewCell {
       self.profileImageView.layer.borderColor = Colors.orange.cgColor
     }
     self.nameLabel.text = user.fullName
-    //    self.locationLabel
+    
+    statsCollectionView.rx.setDelegate(self)
+//    statsCollectionView.collectionViewLayout.
+    
+    Observable.of(user)
+      .flatMap { user in user.stats }
+      .bind(to: statsCollectionView.rx.items(cellIdentifier: StatBlockCollectionViewCell.reuseIdentifier, cellType: StatBlockCollectionViewCell.self)) {
+        row, statBlock, cell in
+        cell.configure(block: statBlock)
+      }
+      .addDisposableTo(rx_disposeBag)
+  }
+}
+
+extension ProfileTableViewCell: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let width = collectionView.bounds.width
+    let cellWidth = (width - 15) / 2
+    let cellHeight = 103/167 * cellWidth
+    return CGSize(width: cellWidth, height: cellHeight)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return 10
   }
 }
