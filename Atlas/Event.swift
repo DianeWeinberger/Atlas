@@ -25,6 +25,7 @@ class Event: Object {
     return ["timestamp", "title"]
   }
   
+  // TODO: Create generic
   static let sortEarliest: (Event, Event) -> Bool = { a, b in
     return a.timestamp.isBefore(date: b.timestamp)
   }

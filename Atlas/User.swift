@@ -73,4 +73,8 @@ extension User {
     
     return Observable.of(friendHistory)
   }
+  
+  var sortedRuns: [Run] {
+    return runs.sorted(by: Run.sortEarliest)
+  }
 }

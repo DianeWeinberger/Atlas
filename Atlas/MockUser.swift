@@ -163,15 +163,15 @@ struct MockUser {
 extension MockUser {
   static func generateRuns(user: User) -> List<Run> {
     let generatedRuns = (0...arc4random_uniform(15)).map { _ -> Run in
-      let months = Int(arc4random_uniform(12)) - 6
-      let days = Int(arc4random_uniform(60)) - 30
-      let minutes = Int(arc4random_uniform(600)) - 300
+      let months = Int(arc4random_uniform(6))
+      let days = Int(arc4random_uniform(30)) - Int(arc4random_uniform(60))
+      let minutes = Int(arc4random_uniform(300)) - Int(arc4random_uniform(300))
       let distance = Double(arc4random_uniform(2000)) / 100
       let pace = Double(arc4random_uniform(1500)) / 100
       let time = Double(arc4random_uniform(1000)) / Double(arc4random_uniform(80))
       
       let run = Run()
-      run.timestamp = Date().before(days: months).after(days: days).before(minutes: minutes)
+      run.timestamp = Date().before(months: months).after(days: days).before(minutes: minutes)
       run.distance = distance
       run.pace = pace
       run.time = time

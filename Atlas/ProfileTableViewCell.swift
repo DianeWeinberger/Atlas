@@ -58,7 +58,6 @@ class ProfileTableViewCell: UITableViewCell {
           cell.configure(block: statBlock)
         }
         .addDisposableTo(this.rx_disposeBag)
-
     }
     
   }

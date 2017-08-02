@@ -16,6 +16,7 @@ class ChartTableViewCell: UITableViewCell {
   
   let user = User()
   
+  // TODO: Refactor
   func configure(from user: User) {
     chartView.noDataText = "No Run Data"
     let description = Description()
@@ -44,7 +45,17 @@ class ChartTableViewCell: UITableViewCell {
     let chartDataSet = BarChartDataSet(values: dataEntries, label: "Number of Runs")
     let chartData = BarChartData(dataSet: chartDataSet)
     
+    chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+    chartView.xAxis.granularity = 1
+    chartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
     chartView.data = chartData
+    
+    chartView.xAxis.drawGridLinesEnabled = false
+    chartView.xAxis.drawAxisLineEnabled = false
+    
+    chartView.leftAxis.granularity = 1
+    chartView.rightAxis.enabled = false
+    
   }
 
 }

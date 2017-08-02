@@ -43,7 +43,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
       
     default:
       let cell = tableView.dequeueReusableCell(withIdentifier: RunTableViewCell.reuseIdentifier, for: indexPath) as! RunTableViewCell
-      let run = user.runs[indexPath.row]
+      let run = user.sortedRuns[indexPath.row]
       cell.configure(run: run)
       return cell
       

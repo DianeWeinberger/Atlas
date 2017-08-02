@@ -28,4 +28,8 @@ class Run: Object {
   override static func indexedProperties() -> [String] {
     return ["timestamp"]
   }
+  
+  static let sortEarliest: (Run, Run) -> Bool = { a, b in
+    return a.timestamp.isBefore(date: b.timestamp)
+  }
 }

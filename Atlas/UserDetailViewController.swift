@@ -41,7 +41,7 @@ class UserDetailViewController: UIViewController {
   
   fileprivate lazy var runs: Observable<[Run]> = {
     return self.user.asObservable()
-      .map { $0.runs.toArray() }
+      .map { $0.sortedRuns }
   }()
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
