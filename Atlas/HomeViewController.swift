@@ -20,6 +20,8 @@ class HomeViewController: UIViewController, BindableType {
   
   var viewModel: HomeViewModel!
   
+  var pastelView: PastelView?
+  
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
   }
@@ -41,6 +43,15 @@ class HomeViewController: UIViewController, BindableType {
     configureGradient()
 
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    guard let pastelView = self.pastelView else { return }
+    
+    pastelView.startAnimation()
+  }
+  
   
   func bindViewModel() {
     viewModel.selectedIndex = segmentedControl.didSelect.asObservable()
@@ -79,25 +90,26 @@ extension HomeViewController {
   
   func configureGradient() {
     let pastelView = PastelView(frame: bannerView.frame)
-    
+    self.pastelView = pastelView
     // Custom Direction
     pastelView.startPastelPoint = .bottomLeft
     pastelView.endPastelPoint = .topRight
     
     // Custom Duration
-    pastelView.animationDuration = 3.0
+    pastelView.animationDuration = 3
     
     pastelView.startAnimation()
     
     pastelView.setColors([
       Colors.orange.orangeRed,
       Colors.orange.peach,
+      Colors.red.carnation,
       Colors.red.pinkishRed,
-      Colors.red.carnation
-      
+      Colors.blue.azure,
+      Colors.blue.dodger
     ])
     
-    pastelView.alpha = 0.1
+    pastelView.alpha = 0.15
     
     bannerView.insertSubview(pastelView, at: 0)
   }
