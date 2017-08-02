@@ -69,12 +69,12 @@ extension User {
   var friendsActivity: Observable<[Event]> {
     let friendHistory = friends.toArray()
       .flatMap { $0.history }
-      .sorted(by: Event.sortEarliest)
+      .sorted(by: Event.sortLatest)
     
     return Observable.of(friendHistory)
   }
   
   var sortedRuns: [Run] {
-    return runs.sorted(by: Run.sortEarliest)
+    return runs.sorted(by: Run.sortLatest)
   }
 }

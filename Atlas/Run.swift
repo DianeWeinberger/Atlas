@@ -32,4 +32,8 @@ class Run: Object {
   static let sortEarliest: (Run, Run) -> Bool = { a, b in
     return a.timestamp.isBefore(date: b.timestamp)
   }
+  
+  static let sortLatest: (Run, Run) -> Bool = { a, b in
+    return a.timestamp.isAfter(date: b.timestamp)
+  }
 }

@@ -33,7 +33,7 @@ class HomeViewModel  {
       .map { friends -> [Event] in
         return friends
           .flatMap { $0.history }
-          .sorted(by: Event.sortEarliest)
+          .sorted(by: Event.sortLatest)
       }
   }()
   

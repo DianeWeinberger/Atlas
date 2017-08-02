@@ -29,4 +29,8 @@ class Event: Object {
   static let sortEarliest: (Event, Event) -> Bool = { a, b in
     return a.timestamp.isBefore(date: b.timestamp)
   }
+  
+  static let sortLatest: (Event, Event) -> Bool = { a, b in
+    return a.timestamp.isAfter(date: b.timestamp)
+  }
 }
