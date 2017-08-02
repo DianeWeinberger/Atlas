@@ -21,6 +21,7 @@ class HomeViewController: UIViewController, BindableType {
   var viewModel: HomeViewModel!
   
   var pastelView: PastelView?
+  var header = HomeHeaderView()
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -32,8 +33,9 @@ class HomeViewController: UIViewController, BindableType {
     super.viewDidLoad()
     
 //    logoView.layer.cornerRadius = logoView.bounds.height / 2
-//    
-    bindViewModel()
+    
+    
+    
 //    configureSegmentedControl()
 //    configureTableView()
   }
@@ -41,7 +43,18 @@ class HomeViewController: UIViewController, BindableType {
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
 //    configureGradient()
-
+    
+    let headerSize = CGSize(width: self.tableView.frame.width,
+                            height: self.tableView.frame.height * 0.6)
+    self.header = HomeHeaderView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+    
+    self.tableView.addSubview(self.header)
+    self.header.translatesAutoresizingMaskIntoConstraints = false
+    self.header.topAnchor.constraint(equalTo: self.tableView.topAnchor).isActive = true
+    self.header.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
+    self.header.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
+    self.header.heightAnchor.constraint(equalTo: self.tableView.heightAnchor, multiplier: 0.6).isActive = true
+    bindViewModel()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -54,7 +67,7 @@ class HomeViewController: UIViewController, BindableType {
   
   
   func bindViewModel() {
-    viewModel.selectedIndex = segmentedControl.didSelect.asObservable()
+    viewModel.selectedIndex = header.segmentedControl.didSelect.asObservable()
   }
 }
 

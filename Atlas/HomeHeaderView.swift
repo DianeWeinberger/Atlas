@@ -13,7 +13,7 @@ import RxCocoa
 import Pastel
 import TwicketSegmentedControl
 
-class HomeHeaderView: UIView {
+class HomeHeaderView: GSKStretchyHeaderView {
 
   let bannerView = UIImageView()
   let logoView = UIImage()
@@ -21,6 +21,14 @@ class HomeHeaderView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
+    
+    minimumContentHeight = 100
+    maximumContentHeight = 300
+    
+    contentShrinks = true
+    contentExpands = true
+    
+    expansionMode = GSKStretchyHeaderViewExpansionMode.immediate
     
     configureBannerView()
     configureSegmentedControl()
@@ -31,6 +39,7 @@ class HomeHeaderView: UIView {
   }
   
   func configureBannerView() {
+    addSubview(bannerView)
     bannerView.image = #imageLiteral(resourceName: "Cover")
     bannerView.translatesAutoresizingMaskIntoConstraints = false
     bannerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -40,6 +49,7 @@ class HomeHeaderView: UIView {
   }
   
   func configureSegmentedControl() {
+    addSubview(segmentedControl)
     segmentedControl.translatesAutoresizingMaskIntoConstraints = false
     segmentedControl.topAnchor.constraint(equalTo: bannerView.bottomAnchor).isActive = true
     segmentedControl.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
