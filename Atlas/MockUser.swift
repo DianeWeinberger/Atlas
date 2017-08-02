@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Fakery
 
 struct MockUser {
   static func ironMan() -> User {
@@ -18,7 +19,7 @@ struct MockUser {
     tony.email = "tony@starkindustries.com"
     tony.height = 69
     tony.weight = 150
-    tony.zipCode = 10001
+    tony.city = "New York, NY"
     tony.imageURL = "http://vignette4.wikia.nocookie.net/marvelmovies/images/9/9a/Iron-man-site-tony-stark.jpg"
 
     let event1 = Event()
@@ -33,26 +34,11 @@ struct MockUser {
     event2.timestamp = Date().before(days: 4).after(hours: 2)
     event2.user = tony
     tony.history.append(objectsIn: [event1, event2])
-//    
-//    
-//
-//    let run1 = Run()
-//    run1.timestamp = Date().before(months: 1).after(days: 7)
-//    run1.distance = 3
-//    run1.pace = 2.5
-//    run1.time = 100
-//    run1.runner = tony
-//    
-//    let run2 = Run()
-//    run2.timestamp = Date().before(months: 3).after(days: 15)
-//    run2.distance = 1
-//    run2.pace = 1.8
-//    run2.time = 150
-//    run1.runner = tony
     
     tony.runs = MockUser.generateRuns(user: tony)
     
-    tony.friends.append(objectsIn: [captainAmerica(), hulk()])
+    let friends = [captainAmerica(), hulk()] + MockUser.generateUsers(max: 10)
+    tony.friends.append(objectsIn: friends)
     return tony
   }
   
@@ -64,7 +50,7 @@ struct MockUser {
     cap.email = "steve@avengers.net"
     cap.height = 72
     cap.weight = 180
-    cap.zipCode = 10001
+    cap.city = "Brooklyn, NY"
     cap.imageURL = "http://cdn3-www.superherohype.com/assets/uploads/gallery/captain_america_4979/captain_america_the_winter_soldier_7927/captws_captainamerica_avatar.jpg"
     
     let event1 = Event()
@@ -95,7 +81,7 @@ struct MockUser {
     bruce.email = "bruce@avengers.net"
     bruce.height = 69
     bruce.weight = 140
-    bruce.zipCode = 10001
+    bruce.city = "New York, NY"
     bruce.imageURL = "http://static.tumblr.com/jds6vf6/XS1maszup/avengersmarkruffalobrucebanner.png"
 
     let event1 = Event()
@@ -132,7 +118,7 @@ struct MockUser {
     matt.email = "matt@murdockandnelson.com"
     matt.height = 70
     matt.weight = 140
-    matt.zipCode = 10010
+    matt.city = "New York, NY"
     matt.imageURL = "http://orig09.deviantart.net/6b4d/f/2015/210/d/0/woah_baby___matt_murdock_x_reader_by_latte_to_go-d93bxt6.jpg"
 
     let event1 = Event()
@@ -184,4 +170,31 @@ extension MockUser {
     list.append(objectsIn: generatedRuns)
     return list
   }
+  
+  static func generateUsers(max: UInt32) -> [User] {
+    let num = Int(arc4random_uniform(max))
+    let faker = Faker.init()
+    
+    return (0...num).map({ _ -> User in
+      let user = User()
+      user.firstName = faker.name.firstName()
+      user.lastName = faker.name.lastName()
+      user.email = faker.internet.email()
+      user.imageURL = Int(arc4random_uniform(10)) % 2 == 0 ? "" : faker.internet.image()
+//      user.phoneNumber = faker.phoneNumber.cellPhone().replacingOccurrences(of: "-", with: "") as! Int
+      user.city = "\(faker.address.city()), \(faker.address.stateAbbreviation())"
+      user.height = Double(arc4random_uniform(80))
+      user.weight = Double(arc4random_uniform(200))
+      
+      user.runs = generateRuns(user: user)
+      return user
+    })
+  }
+  
+  static var users: List<User> = {
+    var users = List<User>()
+    let all = [MockUser.dareDevil()] + MockUser.generateUsers(max: 50)
+    users.append(objectsIn: all)
+    return users
+  }()
 }

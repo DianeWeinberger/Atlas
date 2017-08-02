@@ -71,14 +71,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deadpool" translatesAutoresizingMaskIntoConstraints="NO" id="Xvu-Dp-YNs">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xvu-Dp-YNs" customClass="AvatarImageView" customModule="AvatarImageView">
                                                     <rect key="frame" x="20" y="10" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Xvu-Dp-YNs" secondAttribute="height" multiplier="1:1" id="j2s-WO-2ZL"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="just completed a 5k run!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IX-UD-NMS">
-                                                    <rect key="frame" x="281" y="41.5" width="136" height="17"/>
+                                                    <rect key="frame" x="281" y="42" width="136" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -90,7 +90,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:20 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmm-KS-ZwH">
-                                                    <rect key="frame" x="93" y="22" width="52.5" height="17"/>
+                                                    <rect key="frame" x="93" y="22.5" width="52" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -112,7 +112,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="activityLabel" destination="4IX-UD-NMS" id="gj7-W0-mjw"/>
-                                            <outlet property="avatarImageView" destination="Xvu-Dp-YNs" id="Uww-no-1vn"/>
+                                            <outlet property="avatarImageView" destination="Xvu-Dp-YNs" id="Y83-gc-nDn"/>
                                             <outlet property="nameLabel" destination="tnQ-G1-Tc7" id="GgC-SD-Azm"/>
                                             <outlet property="timeLabel" destination="Mmm-KS-ZwH" id="o0l-fK-Caa"/>
                                         </connections>
@@ -192,7 +192,6 @@
     </scenes>
     <resources>
         <image name="NewAtlasLogoclear" width="70" height="71"/>
-        <image name="deadpool" width="500" height="500"/>
         <image name="home" width="21" height="19"/>
         <image name="home_banner" width="375" height="154"/>
     </resources>

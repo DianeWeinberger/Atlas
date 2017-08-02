@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import AvatarImageView
 
 class ActivityTableViewCell: UITableViewCell {
 
-  @IBOutlet weak var avatarImageView: UIImageView!
+  @IBOutlet weak var avatarImageView: AvatarImageView!
   @IBOutlet weak var activityLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var nameLabel: UILabel!

@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import AvatarImageView
+import Kingfisher
 
 class ConnectTableViewCell: UITableViewCell {
 
-  @IBOutlet weak var avatarImageView: UIImageView!
+  @IBOutlet weak var avatarImageView: AvatarImageView!
   @IBOutlet weak var nameTextLabel: UILabel!
   @IBOutlet weak var locationTextLabel: UILabel!
   @IBOutlet weak var paceTextLabel: UILabel!
-
-  override func layoutSubviews() {
-    avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
-    avatarImageView.layer.masksToBounds = true
+  
+  func configure(from user: User) {
+    avatarImageView.configuration = AvatarConfig.shared
+    avatarImageView.dataSource = user.avatarData
+    if !user.imageURL.isEmpty, let url = user.url {
+      avatarImageView.kf.roundedImage(with: url)
+    }
+    nameTextLabel.text = "\(user.firstName) \(user.lastName)"
   }
 }
+

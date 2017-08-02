@@ -11,6 +11,7 @@ PODS:
     - PINRemoteImage/PINCache
   - Auth0 (1.7.1):
     - SimpleKeychain
+  - AvatarImageView (2.0.3)
   - BouncyLayout (1.1.0)
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
@@ -20,6 +21,8 @@ PODS:
     - RealmSwift (~> 2.4)
   - DeckTransition (0.3.0)
   - Dotzu (1.8)
+  - Fakery (2.0.0)
+  - Kingfisher (3.10.3)
   - Lock (2.3.1):
     - Auth0 (~> 1.6)
     - Lock/Classic (= 2.3.1)
@@ -78,11 +81,14 @@ PODS:
 DEPENDENCIES:
   - Action
   - Auth0
+  - AvatarImageView
   - BouncyLayout
   - Charts
   - ChartsRealm
   - DeckTransition
   - Dotzu
+  - Fakery
+  - Kingfisher
   - Lock
   - NMessenger
   - NSObject+Rx
@@ -104,11 +110,14 @@ SPEC CHECKSUMS:
   Action: fed388b9160ad787a58cb34b5064db6dbaae7e45
   AsyncDisplayKit: 1585f6cd0531ae9b30476f5912f577b73ebcb0e4
   Auth0: b23f0d9f45bdcd70652f5427d3411519d79ddaa1
+  AvatarImageView: 25541e2051124e730c7a1b97f5e5b9345fbc1cfc
   BouncyLayout: f91c6504437a61acd733404f55f75bd8154f5840
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   ChartsRealm: ed0332fd409298188a2b71e9548604165c987d42
   DeckTransition: 00ccc14e8a2347725241512d8b66ee5f0ae48116
   Dotzu: e787896f08474f4e4574baa20ec556361dfebf0c
+  Fakery: 97b99c23937d2e025d9135c75e2b17351ccd5031
+  Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   Lock: ff300a4039e2191bc1b2a29f6ed956412c252ffd
   NMessenger: ca6a89073ca40d3868cf45505f6f8318853afd40
   NSObject+Rx: '09277ba78aa12a8e454c82429eb4e31bfb413131'
@@ -130,6 +139,6 @@ SPEC CHECKSUMS:
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: e4380827b3acd32250539bc70098f3dc1a23de03
+PODFILE CHECKSUM: d24acc6bd8626a221d0a81f03a3c5aee0a9b6627
 
 COCOAPODS: 1.2.1

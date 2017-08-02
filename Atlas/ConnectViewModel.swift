@@ -36,6 +36,7 @@ class ConnectViewModel  {
   // MARK: Observables
   fileprivate lazy var selectedUserGroup: Observable<[User]> = {
     return self.selectedIndex
+      .startWith(0)
       .flatMapLatest { index -> Observable<[User]> in
         switch index {
         case 0: // Find
@@ -56,7 +57,7 @@ class ConnectViewModel  {
     coordinator.transition(to: ConnectScene.details(user), type: .modal)
   }
   
-  fileprivate let allUsers = Variable<[User]>([MockUser.dareDevil()])
+  fileprivate let allUsers = Variable<[User]>(MockUser.users.toArray())
   
   fileprivate let user = Variable<User>(MockUser.ironMan())
 

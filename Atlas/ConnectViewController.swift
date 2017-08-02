@@ -28,9 +28,7 @@ class ConnectViewController: UIViewController, BindableType {
     configureNavigation()
     configureSearchBar()
     configureSegmentedControl()
-    configureTableView() // Do last. Requires observables to be set up.
-    
-//    searchBar.rx
+    configureTableView() // Configure last. Requires observables to be set up.
   }
   
   func bindViewModel() {
@@ -45,13 +43,7 @@ extension ConnectViewController {
     viewModel.displayedUsers
       .bind(to: tableView.rx.items(cellIdentifier: ConnectTableViewCell.reuseIdentifier, cellType: ConnectTableViewCell.self)) {
         row, user, cell in
-        cell.avatarImageView.layer.cornerRadius = cell.avatarImageView.frame.width / 2
-        cell.avatarImageView.layer.masksToBounds = true
-        if let url = user.url {
-          cell.avatarImageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "deadpool"))
-        }
-        cell.nameTextLabel.text = "\(user.firstName) \(user.lastName)"
-        //        cell.locationTextLabel.text =
+        cell.configure(from: user)
       }
       .addDisposableTo(rx_disposeBag)
     

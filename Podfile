@@ -26,4 +26,7 @@ target 'Atlas' do
   pod 'NMessenger'
   pod 'BouncyLayout'
   pod 'Pastel'
+  pod 'Fakery'
+  pod 'AvatarImageView'
+  pod 'Kingfisher'
 end
