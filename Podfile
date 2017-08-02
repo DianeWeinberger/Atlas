@@ -23,4 +23,7 @@ target 'Atlas' do
   pod 'RxKeyboard'
   pod 'Charts'
   pod 'ChartsRealm'
+  pod 'NMessenger'
+  pod 'BouncyLayout'
+  pod 'Pastel'
 end

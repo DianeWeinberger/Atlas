@@ -2,8 +2,16 @@ PODS:
   - Action (3.0.0):
     - RxCocoa (~> 3.4.0)
     - RxSwift (~> 3.4.0)
+  - AsyncDisplayKit (2.2):
+    - AsyncDisplayKit/PINRemoteImage (= 2.2)
+  - AsyncDisplayKit/Core (2.2)
+  - AsyncDisplayKit/PINRemoteImage (2.2):
+    - AsyncDisplayKit/Core
+    - PINRemoteImage/iOS (= 3.0.0-beta.8)
+    - PINRemoteImage/PINCache
   - Auth0 (1.7.1):
     - SimpleKeychain
+  - BouncyLayout (1.1.0)
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
@@ -17,8 +25,25 @@ PODS:
     - Lock/Classic (= 2.3.1)
   - Lock/Classic (2.3.1):
     - Auth0 (~> 1.6)
+  - NMessenger (1.0.80):
+    - AsyncDisplayKit (= 2.2)
   - NSObject+Rx (2.1.0):
     - RxSwift
+  - Pastel (0.3.0)
+  - PINCache (3.0.1-beta.4):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.4)
+    - PINCache/Core (= 3.0.1-beta.4)
+  - PINCache/Arc-exception-safe (3.0.1-beta.4):
+    - PINCache/Core
+  - PINCache/Core (3.0.1-beta.4):
+    - PINOperation (= 1.0.3)
+  - PINOperation (1.0.3)
+  - PINRemoteImage/Core (3.0.0-beta.8)
+  - PINRemoteImage/iOS (3.0.0-beta.8):
+    - PINRemoteImage/Core
+  - PINRemoteImage/PINCache (3.0.0-beta.8):
+    - PINCache (= 3.0.1-beta.4)
+    - PINRemoteImage/Core
   - Realm (2.6.2):
     - Realm/Headers (= 2.6.2)
   - Realm/Headers (2.6.2)
@@ -53,12 +78,15 @@ PODS:
 DEPENDENCIES:
   - Action
   - Auth0
+  - BouncyLayout
   - Charts
   - ChartsRealm
   - DeckTransition
   - Dotzu
   - Lock
+  - NMessenger
   - NSObject+Rx
+  - Pastel
   - RealmSwift
   - RxCocoa
   - RxDataSources
@@ -74,13 +102,20 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Action: fed388b9160ad787a58cb34b5064db6dbaae7e45
+  AsyncDisplayKit: 1585f6cd0531ae9b30476f5912f577b73ebcb0e4
   Auth0: b23f0d9f45bdcd70652f5427d3411519d79ddaa1
+  BouncyLayout: f91c6504437a61acd733404f55f75bd8154f5840
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   ChartsRealm: ed0332fd409298188a2b71e9548604165c987d42
   DeckTransition: 00ccc14e8a2347725241512d8b66ee5f0ae48116
   Dotzu: e787896f08474f4e4574baa20ec556361dfebf0c
   Lock: ff300a4039e2191bc1b2a29f6ed956412c252ffd
+  NMessenger: ca6a89073ca40d3868cf45505f6f8318853afd40
   NSObject+Rx: '09277ba78aa12a8e454c82429eb4e31bfb413131'
+  Pastel: 738740c84f2b15bbcd96ebe99c4e6c2f5dd42262
+  PINCache: a89c8f609232afac77128557bd12c861844423d7
+  PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
+  PINRemoteImage: c4f9f16932840c597f32e69dd288e10e111a1929
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
   RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
   RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
@@ -95,6 +130,6 @@ SPEC CHECKSUMS:
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: 9ded8977b3184f199607919d23460c2c9fa037d8
+PODFILE CHECKSUM: e4380827b3acd32250539bc70098f3dc1a23de03
 
 COCOAPODS: 1.2.1

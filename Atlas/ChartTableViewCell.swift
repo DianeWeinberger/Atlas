@@ -37,7 +37,6 @@ class ChartTableViewCell: UITableViewCell {
     }
     
     let dataEntries: [BarChartDataEntry] = data.map { month, count in
-      print(month)
       let index = months.index(of: month) ?? 0
       return BarChartDataEntry(x: Double(index), y: Double(count))
     }
