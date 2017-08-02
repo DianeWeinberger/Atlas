@@ -31,25 +31,25 @@ class HomeViewController: UIViewController, BindableType {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    logoView.layer.cornerRadius = logoView.bounds.height / 2
-    
+//    logoView.layer.cornerRadius = logoView.bounds.height / 2
+//    
     bindViewModel()
-    configureSegmentedControl()
-    configureTableView()
+//    configureSegmentedControl()
+//    configureTableView()
   }
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    configureGradient()
+//    configureGradient()
 
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    guard let pastelView = self.pastelView else { return }
-    
-    pastelView.startAnimation()
+//    guard let pastelView = self.pastelView else { return }
+//    
+//    pastelView.startAnimation()
   }
   
   

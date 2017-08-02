@@ -22,6 +22,7 @@ PODS:
   - DeckTransition (0.3.0)
   - Dotzu (1.8)
   - Fakery (2.0.0)
+  - GSKStretchyHeaderView (1.0.1)
   - Kingfisher (3.10.3)
   - Lock (2.3.1):
     - Auth0 (~> 1.6)
@@ -76,6 +77,7 @@ PODS:
   - SDWebImage/Core (4.0.0)
   - SimpleKeychain (0.8.0)
   - SwiftyImage (1.1.0)
+  - TwicketSegmentedControl (0.1.2)
   - Whisper (5.0.0)
 
 DEPENDENCIES:
@@ -88,6 +90,7 @@ DEPENDENCIES:
   - DeckTransition
   - Dotzu
   - Fakery
+  - GSKStretchyHeaderView
   - Kingfisher
   - Lock
   - NMessenger
@@ -104,6 +107,7 @@ DEPENDENCIES:
   - SDWebImage
   - SimpleKeychain
   - SwiftyImage
+  - TwicketSegmentedControl
   - Whisper
 
 SPEC CHECKSUMS:
@@ -117,6 +121,7 @@ SPEC CHECKSUMS:
   DeckTransition: 00ccc14e8a2347725241512d8b66ee5f0ae48116
   Dotzu: e787896f08474f4e4574baa20ec556361dfebf0c
   Fakery: 97b99c23937d2e025d9135c75e2b17351ccd5031
+  GSKStretchyHeaderView: c7e7fddd73396764c9bd7aea81cf934af7f8afd2
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   Lock: ff300a4039e2191bc1b2a29f6ed956412c252ffd
   NMessenger: ca6a89073ca40d3868cf45505f6f8318853afd40
@@ -137,8 +142,9 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SimpleKeychain: 84c748463eec601dfee5e7990f55cc82edc5488d
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
+  TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: d24acc6bd8626a221d0a81f03a3c5aee0a9b6627
+PODFILE CHECKSUM: f5f32ef9f23d8a5f7d9399a3afd4173408c2b199
 
 COCOAPODS: 1.2.1

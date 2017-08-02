@@ -81,6 +81,7 @@
 		23E0D66D1F2BBB7D005E8E9F /* TwicketSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0D66A1F2BBB7D005E8E9F /* TwicketSegmentedControl.swift */; };
 		23E0D66E1F2BBB7D005E8E9F /* UIViewShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0D66B1F2BBB7D005E8E9F /* UIViewShadowExtension.swift */; };
 		23E23A961F327298003FCE4E /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E23A951F327298003FCE4E /* Kingfisher.swift */; };
+		23E23A981F329058003FCE4E /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E23A971F329058003FCE4E /* HomeHeaderView.swift */; };
 		69AF444DA16B29D2728F947B /* Pods_Atlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF380FC0BB4B728207972622 /* Pods_Atlas.framework */; };
 /* End PBXBuildFile section */
 
@@ -161,6 +162,7 @@
 		23E0D66A1F2BBB7D005E8E9F /* TwicketSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwicketSegmentedControl.swift; sourceTree = "<group>"; };
 		23E0D66B1F2BBB7D005E8E9F /* UIViewShadowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewShadowExtension.swift; sourceTree = "<group>"; };
 		23E23A951F327298003FCE4E /* Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
+		23E23A971F329058003FCE4E /* HomeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		3829EB387CBB4C9E808588D9 /* Pods-Atlas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.debug.xcconfig"; sourceTree = "<group>"; };
 		94A21020256249F402D96D5C /* Pods-Atlas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.release.xcconfig"; sourceTree = "<group>"; };
 		CF380FC0BB4B728207972622 /* Pods_Atlas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Atlas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				2385A2C21F1EAD3700DD0FDE /* Cells */,
+				23E23A971F329058003FCE4E /* HomeHeaderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				23E23A961F327298003FCE4E /* Kingfisher.swift in Sources */,
 				2376D8081F2BD30900AE4084 /* UserDetailViewController.swift in Sources */,
 				239124BD1F32635E0025EC25 /* User+AvatarData.swift in Sources */,
+				23E23A981F329058003FCE4E /* HomeHeaderView.swift in Sources */,
 				239B2C381F312648007BC817 /* ChartTableViewCell.swift in Sources */,
 				23C8C2181F1FE0B40056B4F2 /* CoordinatorType.swift in Sources */,
 				230996AE1F263DA100F94FD9 /* MockUser.swift in Sources */,
