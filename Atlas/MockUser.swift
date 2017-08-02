@@ -33,22 +33,24 @@ struct MockUser {
     event2.timestamp = Date().before(days: 4).after(hours: 2)
     event2.user = tony
     tony.history.append(objectsIn: [event1, event2])
-
-    let run1 = Run()
-    run1.timestamp = Date().before(months: 1).after(days: 7)
-    run1.distance = 3
-    run1.pace = 2.5
-    run1.time = 100
-    run1.runner = tony
+//    
+//    
+//
+//    let run1 = Run()
+//    run1.timestamp = Date().before(months: 1).after(days: 7)
+//    run1.distance = 3
+//    run1.pace = 2.5
+//    run1.time = 100
+//    run1.runner = tony
+//    
+//    let run2 = Run()
+//    run2.timestamp = Date().before(months: 3).after(days: 15)
+//    run2.distance = 1
+//    run2.pace = 1.8
+//    run2.time = 150
+//    run1.runner = tony
     
-    let run2 = Run()
-    run2.timestamp = Date().before(months: 3).after(days: 15)
-    run2.distance = 1
-    run2.pace = 1.8
-    run2.time = 150
-    run1.runner = tony
-    
-    tony.runs.append(objectsIn: [run1, run2])
+    tony.runs = MockUser.generateRuns(user: tony)
     
     tony.friends.append(objectsIn: [captainAmerica(), hulk()])
     return tony
@@ -80,7 +82,8 @@ struct MockUser {
     cap.history.append(objectsIn: [event1, event2])
     
 //    cap.friends.append(objectsIn: [ironMan(), hulk()])
-
+    cap.runs = MockUser.generateRuns(user: cap)
+    
     return cap
   }
   
@@ -114,7 +117,8 @@ struct MockUser {
     event3.user = bruce
     
     bruce.history.append(objectsIn: [event1, event2, event3])
-    
+    bruce.runs = MockUser.generateRuns(user: bruce)
+
 //    bruce.friends.append(objectsIn: [ironMan(), captainAmerica()])
 
     return bruce
@@ -150,8 +154,34 @@ struct MockUser {
     event3.user = matt
     
     matt.history.append(objectsIn: [event1, event2, event3])
-    
+    matt.runs = MockUser.generateRuns(user: matt)
+
     return matt
   }
-  
+}
+
+extension MockUser {
+  static func generateRuns(user: User) -> List<Run> {
+    let generatedRuns = (0...arc4random_uniform(15)).map { _ -> Run in
+      let months = Int(arc4random_uniform(12)) - 6
+      let days = Int(arc4random_uniform(60)) - 30
+      let minutes = Int(arc4random_uniform(600)) - 300
+      let distance = Double(arc4random_uniform(2000)) / 100
+      let pace = Double(arc4random_uniform(1500)) / 100
+      let time = Double(arc4random_uniform(1000)) / Double(arc4random_uniform(80))
+      
+      let run = Run()
+      run.timestamp = Date().before(days: months).after(days: days).before(minutes: minutes)
+      run.distance = distance
+      run.pace = pace
+      run.time = time
+      run.runner = user
+      
+      return run
+    }
+    
+    let list = List<Run>()
+    list.append(objectsIn: generatedRuns)
+    return list
+  }
 }

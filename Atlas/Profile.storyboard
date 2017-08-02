@@ -297,6 +297,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Jus-Ol-yJ4" id="tlA-Ia-CoO"/>
+                                    <outlet property="delegate" destination="Jus-Ol-yJ4" id="jE6-fB-o2b"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -44,6 +44,7 @@
 		239B2C341F311417007BC817 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C331F311417007BC817 /* HomeViewModel.swift */; };
 		239B2C361F311B27007BC817 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C351F311B27007BC817 /* HomeScene.swift */; };
 		239B2C381F312648007BC817 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C371F312648007BC817 /* ChartTableViewCell.swift */; };
+		239B2C3A1F322273007BC817 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B2C391F322273007BC817 /* DispatchQueue.swift */; };
 		23BF37591F20F9730066DC9D /* MKMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37571F20F9730066DC9D /* MKMapView+Rx.swift */; };
 		23BF375A1F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */; };
 		23BF375C1F20F9B60066DC9D /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */; };
@@ -120,6 +121,7 @@
 		239B2C331F311417007BC817 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		239B2C351F311B27007BC817 /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 		239B2C371F312648007BC817 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
+		239B2C391F322273007BC817 /* DispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		23BF37571F20F9730066DC9D /* MKMapView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Rx.swift"; sourceTree = "<group>"; };
 		23BF37581F20F9730066DC9D /* RxMKMapViewDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxMKMapViewDelegateProxy.swift; sourceTree = "<group>"; };
 		23BF375B1F20F9B60066DC9D /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				230996A91F26384000F94FD9 /* UIColor.swift */,
 				230996AF1F2641B800F94FD9 /* Date.swift */,
 				23E0D6661F2B9E1C005E8E9F /* TwicketSegmentedControl+Rx.swift */,
+				239B2C391F322273007BC817 /* DispatchQueue.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				23C8C21F1F1FE30E0056B4F2 /* BindableType.swift in Sources */,
 				23C8C2351F1FEA9F0056B4F2 /* SceneType.swift in Sources */,
 				23E0D6651F2B9D2C005E8E9F /* ConnectViewModel.swift in Sources */,
+				239B2C3A1F322273007BC817 /* DispatchQueue.swift in Sources */,
 				237BA7EC1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift in Sources */,
 				23C8C2371F1FEACE0056B4F2 /* AuthScene.swift in Sources */,
 				23CB16C11F27A2A200310857 /* LogInViewModel.swift in Sources */,

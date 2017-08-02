@@ -46,16 +46,21 @@ class ProfileTableViewCell: UITableViewCell {
     }
     self.nameLabel.text = user.fullName
     
-    statsCollectionView.rx.setDelegate(self)
-//    statsCollectionView.collectionViewLayout.
+    DispatchQueue.once(token: "SET_STAT_COLLECTION_VIEW_DELEGATE") { [weak self] in
+      guard let this = self else { return }
+      
+      this.statsCollectionView.rx.setDelegate(this).addDisposableTo(this.rx_disposeBag)
+      
+      Observable.of(user)
+        .flatMap { user in user.stats }
+        .bind(to: this.statsCollectionView.rx.items(cellIdentifier: StatBlockCollectionViewCell.reuseIdentifier, cellType: StatBlockCollectionViewCell.self)) {
+          row, statBlock, cell in
+          cell.configure(block: statBlock)
+        }
+        .addDisposableTo(this.rx_disposeBag)
+
+    }
     
-    Observable.of(user)
-      .flatMap { user in user.stats }
-      .bind(to: statsCollectionView.rx.items(cellIdentifier: StatBlockCollectionViewCell.reuseIdentifier, cellType: StatBlockCollectionViewCell.self)) {
-        row, statBlock, cell in
-        cell.configure(block: statBlock)
-      }
-      .addDisposableTo(rx_disposeBag)
   }
 }
 

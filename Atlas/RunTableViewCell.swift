@@ -21,9 +21,9 @@ class RunTableViewCell: UITableViewCell {
   func configure(run: Run) {
     dayLabel.text = "\(run.timestamp.day)"
     monthLabel.text = "\(run.timestamp.month)"
-    timeLabel.text = "\(run.time)"
-    distanceLabel.text = "\(run.distance)"
-    paceLabel.text = "\(run.pace)"
+    timeLabel.text = String(format: "%.2f mins", run.time)
+    distanceLabel.text = String(format: "%.2f mi", run.distance)
+    paceLabel.text = String(format: "%.2f mins/mi", run.pace)
     
     calendarView.layer.borderColor = UIColor(253, 99, 40).cgColor
     calendarView.layer.borderWidth = 1

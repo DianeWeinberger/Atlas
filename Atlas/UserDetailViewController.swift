@@ -39,6 +39,11 @@ class UserDetailViewController: UIViewController {
       .map { $0.history.toArray() }
   }()
   
+  fileprivate lazy var runs: Observable<[Run]> = {
+    return self.user.asObservable()
+      .map { $0.runs.toArray() }
+  }()
+  
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
   }
@@ -54,13 +59,22 @@ class UserDetailViewController: UIViewController {
     
     activityLabel.text = "\(user.value.firstName)'s Activity"
     nameLabel.text = user.value.displayName
-    history
-      .bind(to: activityTableView.rx.items(cellIdentifier: "Subtitle")) {
-        [weak self] row, event, cell in
-        cell.textLabel?.text = "\(self!.user.value.firstName) \(event.title)"
-        cell.detailTextLabel?.text = event.timestamp.shortDate
+    
+    activityTableView.delegate = self
+    
+    runs
+      .bind(to: activityTableView.rx.items(cellIdentifier: RunTableViewCell.reuseIdentifier, cellType: RunTableViewCell.self)) {
+        row, run, cell in
+        cell.configure(run: run)
       }
       .addDisposableTo(rx_disposeBag)
   }
 
+}
+
+extension UserDetailViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    let width = tableView.bounds.width
+    return width * 80/375
+  }
 }
