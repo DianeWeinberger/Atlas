@@ -18,7 +18,9 @@ class ChartTableViewCell: UITableViewCell {
   
   func configure(from user: User) {
     chartView.noDataText = "No Run Data"
-
+    let description = Description()
+    description.text = "Runs per Month"
+    chartView.chartDescription = description
     let runs = user.runs.toArray()
     var data = [String: Int]()
     

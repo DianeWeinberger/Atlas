@@ -59,7 +59,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     let width = tableView.bounds.width
     
     if indexPath.section == 0 {
-      return width * 500/375
+      return width * 520/375
     }
     
     if indexPath.section == 1 {

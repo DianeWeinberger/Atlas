@@ -11,6 +11,13 @@ import DeckTransition
 import RxCocoa
 import RxSwift
 
+enum UserRelationState {
+  case friend
+  case requestSent
+  case connect
+}
+
+// TODO: Make View Model for this
 class UserDetailViewController: UIViewController {
   
   @IBOutlet weak var imageView: UIImageView!
