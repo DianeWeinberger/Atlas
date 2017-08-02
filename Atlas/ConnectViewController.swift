@@ -29,6 +29,8 @@ class ConnectViewController: UIViewController, BindableType {
     configureSearchBar()
     configureSegmentedControl()
     configureTableView() // Do last. Requires observables to be set up.
+    
+//    searchBar.rx
   }
   
   func bindViewModel() {
@@ -57,6 +59,7 @@ extension ConnectViewController {
     tableView.rx.modelSelected(User.self)
       .subscribe(onNext: { [weak self] user in
         OperationQueue.main.addOperation {
+          self?.searchBar.resignFirstResponder()
           let modal = UIStoryboard(name: "Connect", bundle: nil).instantiateViewController(withIdentifier: "userDetail") as! UserDetailViewController
           modal.user.value = user
           let transitionDelegate = DeckTransitioningDelegate()
