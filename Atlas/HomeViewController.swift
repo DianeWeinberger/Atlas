@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Pastel
 
 class HomeViewController: UIViewController, BindableType {
 
@@ -33,6 +34,12 @@ class HomeViewController: UIViewController, BindableType {
     bindViewModel()
     configureSegmentedControl()
     configureTableView()
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    configureGradient()
+
   }
   
   func bindViewModel() {
@@ -68,5 +75,30 @@ extension HomeViewController {
     segmentedControl.defaultTextColor = Colors.darkGray
     segmentedControl.sliderBackgroundColor = Colors.orange.orangeRed
     segmentedControl.setSegmentItems(["My Activity", "All"])
+  }
+  
+  func configureGradient() {
+    let pastelView = PastelView(frame: bannerView.frame)
+    
+    // Custom Direction
+    pastelView.startPastelPoint = .bottomLeft
+    pastelView.endPastelPoint = .topRight
+    
+    // Custom Duration
+    pastelView.animationDuration = 3.0
+    
+    pastelView.startAnimation()
+    
+    pastelView.setColors([
+      Colors.orange.orangeRed,
+      Colors.orange.peach,
+      Colors.red.pinkishRed,
+      Colors.red.carnation
+      
+    ])
+    
+    pastelView.alpha = 0.1
+    
+    bannerView.insertSubview(pastelView, at: 0)
   }
 }

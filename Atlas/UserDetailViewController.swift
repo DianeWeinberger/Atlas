@@ -69,7 +69,6 @@ class UserDetailViewController: UIViewController {
       }
       .addDisposableTo(rx_disposeBag)
   }
-
 }
 
 extension UserDetailViewController: UITableViewDelegate {
