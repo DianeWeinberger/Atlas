@@ -66,8 +66,24 @@ class HomeViewController: UIViewController, BindableType {
 //      })
 //      .bind(to: self.locations)
 
-    
     typealias ScrollData = (displacement: CGFloat, previousOffset: CGFloat)
+    
+    let lastTwoOffsets = tableView.rx.didScroll
+      .withLatestFrom(tableView.rx.contentOffset)
+      .map { $0.y }
+      .shareReplay(2)
+    
+//    lastTwoOffsets
+//      .reduce((0, 0) as ScrollData) { (acc, offset) -> ScrollData in
+////        let displacement = offset - acc.previousOffset
+//        let displacement = CGFloat(10)
+//        return (displacement, offset)
+//      }
+//      .map { $0.displacement }
+//      .subscribe(onNext: { abc in
+//        print(abc)
+//      })
+
     
     let scrollDisplacement = tableView.rx.didScroll
       .withLatestFrom(tableView.rx.contentOffset)
@@ -78,6 +94,10 @@ class HomeViewController: UIViewController, BindableType {
 //      }
 //      .map { $0.displacement }
     
+//    scrollDisplacement
+//      .subscribe(onNext: { abc in
+//        print(abc)
+//      })
     
 //    tableView.rx.didScroll
 //      .withLatestFrom(tableView.rx.contentOffset)
@@ -90,6 +110,13 @@ class HomeViewController: UIViewController, BindableType {
           self.bannerView.tag = 1
         }
         
+        if self.pastelView?.alpha ?? 0 > 0 {
+          UIView.animate(withDuration: 0.2) {
+            self.pastelView?.alpha = 0
+          }
+        }
+        self.pastelView?.removeFromSuperview()
+        
         if self.bannerView.tag == 1 {
           self.bannerTopConstraint.constant -= movement / 5
         } else {
@@ -100,10 +127,6 @@ class HomeViewController: UIViewController, BindableType {
       })
       .addDisposableTo(rx_disposeBag)
     
-//    scrollDisplacement
-//      .subscribe(onNext: { x in
-//        print(x)
-//      })
     
 //    tableView.rx.didScroll
 //      .withLatestFrom(tableView.rx.contentOffset)
@@ -111,11 +134,16 @@ class HomeViewController: UIViewController, BindableType {
       .filter { $0 > 0 }
 //      .map { $0.y / (667/153) }
       .subscribe(onNext: { movement in
+        print("SCROLLING DOWN")
+
         guard self.segmentedControl.tag == 0,       // Prevent running code during animation
         !self.segmentedControlOnTop else { return } // No need to run code when segmented control is at top
         
+        print("NOT ANIMATING AND NOT ON TOP")
+        print(self.tableView.contentOffset.y)
+        
         if self.logoView.center.y <= self.halfwayMark {
-          
+          print("LESS THAN HALFWAY")
           self.segmentedControl.tag = 1
           let displacement = self.segmentedControl.frame.origin.y - 25
           
@@ -133,8 +161,8 @@ class HomeViewController: UIViewController, BindableType {
             }
           }
           
-        } else if self.tableView.contentOffset.y < 30 {
-          
+        } else {
+          print("Less than 30!")
           self.bannerTopConstraint.constant -= movement / 5
           self.bannerView.alpha -= movement / 500
           self.logoView.alpha -= movement / 500
@@ -149,8 +177,9 @@ class HomeViewController: UIViewController, BindableType {
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    configureGradient()
-
+    if pastelView == nil {
+      configureGradient()
+    }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -177,6 +206,7 @@ extension HomeViewController {
       self.bannerTopConstraint.constant = 0
       self.bannerView.alpha = 1
       self.logoView.alpha = 1
+      self.pastelView?.alpha = 0.15
       
       self.view.layoutIfNeeded()
     }) { (complete) in
@@ -241,7 +271,10 @@ extension HomeViewController {
       Colors.blue.dodger
     ])
     
-    pastelView.alpha = 0.15
+    pastelView.alpha = 0
+    UIView.animate(withDuration: 0.5) { 
+      pastelView.alpha = 0.15
+    }
     
     bannerView.insertSubview(pastelView, at: 0)
   }
