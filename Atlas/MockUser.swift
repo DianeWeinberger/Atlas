@@ -37,7 +37,7 @@ struct MockUser {
     
     tony.runs = MockUser.generateRuns(user: tony)
     
-    let friends = [captainAmerica(), hulk()] + MockUser.generateUsers(max: 10)
+    let friends = [captainAmerica(), hulk()] + MockUser.generateUsers(max: 20)
     tony.friends.append(objectsIn: friends)
     return tony
   }
@@ -166,8 +166,31 @@ extension MockUser {
       return run
     }
     
+    
     let list = List<Run>()
     list.append(objectsIn: generatedRuns)
+    return list
+  }
+  
+  static func generateHistory(user: User) -> List<Event> {
+    let generatedHistory = (0...arc4random_uniform(15)).map { _ -> Event in
+      let months = Int(arc4random_uniform(6))
+      let days = Int(arc4random_uniform(30)) - Int(arc4random_uniform(60))
+      let minutes = Int(arc4random_uniform(300)) - Int(arc4random_uniform(300))
+      let words = Int(arc4random_uniform(6))
+      let faker = Faker.init()
+      
+      let event = Event()
+      event.timestamp = Date().before(months: months).after(days: days).before(minutes: minutes)
+      event.title = faker.lorem.sentence(wordsAmount: words)
+      event.user = user
+      
+      return event
+    }
+    
+    
+    let list = List<Event>()
+    list.append(objectsIn: generatedHistory)
     return list
   }
   
@@ -187,6 +210,7 @@ extension MockUser {
       user.weight = Double(arc4random_uniform(200))
       
       user.runs = generateRuns(user: user)
+      user.history = generateHistory(user: user)
       return user
     })
   }
