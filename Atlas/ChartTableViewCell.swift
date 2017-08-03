@@ -18,6 +18,13 @@ class ChartTableViewCell: UITableViewCell {
   
   // TODO: Refactor
   func configure(from user: User) {
+    setUpRunCount()
+//    setUpDistance()
+  }
+}
+
+extension ChartTableViewCell {
+  fileprivate func setUpRunCount() {
     chartView.noDataText = "No Run Data"
     let description = Description()
     description.text = "Runs per Month"
@@ -35,7 +42,7 @@ class ChartTableViewCell: UITableViewCell {
       }
       data[month] = count + 1
     }
-    
+      
     let dataEntries: [BarChartDataEntry] = data.map { month, count in
       let index = months.index(of: month) ?? 0
       return BarChartDataEntry(x: Double(index), y: Double(count))
@@ -54,7 +61,34 @@ class ChartTableViewCell: UITableViewCell {
     
     chartView.leftAxis.granularity = 1
     chartView.rightAxis.enabled = false
-    
   }
-
+  
+  fileprivate func setUpDistance() {
+    chartView.noDataText = "No Run Data"
+    let description = Description()
+    description.text = "Distance per Run"
+    chartView.chartDescription = description
+    
+    let runs = user.runs.toArray()
+      .sorted(by: Run.sortLatest)
+      .prefix(10)
+      .sorted(by: Run.sortEarliest)
+    
+    let dataEntries: [BarChartDataEntry] = runs.enumerated().map { offset, run in
+      return BarChartDataEntry(x: Double(offset), y: run.distance)
+    }
+    
+    let chartDataSet = BarChartDataSet(values: dataEntries, label: "Distance per Run")
+    let chartData = BarChartData(dataSet: chartDataSet)
+    
+    chartView.xAxis.granularity = 1
+    chartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
+    chartView.data = chartData
+    
+    chartView.xAxis.drawGridLinesEnabled = false
+    chartView.xAxis.drawAxisLineEnabled = false
+    
+    chartView.leftAxis.granularity = 1
+    chartView.rightAxis.enabled = false
+  }
 }
