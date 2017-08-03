@@ -9,5 +9,5 @@
 import UIKit
 
 struct Fonts {
-  let main = UIFont(name: "OpenSans", size: 12)
+  let main = UIFont(name: "OpenSans", size: 14)
 }

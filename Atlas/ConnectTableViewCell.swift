@@ -23,7 +23,7 @@ class ConnectTableViewCell: UITableViewCell {
     if !user.imageURL.isEmpty, let url = user.url {
       avatarImageView.kf.roundedImage(with: url)
     }
-    nameTextLabel.text = "\(user.firstName) \(user.lastName)"
+    nameTextLabel.text = user.displayName
   }
 }
 

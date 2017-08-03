@@ -47,7 +47,7 @@
                                     <constraint firstAttribute="height" constant="36" id="y7v-fj-zaD"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zW8-Yd-LvP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zW8-Yd-LvP">
                                 <rect key="frame" x="0.0" y="197" width="375" height="421"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -65,20 +65,20 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:35 min/mile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvE-pl-cif">
-                                                    <rect key="frame" x="285.5" y="33.5" width="72.5" height="14"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                    <rect key="frame" x="268" y="30.5" width="90" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New York, NY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rX-C1-Qku">
-                                                    <rect key="frame" x="93" y="40" width="74.5" height="14"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                    <rect key="frame" x="93" y="40" width="87" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dana Rockley" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNR-cM-hdO">
-                                                    <rect key="frame" x="93" y="23.5" width="87" height="16.5"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
+                                                    <rect key="frame" x="93" y="18" width="108" height="22"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -147,13 +147,17 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cover" translatesAutoresizingMaskIntoConstraints="NO" id="Q56-qu-85L">
                                 <rect key="frame" x="0.0" y="20" width="375" height="267"/>
                             </imageView>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h8b-LL-gL5">
+                                <rect key="frame" x="0.0" y="17" width="375" height="270"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bJ-Lj-NlF">
                                 <rect key="frame" x="94" y="267" width="187.5" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.38823529411764707" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="WkQ-C0-raZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                 <state key="normal" title="CONNECT">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -166,7 +170,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xUm-1l-6g1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xUm-1l-6g1">
                                 <rect key="frame" x="0.0" y="367.5" width="375" height="299.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -178,18 +182,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIe-PQ-5Jt">
-                                                    <rect key="frame" x="25" y="18.5" width="46.5" height="46.5"/>
+                                                    <rect key="frame" x="25" y="13" width="57" height="57.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFR-va-8Y1">
-                                                            <rect key="frame" x="0.0" y="31.5" width="46.5" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="39" width="57" height="18"/>
                                                             <color key="backgroundColor" red="0.99215686270000003" green="0.38823529410000002" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="9"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="11"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyP-og-RfP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="31.5"/>
-                                                            <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="57" height="39"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="22"/>
                                                             <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -216,29 +220,29 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brooklyn, NY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MS-JK-5ps">
-                                                    <rect key="frame" x="117" y="18" width="91" height="23.5"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
+                                                    <rect key="frame" x="102" y="18" width="104" height="29"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PY9-Wf-q7l">
-                                                    <rect key="frame" x="117" y="42" width="213" height="23"/>
+                                                    <rect key="frame" x="102" y="42" width="248" height="28.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.9 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcC-oF-9jt">
-                                                            <rect key="frame" x="0.0" y="3.5" width="34.5" height="16.5"/>
-                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                            <rect key="frame" x="0.0" y="4.5" width="40" height="19.5"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                             <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43.8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLs-rx-Qiz">
-                                                            <rect key="frame" x="84" y="3.5" width="24" height="16.5"/>
-                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                            <rect key="frame" x="97.5" y="4.5" width="28" height="19.5"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                             <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 mins/mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8N-dz-ZOh">
-                                                            <rect key="frame" x="157" y="3.5" width="56" height="16.5"/>
-                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                            <rect key="frame" x="182.5" y="4.5" width="65.5" height="19.5"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                             <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -246,16 +250,16 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="4MS-JK-5ps" firstAttribute="top" secondItem="fIe-PQ-5Jt" secondAttribute="top" id="2gb-6U-J0I"/>
-                                                <constraint firstItem="fIe-PQ-5Jt" firstAttribute="height" secondItem="0mI-Yx-x3U" secondAttribute="height" multiplier="41/73" id="5Bx-fy-NZJ"/>
-                                                <constraint firstItem="4MS-JK-5ps" firstAttribute="leading" secondItem="fIe-PQ-5Jt" secondAttribute="trailing" constant="45.5" id="DnQ-Qm-2Xn"/>
+                                                <constraint firstItem="fIe-PQ-5Jt" firstAttribute="height" secondItem="0mI-Yx-x3U" secondAttribute="height" multiplier="50/73" id="5Bx-fy-NZJ"/>
+                                                <constraint firstItem="PY9-Wf-q7l" firstAttribute="top" secondItem="0mI-Yx-x3U" secondAttribute="centerY" id="6EU-un-f5O"/>
+                                                <constraint firstItem="4MS-JK-5ps" firstAttribute="leading" secondItem="fIe-PQ-5Jt" secondAttribute="trailing" constant="20" id="DnQ-Qm-2Xn"/>
                                                 <constraint firstItem="PY9-Wf-q7l" firstAttribute="height" secondItem="4MS-JK-5ps" secondAttribute="height" priority="998" id="EJc-HX-wYN"/>
                                                 <constraint firstItem="fIe-PQ-5Jt" firstAttribute="leading" secondItem="0mI-Yx-x3U" secondAttribute="leading" constant="25" id="P3n-dN-Db7"/>
                                                 <constraint firstItem="4MS-JK-5ps" firstAttribute="height" secondItem="fIe-PQ-5Jt" secondAttribute="height" multiplier="0.5" priority="999" id="eI6-Fe-lEb"/>
                                                 <constraint firstItem="PY9-Wf-q7l" firstAttribute="leading" secondItem="4MS-JK-5ps" secondAttribute="leading" priority="999" id="ijp-9z-UYm"/>
                                                 <constraint firstItem="fIe-PQ-5Jt" firstAttribute="centerY" secondItem="0mI-Yx-x3U" secondAttribute="centerY" id="lIs-wX-xy4"/>
-                                                <constraint firstAttribute="trailing" secondItem="PY9-Wf-q7l" secondAttribute="trailing" constant="45" id="p6Z-Xc-JLb"/>
-                                                <constraint firstItem="PY9-Wf-q7l" firstAttribute="bottom" secondItem="fIe-PQ-5Jt" secondAttribute="bottom" id="un4-fa-hN5"/>
+                                                <constraint firstAttribute="trailing" secondItem="PY9-Wf-q7l" secondAttribute="trailing" constant="25" id="p6Z-Xc-JLb"/>
+                                                <constraint firstItem="4MS-JK-5ps" firstAttribute="baseline" secondItem="0mI-Yx-x3U" secondAttribute="centerY" id="rOf-sS-09D"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -271,7 +275,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dana's Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rph-no-Zv0">
-                                <rect key="frame" x="125.5" y="332.5" width="126" height="23.5"/>
+                                <rect key="frame" x="125" y="332.5" width="126" height="23.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -284,38 +288,38 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dana R." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsP-lk-sxu">
-                                <rect key="frame" x="25" y="153.5" width="76.5" height="27.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
+                                <rect key="frame" x="25" y="148" width="84" height="30"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Early AM Runner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YwQ-Ah-cPd">
-                                <rect key="frame" x="25" y="181" width="109" height="19.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <rect key="frame" x="25" y="178" width="124.5" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Queens, NY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOT-VY-wIM">
-                                <rect key="frame" x="25" y="200.5" width="65.5" height="16.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                <rect key="frame" x="25" y="200" width="76" height="19.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bli-X4-jGt">
-                                <rect key="frame" x="25" y="225.5" width="39" height="16.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
+                                <rect key="frame" x="25" y="219.5" width="45.5" height="19.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Av. Pace: 9:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgE-LU-fh9">
-                                <rect key="frame" x="25" y="241" width="76" height="16.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                <rect key="frame" x="25" y="238" width="89" height="19.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="113.8 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdD-hm-Cr2">
-                                <rect key="frame" x="272.5" y="227.5" width="82.5" height="27.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
+                                <rect key="frame" x="264" y="223.5" width="91" height="30"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -329,16 +333,21 @@
                             <constraint firstItem="xUm-1l-6g1" firstAttribute="top" secondItem="dP4-NF-vlh" secondAttribute="bottom" constant="5.5" id="Afd-4S-b74"/>
                             <constraint firstItem="pgE-LU-fh9" firstAttribute="top" secondItem="bli-X4-jGt" secondAttribute="bottom" constant="-0.5" id="DN4-CG-vhm"/>
                             <constraint firstItem="2bJ-Lj-NlF" firstAttribute="centerX" secondItem="GHU-7v-TmT" secondAttribute="centerX" id="FXX-Mr-g1I"/>
+                            <constraint firstItem="h8b-LL-gL5" firstAttribute="centerX" secondItem="Q56-qu-85L" secondAttribute="centerX" id="H0K-YW-QmU"/>
                             <constraint firstItem="Q56-qu-85L" firstAttribute="centerX" secondItem="GHU-7v-TmT" secondAttribute="centerX" id="J4s-y3-m3h"/>
                             <constraint firstItem="FiW-0l-Y6K" firstAttribute="top" secondItem="xUm-1l-6g1" secondAttribute="bottom" id="Jfk-gN-lcz"/>
+                            <constraint firstItem="bli-X4-jGt" firstAttribute="top" secondItem="QOT-VY-wIM" secondAttribute="bottom" id="OcL-Wo-AY6"/>
                             <constraint firstItem="QOT-VY-wIM" firstAttribute="top" secondItem="YwQ-Ah-cPd" secondAttribute="bottom" id="RGZ-iF-fmP"/>
                             <constraint firstItem="dP4-NF-vlh" firstAttribute="centerX" secondItem="rph-no-Zv0" secondAttribute="centerX" id="S6y-3H-99f"/>
+                            <constraint firstItem="h8b-LL-gL5" firstAttribute="height" secondItem="Q56-qu-85L" secondAttribute="height" id="U1J-gd-0kV"/>
                             <constraint firstItem="QOT-VY-wIM" firstAttribute="leading" secondItem="YwQ-Ah-cPd" secondAttribute="leading" id="Ujt-SH-s83"/>
+                            <constraint firstItem="h8b-LL-gL5" firstAttribute="width" secondItem="Q56-qu-85L" secondAttribute="width" id="Ux8-sC-9q1"/>
                             <constraint firstItem="rph-no-Zv0" firstAttribute="centerX" secondItem="GHU-7v-TmT" secondAttribute="centerX" id="WYq-Zt-iFO"/>
                             <constraint firstItem="MdD-hm-Cr2" firstAttribute="centerY" secondItem="pgE-LU-fh9" secondAttribute="top" id="Wtv-GX-tQ8"/>
                             <constraint firstItem="bli-X4-jGt" firstAttribute="leading" secondItem="QOT-VY-wIM" secondAttribute="leading" id="XSc-o0-HB6"/>
                             <constraint firstItem="2bJ-Lj-NlF" firstAttribute="width" secondItem="GHU-7v-TmT" secondAttribute="width" multiplier="0.5" id="YLW-af-vvt"/>
                             <constraint firstItem="Q56-qu-85L" firstAttribute="top" secondItem="7ec-jp-T40" secondAttribute="bottom" id="YyT-uO-lIZ"/>
+                            <constraint firstItem="h8b-LL-gL5" firstAttribute="centerY" secondItem="Q56-qu-85L" secondAttribute="centerY" id="ZsY-Kp-Ixt"/>
                             <constraint firstAttribute="trailing" secondItem="xUm-1l-6g1" secondAttribute="trailing" id="eMX-j9-1FA"/>
                             <constraint firstItem="YwQ-Ah-cPd" firstAttribute="top" secondItem="tsP-lk-sxu" secondAttribute="bottom" id="h21-jU-eIk"/>
                             <constraint firstItem="YwQ-Ah-cPd" firstAttribute="leading" secondItem="tsP-lk-sxu" secondAttribute="leading" id="h7k-Am-pnG"/>
@@ -348,7 +357,6 @@
                             <constraint firstItem="rph-no-Zv0" firstAttribute="top" secondItem="2bJ-Lj-NlF" secondAttribute="bottom" constant="25.5" id="kCJ-SU-QL0"/>
                             <constraint firstItem="MdD-hm-Cr2" firstAttribute="trailing" secondItem="Q56-qu-85L" secondAttribute="trailing" constant="-20" id="sv2-GU-FDj"/>
                             <constraint firstItem="dP4-NF-vlh" firstAttribute="top" secondItem="rph-no-Zv0" secondAttribute="bottom" constant="4" id="t4m-36-y5X"/>
-                            <constraint firstItem="tsP-lk-sxu" firstAttribute="top" secondItem="Q56-qu-85L" secondAttribute="centerY" id="t9h-UK-FE0"/>
                             <constraint firstItem="Q56-qu-85L" firstAttribute="leading" secondItem="tsP-lk-sxu" secondAttribute="leading" constant="-25" id="wIu-uI-8pg"/>
                         </constraints>
                     </view>
@@ -376,7 +384,7 @@
                     <tabBarItem key="tabBarItem" title="Connect" image="connect" id="hfa-AJ-Kbf"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="smM-Vf-CxQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="smM-Vf-CxQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

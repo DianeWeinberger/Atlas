@@ -60,7 +60,7 @@
                                     <constraint firstAttribute="height" constant="36" id="jt9-Pt-Fiz"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mum-Wo-W3m">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mum-Wo-W3m">
                                 <rect key="frame" x="0.0" y="254" width="375" height="364"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -78,20 +78,20 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="just completed a 5k run!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IX-UD-NMS">
-                                                    <rect key="frame" x="281" y="42" width="136" height="16.5"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                    <rect key="frame" x="281" y="41.5" width="136" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Dana Rockley" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnQ-G1-Tc7">
-                                                    <rect key="frame" x="93" y="40" width="94.5" height="19.5"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
+                                                    <rect key="frame" x="93" y="40" width="94.5" height="22"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:20 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmm-KS-ZwH">
-                                                    <rect key="frame" x="93" y="22.5" width="52" height="16.5"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                    <rect key="frame" x="93" y="19.5" width="61" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -100,13 +100,13 @@
                                                 <constraint firstItem="tnQ-G1-Tc7" firstAttribute="top" secondItem="Mmm-KS-ZwH" secondAttribute="bottom" constant="1.5" id="5NM-iC-Cdx"/>
                                                 <constraint firstItem="4IX-UD-NMS" firstAttribute="centerY" secondItem="tnQ-G1-Tc7" secondAttribute="centerY" id="9gp-Pa-KtY"/>
                                                 <constraint firstAttribute="trailing" secondItem="4IX-UD-NMS" secondAttribute="trailing" priority="998" constant="17" id="S9K-3R-qrF"/>
-                                                <constraint firstItem="Mmm-KS-ZwH" firstAttribute="leading" secondItem="tnQ-G1-Tc7" secondAttribute="leading" id="Twg-P0-Lpn"/>
+                                                <constraint firstItem="Mmm-KS-ZwH" firstAttribute="leading" secondItem="tnQ-G1-Tc7" secondAttribute="leading" priority="999" id="Twg-P0-Lpn"/>
                                                 <constraint firstItem="4IX-UD-NMS" firstAttribute="leading" secondItem="tnQ-G1-Tc7" secondAttribute="trailing" priority="999" constant="2" id="cFS-8y-Tyf"/>
                                                 <constraint firstItem="Xvu-Dp-YNs" firstAttribute="top" secondItem="w1Y-7S-pue" secondAttribute="top" constant="10" id="cO5-hN-soQ"/>
                                                 <constraint firstAttribute="bottom" secondItem="Xvu-Dp-YNs" secondAttribute="bottom" constant="10" id="gcm-Zd-VRa"/>
                                                 <constraint firstItem="Xvu-Dp-YNs" firstAttribute="centerY" secondItem="w1Y-7S-pue" secondAttribute="centerY" id="gpn-AF-1b5"/>
+                                                <constraint firstItem="Mmm-KS-ZwH" firstAttribute="leading" secondItem="Xvu-Dp-YNs" secondAttribute="trailing" constant="13" id="ifY-7K-3p8"/>
                                                 <constraint firstItem="Xvu-Dp-YNs" firstAttribute="leading" secondItem="w1Y-7S-pue" secondAttribute="leading" constant="20" id="nMO-oT-aMa"/>
-                                                <constraint firstItem="tnQ-G1-Tc7" firstAttribute="leading" secondItem="Xvu-Dp-YNs" secondAttribute="trailing" constant="13" id="uUq-Og-Lsj"/>
                                                 <constraint firstItem="tnQ-G1-Tc7" firstAttribute="top" secondItem="Xvu-Dp-YNs" secondAttribute="centerY" id="zD8-te-QZQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -150,44 +150,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3EO-qk-r0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="264.80000000000001" y="69.715142428785612"/>
-        </scene>
-        <!--CONNECTIONS-->
-        <scene sceneID="hJY-KH-YaW">
-            <objects>
-                <viewController id="GQu-Jd-R6A" customClass="ConnectViewController" customModule="Atlas" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Brp-DW-83v"/>
-                        <viewControllerLayoutGuide type="bottom" id="nm7-Jg-tfy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jl3-8g-ege">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="HjO-ox-AQz">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="AWD-bm-M5M"/>
-                                </constraints>
-                                <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="HjO-ox-AQz" firstAttribute="centerX" secondItem="jl3-8g-ege" secondAttribute="centerX" id="1fV-dR-CjY"/>
-                            <constraint firstItem="HjO-ox-AQz" firstAttribute="width" secondItem="jl3-8g-ege" secondAttribute="width" id="GAJ-eG-cMV"/>
-                            <constraint firstItem="HjO-ox-AQz" firstAttribute="top" secondItem="Brp-DW-83v" secondAttribute="bottom" id="W9V-p5-tR6"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="CONNECTIONS" id="uBV-q0-yDH"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchBar" destination="HjO-ox-AQz" id="LPe-gZ-z7i"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CGu-Qr-faC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1074" y="70"/>
         </scene>
     </scenes>
     <resources>
