@@ -29,4 +29,5 @@ target 'Atlas' do
   pod 'Fakery'
   pod 'AvatarImageView'
   pod 'Kingfisher'
+  pod 'Sourcery'
 end

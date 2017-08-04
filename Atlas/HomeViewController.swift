@@ -48,78 +48,6 @@ class HomeViewController: UIViewController, BindableType {
     configureSegmentedControl()
     configureTableView()
     
-    let didEndDragging = tableView.rx.didEndDragging.map { _ in () }
-    
-    Observable.merge([didEndDragging, tableView.rx.didEndDecelerating.asObservable()])
-      .subscribe(onNext: { _ in
-        OperationQueue.main.addOperation {
-          if !self.segmentedControlOnTop {
-            self.animateHeader()
-          }
-        }
-      })
-      .addDisposableTo(rx_disposeBag)
-
-    
-    let scrollDisplacement = tableView.rx.didScroll
-      .withLatestFrom(tableView.rx.contentOffset)
-      .map { $0.y }
-
-    scrollDisplacement
-      .filter { $0 < 0 }
-      .subscribe(onNext: { movement in
-        
-        if self.segmentedControlOnTop  {
-          self.bannerView.tag = 1
-        }
-        
-        if self.pastelView?.alpha ?? 0 > 0 {
-          UIView.animate(withDuration: 0.2) {
-            self.pastelView?.alpha = 0
-          }
-        }
-        self.pastelView?.removeFromSuperview()
-        
-        if self.bannerView.tag == 1 {
-          self.bannerTopConstraint.constant -= movement / 5
-        } else {
-          self.pastelView?.alpha = 0
-          self.bannerHeightConstraint.constant += abs(self.tableView.contentOffset.y) / (667/153)
-        }
-        
-      })
-      .addDisposableTo(rx_disposeBag)
-    
-    scrollDisplacement
-      .filter { $0 > 0 }
-      .subscribe(onNext: { movement in
-        guard self.segmentedControl.tag == 0,       // Prevent running code during animation
-        !self.segmentedControlOnTop else { return } // No need to run code when segmented control is at top
-        
-        if self.logoView.center.y <= self.halfwayMark {
-          self.segmentedControl.tag = 1
-          let displacement = self.segmentedControl.frame.origin.y - 25
-          
-          OperationQueue.main.addOperation {
-            self.bannerTopConstraint.constant -= displacement
-            
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
-              self.view.layoutIfNeeded()
-              self.bannerView.alpha = 0
-              self.logoView.alpha = 0
-            }) { (complete) in
-              self.segmentedControl.tag = 0
-              self.bannerView.alpha = 1
-            }
-          }
-        } else {
-          self.bannerTopConstraint.constant -= movement / 5
-          self.bannerView.alpha -= movement / 500
-          self.logoView.alpha -= movement / 500
-        }
-        
-      })
-      .addDisposableTo(rx_disposeBag)
   }
   
   override func viewDidLayoutSubviews() {
@@ -227,5 +155,80 @@ extension HomeViewController {
     }
     
     bannerView.insertSubview(pastelView, at: 0)
+  }
+  
+  func configureDynamicHeader() {
+//    let didEndDragging = tableView.rx.didEndDragging.map { _ in () }
+//    
+//    Observable.merge([didEndDragging, tableView.rx.didEndDecelerating.asObservable()])
+//      .subscribe(onNext: { _ in
+//        OperationQueue.main.addOperation {
+//          if !self.segmentedControlOnTop {
+//            self.animateHeader()
+//          }
+//        }
+//      })
+//      .addDisposableTo(rx_disposeBag)
+//    
+//    let scrollDisplacement = tableView.rx.didScroll
+//      .withLatestFrom(tableView.rx.contentOffset)
+//      .map { $0.y }
+//    
+//    scrollDisplacement
+//      .filter { $0 < 0 }
+//      .subscribe(onNext: { movement in
+//        
+//        if self.segmentedControlOnTop  {
+//          self.bannerView.tag = 1
+//        }
+//        
+//        if self.pastelView?.alpha ?? 0 > 0 {
+//          UIView.animate(withDuration: 0.2) {
+//            self.pastelView?.alpha = 0
+//          }
+//        }
+//        self.pastelView?.removeFromSuperview()
+//        
+//        if self.bannerView.tag == 1 {
+//          self.bannerTopConstraint.constant -= movement / 5
+//        } else {
+//          self.pastelView?.alpha = 0
+//          self.bannerHeightConstraint.constant += abs(self.tableView.contentOffset.y) / (667/153)
+//        }
+//        
+//      })
+//      .addDisposableTo(rx_disposeBag)
+//    
+//    scrollDisplacement
+//      .filter { $0 > 0 }
+//      .subscribe(onNext: { movement in
+//        guard self.segmentedControl.tag == 0,       // Prevent running code during animation
+//          !self.segmentedControlOnTop else { return } // No need to run code when segmented control is at top
+//        
+//        if self.logoView.center.y <= self.halfwayMark {
+//          self.segmentedControl.tag = 1
+//          let displacement = self.segmentedControl.frame.origin.y - 25
+//          
+//          OperationQueue.main.addOperation {
+//            self.bannerTopConstraint.constant -= displacement
+//            
+//            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+//              self.view.layoutIfNeeded()
+//              self.bannerView.alpha = 0
+//              self.logoView.alpha = 0
+//            }) { (complete) in
+//              self.segmentedControl.tag = 0
+//              self.bannerView.alpha = 1
+//            }
+//          }
+//        } else {
+//          self.bannerTopConstraint.constant -= movement / 5
+//          self.bannerView.alpha -= movement / 500
+//          self.logoView.alpha -= movement / 500
+//        }
+//        
+//      })
+//      .addDisposableTo(rx_disposeBag)
+
   }
 }
