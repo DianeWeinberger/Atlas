@@ -1,0 +1,13 @@
+import UIKit
+
+{% for type in types.implementing.HeaderCollapsible %}
+  extension {{ type.name }} {
+    var defaultTable: UITableView {
+      {% for variable in type.variables %}
+        {% if variable.typeName.name == "UITableView!" %}
+          return {{ variable.name }}
+        {% endif %}
+      {% endfor %}
+    }
+  }
+{% endfor %}

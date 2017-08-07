@@ -57,6 +57,7 @@
 		23BF377F1F2141DB0066DC9D /* UITabBarController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF377E1F2141DB0066DC9D /* UITabBarController+Rx.swift */; };
 		23BF37811F2149C60066DC9D /* AtlasTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37801F2149C60066DC9D /* AtlasTabBarViewModel.swift */; };
 		23BF37831F214CF70066DC9D /* RunScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF37821F214CF70066DC9D /* RunScene.swift */; };
+		23C775AE1F38C4C100BE45B4 /* HeaderCollapsible+defaultTable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C775AD1F38C4C100BE45B4 /* HeaderCollapsible+defaultTable.generated.swift */; };
 		23C8C2161F1FDF140056B4F2 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2151F1FDF140056B4F2 /* LandingViewController.swift */; };
 		23C8C2181F1FE0B40056B4F2 /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C2171F1FE0B40056B4F2 /* CoordinatorType.swift */; };
 		23C8C21D1F1FE1DF0056B4F2 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8C21C1F1FE1DF0056B4F2 /* LandingViewModel.swift */; };
@@ -83,6 +84,7 @@
 		23E23A961F327298003FCE4E /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E23A951F327298003FCE4E /* Kingfisher.swift */; };
 		23E23A9A1F33BAD7003FCE4E /* BannerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E23A991F33BAD7003FCE4E /* BannerImage.swift */; };
 		23E23A9C1F34D120003FCE4E /* HeaderCollapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E23A9B1F34D120003FCE4E /* HeaderCollapsible.swift */; };
+		23E23AA21F38C2B7003FCE4E /* HeaderCollapsible+defaultTable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 23E23AA11F38C2B7003FCE4E /* HeaderCollapsible+defaultTable.stencil */; };
 		69AF444DA16B29D2728F947B /* Pods_Atlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF380FC0BB4B728207972622 /* Pods_Atlas.framework */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +141,7 @@
 		23BF377E1F2141DB0066DC9D /* UITabBarController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Rx.swift"; sourceTree = "<group>"; };
 		23BF37801F2149C60066DC9D /* AtlasTabBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasTabBarViewModel.swift; sourceTree = "<group>"; };
 		23BF37821F214CF70066DC9D /* RunScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunScene.swift; sourceTree = "<group>"; };
+		23C775AD1F38C4C100BE45B4 /* HeaderCollapsible+defaultTable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeaderCollapsible+defaultTable.generated.swift"; sourceTree = "<group>"; };
 		23C8C2151F1FDF140056B4F2 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		23C8C2171F1FE0B40056B4F2 /* CoordinatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		23C8C21C1F1FE1DF0056B4F2 /* LandingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 		23E23A951F327298003FCE4E /* Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
 		23E23A991F33BAD7003FCE4E /* BannerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerImage.swift; sourceTree = "<group>"; };
 		23E23A9B1F34D120003FCE4E /* HeaderCollapsible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCollapsible.swift; sourceTree = "<group>"; };
+		23E23AA11F38C2B7003FCE4E /* HeaderCollapsible+defaultTable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "HeaderCollapsible+defaultTable.stencil"; sourceTree = "<group>"; };
 		3829EB387CBB4C9E808588D9 /* Pods-Atlas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.debug.xcconfig"; sourceTree = "<group>"; };
 		94A21020256249F402D96D5C /* Pods-Atlas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.release.xcconfig"; sourceTree = "<group>"; };
 		CF380FC0BB4B728207972622 /* Pods_Atlas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Atlas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,10 +244,12 @@
 				2385A2C01F1EAD0200DD0FDE /* Common */,
 				23C8C2191F1FE1A00056B4F2 /* Coordinators */,
 				2385A2BE1F1EACF500DD0FDE /* Extensions */,
+				23E23A9D1F38C2AC003FCE4E /* Generated */,
 				2385A2C31F1EAD5300DD0FDE /* Models */,
 				2385A2BF1F1EACFA00DD0FDE /* Protocols */,
 				23C8C2331F1FEA600056B4F2 /* Scenes */,
 				2385A2BD1F1EACEF00DD0FDE /* Services */,
+				23E23AA01F38C2B7003FCE4E /* Templates */,
 				2385A2C41F1EAD6200DD0FDE /* Resources */,
 				2385A2B91F1EACCF00DD0FDE /* Views */,
 				2385A2BA1F1EACD500DD0FDE /* View Controllers */,
@@ -532,6 +538,22 @@
 			path = Twicket;
 			sourceTree = "<group>";
 		};
+		23E23A9D1F38C2AC003FCE4E /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				23C775AD1F38C4C100BE45B4 /* HeaderCollapsible+defaultTable.generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		23E23AA01F38C2B7003FCE4E /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				23E23AA11F38C2B7003FCE4E /* HeaderCollapsible+defaultTable.stencil */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
 		8A17AE504830B891ECBEB311 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,6 +584,7 @@
 				2385A2A11F1EACAF00DD0FDE /* Resources */,
 				864A625025EBCB87EF58D32A /* [CP] Embed Pods Frameworks */,
 				0F4CB0E93CFCB06E693F9CB6 /* [CP] Copy Pods Resources */,
+				23C775AC1F38C36200BE45B4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -616,6 +639,7 @@
 				2376D8181F2BE2BF00AE4084 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				23C8C2281F1FE7030056B4F2 /* Auth.storyboard in Resources */,
 				2376D8191F2BE2BF00AE4084 /* OpenSans-Italic.ttf in Resources */,
+				23E23AA21F38C2B7003FCE4E /* HeaderCollapsible+defaultTable.stencil in Resources */,
 				2376D81E1F2BE2BF00AE4084 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				23C8C22A1F1FE7870056B4F2 /* Home.storyboard in Resources */,
 				23C8C2301F1FE7A80056B4F2 /* Messages.storyboard in Resources */,
@@ -652,6 +676,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Atlas/Pods-Atlas-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		23C775AC1F38C36200BE45B4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "Pods/Sourcery/bin/sourcery --sources Atlas --templates Templates --output Generated";
 		};
 		864A625025EBCB87EF58D32A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -703,6 +740,7 @@
 				230986391F1FB68800C5BC16 /* Run.swift in Sources */,
 				23C8C2241F1FE4200056B4F2 /* TransitionType.swift in Sources */,
 				2385A2A71F1EACAF00DD0FDE /* AppDelegate.swift in Sources */,
+				23C775AE1F38C4C100BE45B4 /* HeaderCollapsible+defaultTable.generated.swift in Sources */,
 				239B2C2C1F30E8DD007BC817 /* ConnectScene.swift in Sources */,
 				23BF37601F20FA2E0066DC9D /* RunViewModel.swift in Sources */,
 				230996AC1F263A0600F94FD9 /* Fonts.swift in Sources */,

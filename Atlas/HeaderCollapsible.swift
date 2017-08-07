@@ -12,8 +12,8 @@ import RxCocoa
 
 protocol HeaderCollapsible {
   var defaultTable: UITableView { get }
-  func onScrollUp()
-  func onScrollDown()
+  func onScrollUp(displacement: CGFloat)
+  func onScrollDown(displacement: CGFloat)
   func onRelease()
 }
 
@@ -40,7 +40,7 @@ extension HeaderCollapsible where Self: UIViewController {
       .filter { $0 < 0 }
       .subscribe(onNext: { movement in
         
-        self.onScrollDown()
+        self.onScrollDown(displacement: movement)
         
       })
       .addDisposableTo(rx_disposeBag)
@@ -48,7 +48,7 @@ extension HeaderCollapsible where Self: UIViewController {
     scrollDisplacement
       .filter { $0 > 0 }
       .subscribe(onNext: { movement in
-        self.onScrollDown()
+        self.onScrollUp(displacement: movement)
       })
       .addDisposableTo(rx_disposeBag)
     
