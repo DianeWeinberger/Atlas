@@ -13,3 +13,8 @@ import UIKit
           return tableView
     }
   }
+  extension UserDetailViewController {
+    var defaultTable: UITableView {
+          return activityTableView
+    }
+  }
