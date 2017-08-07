@@ -213,21 +213,26 @@ extension HomeViewController {
   }
 }
 
+// HeaderCollapsible Methods
 extension HomeViewController: HeaderCollapsible {
   
   func onRelease() {
-    UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-      self.bannerHeightConstraint.constant = 0
-      self.pastelView?.alpha = 0.15
+    if !self.segmentedControlOnTop {
       
-      self.bannerTopConstraint.constant = 0
-      self.bannerView.alpha = 1
-      self.logoView.alpha = 1
-      self.pastelView?.alpha = 0.15
+      UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+        self.bannerHeightConstraint.constant = 0
+        self.pastelView?.alpha = 0.15
+        
+        self.bannerTopConstraint.constant = 0
+        self.bannerView.alpha = 1
+        self.logoView.alpha = 1
+        self.pastelView?.alpha = 0.15
+        
+        self.view.layoutIfNeeded()
+      }) { (complete) in
+        self.bannerView.tag = 0
+      }
       
-      self.view.layoutIfNeeded()
-    }) { (complete) in
-      self.bannerView.tag = 0
     }
   }
   
