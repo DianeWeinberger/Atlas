@@ -27,4 +27,15 @@ class ActivityTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
+  func configure(from event: Event) {
+    guard let user = event.user else { return }
+    avatarImageView.configuration = AvatarConfig.shared
+    avatarImageView.dataSource = user.avatarData
+    if !user.imageURL.isEmpty, let url = user.url {
+      avatarImageView.kf.roundedImage(with: url)
+    }
+    activityLabel.text = event.title
+    nameLabel.text = user.displayName
+    timeLabel.text = event.timestamp.shortDate + " - " + event.timestamp.shortTime
+  }
 }

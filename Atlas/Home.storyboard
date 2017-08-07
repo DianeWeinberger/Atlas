@@ -60,14 +60,14 @@
                                                         <constraint firstAttribute="width" secondItem="Xvu-Dp-YNs" secondAttribute="height" multiplier="1:1" id="j2s-WO-2ZL"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="just completed a 5k run!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IX-UD-NMS">
-                                                    <rect key="frame" x="281" y="41.5" width="136" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="just completed a 5k run!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IX-UD-NMS">
+                                                    <rect key="frame" x="203" y="41.5" width="155" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Dana Rockley" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnQ-G1-Tc7">
-                                                    <rect key="frame" x="93" y="40" width="94.5" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="251" text="Dana Rockley" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnQ-G1-Tc7">
+                                                    <rect key="frame" x="93" y="40" width="108" height="22"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -82,7 +82,7 @@
                                             <constraints>
                                                 <constraint firstItem="tnQ-G1-Tc7" firstAttribute="top" secondItem="Mmm-KS-ZwH" secondAttribute="bottom" constant="1.5" id="5NM-iC-Cdx"/>
                                                 <constraint firstItem="4IX-UD-NMS" firstAttribute="centerY" secondItem="tnQ-G1-Tc7" secondAttribute="centerY" id="9gp-Pa-KtY"/>
-                                                <constraint firstAttribute="trailing" secondItem="4IX-UD-NMS" secondAttribute="trailing" priority="998" constant="17" id="S9K-3R-qrF"/>
+                                                <constraint firstAttribute="trailing" secondItem="4IX-UD-NMS" secondAttribute="trailing" priority="997" constant="17" id="S9K-3R-qrF"/>
                                                 <constraint firstItem="Mmm-KS-ZwH" firstAttribute="leading" secondItem="tnQ-G1-Tc7" secondAttribute="leading" priority="999" id="Twg-P0-Lpn"/>
                                                 <constraint firstItem="4IX-UD-NMS" firstAttribute="leading" secondItem="tnQ-G1-Tc7" secondAttribute="trailing" priority="999" constant="2" id="cFS-8y-Tyf"/>
                                                 <constraint firstItem="Xvu-Dp-YNs" firstAttribute="top" secondItem="w1Y-7S-pue" secondAttribute="top" constant="10" id="cO5-hN-soQ"/>

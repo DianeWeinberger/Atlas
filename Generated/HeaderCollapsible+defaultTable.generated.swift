@@ -3,6 +3,11 @@
 
 import UIKit
 
+  extension ConnectViewController {
+    var defaultTable: UITableView {
+          return tableView
+    }
+  }
   extension HomeViewController {
     var defaultTable: UITableView {
           return tableView
