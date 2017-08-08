@@ -11,7 +11,7 @@ import RealmSwift
 import Fakery
 
 struct MockUser {
-  static func ironMan() -> User {
+  static var ironMan: User {
     let tony = User()
     tony.id = "0"
     tony.firstName = "Tony"
@@ -37,12 +37,17 @@ struct MockUser {
     
     tony.runs = MockUser.generateRuns(user: tony)
     
-    let friends = [captainAmerica(), hulk()] + MockUser.generateUsers(max: 20)
+    let friends = [captainAmerica, hulk] + MockUser.generateUsers(max: 20)
     tony.friends.append(objectsIn: friends)
+    
+    tony.recievedRequests.append(objectsIn: MockUser.generateUsers(max: 7))
+    print(tony.friends.toArray().map({ (user) -> String in
+      return user.id
+    }))
     return tony
   }
   
-  static func captainAmerica() -> User {
+  static var captainAmerica: User {
     let cap = User()
     cap.id = "1"
     cap.firstName = "Steve"
@@ -73,7 +78,7 @@ struct MockUser {
     return cap
   }
   
-  static func hulk() -> User {
+  static var hulk: User {
     let bruce = User()
     bruce.id = "2"
     bruce.firstName = "Bruce"
@@ -110,7 +115,7 @@ struct MockUser {
     return bruce
   }
   
-  static func dareDevil() -> User {
+  static var dareDevil: User {
     let matt = User()
     matt.id = "3"
     matt.firstName = "Matt"
@@ -203,6 +208,7 @@ extension MockUser {
       user.firstName = faker.name.firstName()
       user.lastName = faker.name.lastName()
       user.email = faker.internet.email()
+      user.id = "\(user.email.hashValue)"
       user.imageURL = Int(arc4random_uniform(10)) % 2 == 0 ? "" : faker.internet.image()
 //      user.phoneNumber = faker.phoneNumber.cellPhone().replacingOccurrences(of: "-", with: "") as! Int
       user.city = "\(faker.address.city()), \(faker.address.stateAbbreviation())"
@@ -217,7 +223,7 @@ extension MockUser {
   
   static var users: List<User> = {
     var users = List<User>()
-    let all = [MockUser.dareDevil()] + MockUser.generateUsers(max: 50)
+    let all = [MockUser.dareDevil] + MockUser.generateUsers(max: 50)
     users.append(objectsIn: all)
     return users
   }()

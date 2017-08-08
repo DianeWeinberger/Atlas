@@ -44,7 +44,7 @@ class ConnectViewModel  {
         case 1: // Friends
           return self.friends
         case 2: // Requests
-          return Observable.of([])
+          return self.requests
         default:
           // TODO: Throw Observable.error instead
           return Observable.empty()
@@ -59,13 +59,17 @@ class ConnectViewModel  {
   
   fileprivate let allUsers = Variable<[User]>(MockUser.users.toArray())
   
-  fileprivate let user = Variable<User>(MockUser.ironMan())
+  let user = Variable<User>(MockUser.ironMan)
 
   fileprivate lazy var friends: Observable<[User]> = {
     return self.user.asObservable()
       .map { $0.friends.toArray() }
   }()
   
+  fileprivate lazy var requests: Observable<[User]> = {
+    return self.user.asObservable()
+      .map { $0.recievedRequests.toArray() }
+  }()
   
   init(coordinator: CoordinatorType) {
     self.coordinator = coordinator

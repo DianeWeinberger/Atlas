@@ -10,12 +10,7 @@ import UIKit
 import DeckTransition
 import RxCocoa
 import RxSwift
-
-enum UserRelationState {
-  case friend
-  case requestSent
-  case connect
-}
+import Action
 
 // TODO: Make View Model for this
 class UserDetailViewController: UIViewController {
@@ -52,7 +47,8 @@ class UserDetailViewController: UIViewController {
   
   
   // MARK: Variables
-  var user = Variable<User>(User())
+  var currentUser = Variable<User>(MockUser.ironMan)  // The user using the app. Not the user being shown
+  var displayedUser = Variable<User>(User())
   var imageHeight: CGFloat = 0
   
   var imageIsHalfSized: Bool {
@@ -64,12 +60,12 @@ class UserDetailViewController: UIViewController {
   }
   
   fileprivate lazy var history: Observable<[Event]> = {
-    return self.user.asObservable()
+    return self.displayedUser.asObservable()
       .map { $0.history.toArray() }
   }()
   
   fileprivate lazy var runs: Observable<[Run]> = {
-    return self.user.asObservable()
+    return self.displayedUser.asObservable()
       .map { $0.sortedRuns }
   }()
   
@@ -83,12 +79,12 @@ class UserDetailViewController: UIViewController {
     
     modalPresentationCapturesStatusBarAppearance = true
     
-    if let url = user.value.url {
+    if let url = displayedUser.value.url {
       imageView.sd_setImage(with: url)
     }
     
-    activityLabel.text = "\(user.value.firstName)'s Activity"
-    nameLabel.text = user.value.displayName
+    activityLabel.text = "\(displayedUser.value.firstName)'s Activity"
+    nameLabel.text = displayedUser.value.displayName
     
     activityTableView.delegate = self
     
@@ -98,6 +94,54 @@ class UserDetailViewController: UIViewController {
         cell.configure(run: run)
       }
       .addDisposableTo(rx_disposeBag)
+    
+    self.connectButton.rx.tap
+      .subscribe(onNext: { _ in
+        print("TAPPED")
+        self.displayedUser.value.recievedRequests.append(self.currentUser.value)
+        let user = self.currentUser.value
+        user.sentRequests.append(self.displayedUser.value)
+
+        self.currentUser.value = user
+      })
+      .addDisposableTo(rx_disposeBag)
+    
+    Observable.combineLatest(currentUser.asObservable(), displayedUser.asObservable()) {
+      (currentUser, displayedUser) -> UserRelationState in
+      return currentUser.relation(to: displayedUser)
+    }
+    .subscribe(onNext: { relation in
+      print(relation)
+      // TODO: Put into tuples of connect button state data
+      switch relation {
+      case .connect:
+        self.connectButton.setTitle("CONNECT", for: .normal)
+        self.connectButton.backgroundColor = Colors.orange.orangeRed
+        self.connectButton.setTitleColor(Colors.white, for: .normal)
+        self.connectButton.isEnabled = true
+        break
+      case .friend:
+        self.connectButton.setTitle("FRIENDS", for: .normal)
+        self.connectButton.backgroundColor = UIColor.lightGray
+        self.connectButton.setTitleColor(Colors.white, for: .normal)
+        self.connectButton.isEnabled = false
+        break
+      case .requestSent:
+        self.connectButton.setTitle("REQUEST SENT", for: .normal)
+        self.connectButton.backgroundColor = UIColor.lightGray
+        self.connectButton.setTitleColor(Colors.white, for: .normal)
+        self.connectButton.isEnabled = false
+        break
+      case .awaitingResponse:
+        self.connectButton.setTitle("AWAITING RESPONSE", for: .normal)
+        self.connectButton.backgroundColor = UIColor.lightGray
+        self.connectButton.setTitleColor(Colors.white, for: .normal)
+        self.connectButton.isEnabled = false
+        break
+      }
+    })
+    .addDisposableTo(rx_disposeBag)
+    
     
     setUpCollapsibleHeader()
   }

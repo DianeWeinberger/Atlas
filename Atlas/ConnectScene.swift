@@ -20,7 +20,7 @@ extension ConnectScene {
     switch self {
     case .details(let user):
       let modal = storyboard.instantiateViewController(withIdentifier: "userDetail") as! UserDetailViewController
-      modal.user.value = user
+      modal.displayedUser.value = user
       let transitionDelegate = DeckTransitioningDelegate()
       modal.transitioningDelegate = transitionDelegate
       modal.modalPresentationStyle = .custom

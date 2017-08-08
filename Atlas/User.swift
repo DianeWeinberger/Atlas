@@ -10,6 +10,7 @@ import Foundation
 import RxRealm
 import RealmSwift
 import RxSwift
+import Dotzu
 
 class User: Object {
   dynamic var id: String = ""
@@ -34,6 +35,9 @@ class User: Object {
   var runs: List<Run> = List<Run>()
   var history: List<Event> = List<Event>()
   var friends: List<User> = List<User>()
+  
+  var sentRequests: List<User> = List<User>()
+  var recievedRequests: List<User> = List<User>()
   
   override static func primaryKey() -> String? {
     return "id"
@@ -82,4 +86,29 @@ extension User {
   var sortedRuns: [Run] {
     return runs.sorted(by: Run.sortLatest)
   }
+  
+  func relation(to user: User) -> UserRelationState {
+    if friends.map({ $0.id }).contains(user.id) {
+      return UserRelationState.friend
+    }
+    
+    if sentRequests.map({ $0.id }).contains(user.id) {
+      return UserRelationState.requestSent
+    }
+    print(user.id)
+    let recieved = recievedRequests.toArray().map({ $0.id })
+    print(recieved)
+    if recievedRequests.map({ $0.id }).contains(user.id) {
+      return UserRelationState.awaitingResponse
+    }
+    
+    return UserRelationState.connect
+  }
+}
+
+enum UserRelationState: String {
+  case friend
+  case requestSent
+  case awaitingResponse
+  case connect
 }

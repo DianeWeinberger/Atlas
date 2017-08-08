@@ -12,7 +12,7 @@ class ProfileViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  let user = MockUser.ironMan()
+  let user = MockUser.ironMan
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent

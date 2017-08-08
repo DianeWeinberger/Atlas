@@ -60,9 +60,9 @@ class HomeViewModel  {
     coordinator.transition(to: ConnectScene.details(user), type: .modal)
   }
   
-  fileprivate let allUsers = Variable<[User]>([MockUser.dareDevil()])
+  fileprivate let allUsers = Variable<[User]>([MockUser.dareDevil])
   
-  fileprivate let user = Variable<User>(MockUser.ironMan())
+  fileprivate let user = Variable<User>(MockUser.ironMan)
   
   fileprivate lazy var friends: Observable<[User]> = {
     return self.user.asObservable()

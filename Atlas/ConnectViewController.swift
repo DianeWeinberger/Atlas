@@ -67,7 +67,8 @@ extension ConnectViewController {
         OperationQueue.main.addOperation {
           self?.searchBar.resignFirstResponder()
           let modal = UIStoryboard(name: "Connect", bundle: nil).instantiateViewController(withIdentifier: "userDetail") as! UserDetailViewController
-          modal.user.value = user
+          modal.currentUser.value = self!.viewModel!.user.value
+          modal.displayedUser.value = user
           let transitionDelegate = DeckTransitioningDelegate()
           modal.transitioningDelegate = transitionDelegate
           modal.modalPresentationStyle = .custom
