@@ -20,6 +20,7 @@ enum UserRelationState {
 // TODO: Make View Model for this
 class UserDetailViewController: UIViewController {
   
+  // MARK: IBOutlets
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var connectButton: UIButton!
   @IBOutlet weak var activityLabel: UILabel!
@@ -31,6 +32,7 @@ class UserDetailViewController: UIViewController {
   @IBOutlet weak var paceLabel: UILabel!
   @IBOutlet weak var totalDistanceLabel: UILabel!
   
+  // MARK: Constraint IBOutlets
   @IBOutlet var imageViewHalfHeightConstraint: NSLayoutConstraint!
   @IBOutlet var imageViewFullHeightConstraint: NSLayoutConstraint!
   @IBOutlet var imageViewSquareRatioConstraint: NSLayoutConstraint!
@@ -49,8 +51,7 @@ class UserDetailViewController: UIViewController {
   @IBOutlet var totalMilesAltYConstraint: NSLayoutConstraint!
   
   
-  
-  
+  // MARK: Variables
   var user = Variable<User>(User())
   var imageHeight: CGFloat = 0
   
@@ -132,7 +133,10 @@ extension UserDetailViewController: HeaderCollapsible {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
           self.nameLabel.textColor = Colors.darkGray
           self.totalDistanceLabel.textColor = Colors.darkGray
-
+          self.paceLabel.isHidden = true
+          self.locationLabel.isHidden = true
+          self.expertiseLabel.isHidden = true
+          self.runnerTypeLabel.isHidden = true
           self.view.layoutIfNeeded()
         }) { (complete) in
           self.connectButton.tag = 0
@@ -159,14 +163,20 @@ extension UserDetailViewController: HeaderCollapsible {
   }
   
   func onRelease() {
+    resetConstants()
+    
     if !imageViewHalfHeightConstraint.isActive {
-
-      self.changeLayout(primary: true)
+      
+      changeLayout(primary: true)
       
       UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
         self.nameLabel.textColor = Colors.white
         self.totalDistanceLabel.textColor = Colors.white
-        
+        self.paceLabel.isHidden = false
+        self.locationLabel.isHidden = false
+        self.expertiseLabel.isHidden = false
+        self.runnerTypeLabel.isHidden = false
+
         self.view.layoutIfNeeded()
       }) { (complete) in
         self.imageView.tag = 0
@@ -175,9 +185,20 @@ extension UserDetailViewController: HeaderCollapsible {
     }
   }
   
-  
   // TODO: Refactor this. Rename constraints to be easier to read.
   func changeLayout(primary: Bool) {
+    resetConstants()
+    self.connectButton.layer.cornerRadius = primary ? 20 : 0
+    
+    guard primary != imageViewFullHeightConstraint.isActive else { return }
+    
+    let swap: (NSLayoutConstraint, NSLayoutConstraint) -> Void = {
+      (_ a: NSLayoutConstraint, _ b: NSLayoutConstraint) in
+      a.isActive = !a.isActive
+      b.isActive = !a.isActive
+    }
+    
+    
     swap(imageViewFullHeightConstraint, imageViewHalfHeightConstraint)
     swap(imageViewWidthConstraint, imageViewSquareRatioConstraint)
     swap(nameLabelLeadingConstraint, nameLabelAltLeadingConstraint)
@@ -187,7 +208,9 @@ extension UserDetailViewController: HeaderCollapsible {
     swap(totalMilesYConstraint, totalMilesAltYConstraint)
     swap(totalMilesTrailingConstraint, totalMilesAltLeadingConstraint)
 
-    
+  }
+  
+  func resetConstants() {
     self.imageViewFullHeightConstraint.constant = 0
     self.imageViewHalfHeightConstraint.constant = 0
     self.imageViewWidthConstraint.constant = 0
@@ -195,11 +218,5 @@ extension UserDetailViewController: HeaderCollapsible {
     self.connectButtonFullWidthConstraint.constant = 0
     self.connectButtonHalfWidthConstraint.constant = 0
     
-    self.connectButton.layer.cornerRadius = primary ? 20 : 0
-  }
-  
-  func swap(_ a: NSLayoutConstraint, _ b: NSLayoutConstraint) {
-    a.isActive = !a.isActive
-    b.isActive = !a.isActive
   }
 }
