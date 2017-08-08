@@ -41,9 +41,6 @@ struct MockUser {
     tony.friends.append(objectsIn: friends)
     
     tony.recievedRequests.append(objectsIn: MockUser.generateUsers(max: 7))
-    print(tony.friends.toArray().map({ (user) -> String in
-      return user.id
-    }))
     return tony
   }
   

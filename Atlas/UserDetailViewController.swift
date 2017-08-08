@@ -97,7 +97,6 @@ class UserDetailViewController: UIViewController {
     
     self.connectButton.rx.tap
       .subscribe(onNext: { _ in
-        print("TAPPED")
         self.displayedUser.value.recievedRequests.append(self.currentUser.value)
         let user = self.currentUser.value
         user.sentRequests.append(self.displayedUser.value)
@@ -111,7 +110,6 @@ class UserDetailViewController: UIViewController {
       return currentUser.relation(to: displayedUser)
     }
     .subscribe(onNext: { relation in
-      print(relation)
       // TODO: Put into tuples of connect button state data
       switch relation {
       case .connect:

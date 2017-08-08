@@ -95,9 +95,7 @@ extension User {
     if sentRequests.map({ $0.id }).contains(user.id) {
       return UserRelationState.requestSent
     }
-    print(user.id)
-    let recieved = recievedRequests.toArray().map({ $0.id })
-    print(recieved)
+
     if recievedRequests.map({ $0.id }).contains(user.id) {
       return UserRelationState.awaitingResponse
     }

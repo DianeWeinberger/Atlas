@@ -161,7 +161,6 @@ extension ConnectViewController: HeaderCollapsible {
     } else {
       self.navigationController?.navigationBar.center.y  -= displacement / 500
       self.searchBarTopConstraint.constant  -= displacement / 500
-      self.view.layoutIfNeeded()
     }
 
   }
