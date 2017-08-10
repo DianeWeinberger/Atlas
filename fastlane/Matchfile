@@ -1,0 +1,7 @@
+git_url "https://github.com/TRNLLC/Fastlane-Match-Certificates"
+git_branch "atlas"
+type "appstore" 
+app_identifier "com.trn.atlas"
+username "trndev@trnme.com"
+
+

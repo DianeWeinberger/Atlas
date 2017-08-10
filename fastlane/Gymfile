@@ -1,0 +1,6 @@
+export_options(
+  method: "app-store",
+  provisioningProfiles: { 
+    "com.trn.atlas": "match Development com.trn.atlas"
+  }
+)

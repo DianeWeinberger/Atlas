@@ -608,7 +608,7 @@
 					2385A2A21F1EACAF00DD0FDE = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = W64MT7ZTAM;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -908,12 +908,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = W64MT7ZTAM;
 				INFOPLIST_FILE = Atlas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trn.atlas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "20800d29-ea6e-4a21-8c60-cb5dea84654f";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.trn.atlas";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -924,12 +926,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = W64MT7ZTAM;
 				INFOPLIST_FILE = Atlas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trn.atlas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3713343c-1dbc-4e01-97d8-a85f9b3bdb76";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.trn.atlas";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

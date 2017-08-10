@@ -95,12 +95,24 @@ class UserDetailViewController: UIViewController {
       }
       .addDisposableTo(rx_disposeBag)
     
+    configureConnectButton()
+    setUpCollapsibleHeader()
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    imageHeight = self.imageView.bounds.size.height
+  }
+}
+
+extension UserDetailViewController {
+  func configureConnectButton() {
     self.connectButton.rx.tap
       .subscribe(onNext: { _ in
         self.displayedUser.value.recievedRequests.append(self.currentUser.value)
         let user = self.currentUser.value
         user.sentRequests.append(self.displayedUser.value)
-
+        
         self.currentUser.value = user
       })
       .addDisposableTo(rx_disposeBag)
@@ -108,45 +120,38 @@ class UserDetailViewController: UIViewController {
     Observable.combineLatest(currentUser.asObservable(), displayedUser.asObservable()) {
       (currentUser, displayedUser) -> UserRelationState in
       return currentUser.relation(to: displayedUser)
-    }
-    .subscribe(onNext: { relation in
-      // TODO: Put into tuples of connect button state data
-      switch relation {
-      case .connect:
-        self.connectButton.setTitle("CONNECT", for: .normal)
-        self.connectButton.backgroundColor = Colors.orange.orangeRed
-        self.connectButton.setTitleColor(Colors.white, for: .normal)
-        self.connectButton.isEnabled = true
-        break
-      case .friend:
-        self.connectButton.setTitle("FRIENDS", for: .normal)
-        self.connectButton.backgroundColor = UIColor.lightGray
-        self.connectButton.setTitleColor(Colors.white, for: .normal)
-        self.connectButton.isEnabled = false
-        break
-      case .requestSent:
-        self.connectButton.setTitle("REQUEST SENT", for: .normal)
-        self.connectButton.backgroundColor = UIColor.lightGray
-        self.connectButton.setTitleColor(Colors.white, for: .normal)
-        self.connectButton.isEnabled = false
-        break
-      case .awaitingResponse:
-        self.connectButton.setTitle("AWAITING RESPONSE", for: .normal)
-        self.connectButton.backgroundColor = UIColor.lightGray
-        self.connectButton.setTitleColor(Colors.white, for: .normal)
-        self.connectButton.isEnabled = false
-        break
       }
-    })
-    .addDisposableTo(rx_disposeBag)
-    
-    
-    setUpCollapsibleHeader()
-  }
-  
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    imageHeight = self.imageView.bounds.size.height
+      .subscribeOn(ConcurrentMainScheduler.instance)
+      .subscribe(onNext: { relation in
+        // TODO: Put into tuples of connect button state data
+        switch relation {
+        case .connect:
+          self.connectButton.setTitle("CONNECT", for: .normal)
+          self.connectButton.backgroundColor = Colors.orange.orangeRed
+          self.connectButton.setTitleColor(Colors.white, for: .normal)
+          self.connectButton.isEnabled = true
+          break
+        case .friend:
+          self.connectButton.setTitle("FRIENDS", for: .normal)
+          self.connectButton.backgroundColor = UIColor.lightGray
+          self.connectButton.setTitleColor(Colors.white, for: .normal)
+          self.connectButton.isEnabled = false
+          break
+        case .requestSent:
+          self.connectButton.setTitle("REQUEST SENT", for: .normal)
+          self.connectButton.backgroundColor = UIColor.lightGray
+          self.connectButton.setTitleColor(Colors.white, for: .normal)
+          self.connectButton.isEnabled = false
+          break
+        case .awaitingResponse:
+          self.connectButton.setTitle("AWAITING RESPONSE", for: .normal)
+          self.connectButton.backgroundColor = UIColor.lightGray
+          self.connectButton.setTitleColor(Colors.white, for: .normal)
+          self.connectButton.isEnabled = false
+          break
+        }
+      })
+      .addDisposableTo(rx_disposeBag)
   }
 }
 
