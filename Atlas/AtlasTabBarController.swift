@@ -58,6 +58,7 @@ class AtlasTabBarController: UITabBarController, BindableType {
         tab.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 11)
         tab.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0)
         
+        
         if i == 2 {
           tab.imageInsets = UIEdgeInsetsMake(-10, 0, 10, 0)
         }
