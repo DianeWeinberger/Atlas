@@ -12,6 +12,9 @@ PODS:
   - Auth0 (1.7.1):
     - SimpleKeychain
   - AvatarImageView (2.0.3)
+  - AWSCognitoIdentityProvider (2.5.9):
+    - AWSCore (= 2.5.9)
+  - AWSCore (2.5.9)
   - BouncyLayout (1.1.0)
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
@@ -83,6 +86,7 @@ DEPENDENCIES:
   - Action
   - Auth0
   - AvatarImageView
+  - AWSCognitoIdentityProvider
   - BouncyLayout
   - Charts
   - ChartsRealm
@@ -113,6 +117,8 @@ SPEC CHECKSUMS:
   AsyncDisplayKit: 1585f6cd0531ae9b30476f5912f577b73ebcb0e4
   Auth0: b23f0d9f45bdcd70652f5427d3411519d79ddaa1
   AvatarImageView: 25541e2051124e730c7a1b97f5e5b9345fbc1cfc
+  AWSCognitoIdentityProvider: 4655e97cfbb4347591db74b33e8c89309ca25131
+  AWSCore: c71840dd51f271dc0af8de8fd6f352767ebde8b4
   BouncyLayout: f91c6504437a61acd733404f55f75bd8154f5840
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   ChartsRealm: ed0332fd409298188a2b71e9548604165c987d42
@@ -142,6 +148,6 @@ SPEC CHECKSUMS:
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: cc85f49775b555507272bcfce46132129e679a8c
+PODFILE CHECKSUM: 1dc7942d341c8c78b4bd97ab9fac2c27fa26ae5e
 
 COCOAPODS: 1.2.1

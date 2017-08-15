@@ -10,7 +10,7 @@ import UIKit
 import Dotzu
 import NSObject_Rx
 import RealmSwift
-import Lock
+import AWSCognitoIdentityProvider
 
 // TODO: Turn off Allow Arbitrary Loads in NSAppTransportSecurity in Info.plist
 
@@ -19,17 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
     #if DEBUG
       Dotzu.sharedManager.enable()
     #endif
     
-    let loggedIn = true
     
     let coordinator = Coordinator(window: window!)
     
+    AuthService.initialize()
     /*
     let realm = try! Realm()
     let ironMan = realm.object(ofType: User.self, forPrimaryKey: "0")
@@ -50,7 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
      */
     
-    if loggedIn {
+    if AuthService.isSignedIn {
+      // DRY this out
       let homeViewModel = HomeViewModel(coordinator: coordinator)
       let connectViewModel = ConnectViewModel(coordinator: coordinator)
       let tabbarViewModel = AtlasTabBarViewModel(coordinator: coordinator)
@@ -72,8 +72,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   
-  func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-    return Lock.resumeAuth(url, options: options)
+  
+}
+
+
+class AuthenticationDelegate: NSObject, AWSCognitoIdentityInteractiveAuthenticationDelegate {
+  func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput,
+                  passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
+    
+    print("DONE")
+    
+  }
+  
+  func didCompleteStepWithError(_ error: Error?) {
+    print("ERROR: \(error?.localizedDescription)")
   }
 }
 

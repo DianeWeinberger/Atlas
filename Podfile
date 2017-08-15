@@ -4,6 +4,7 @@ target 'Atlas' do
   use_frameworks!
 
   pod 'RxSwift'
+  pod 'AWSCognitoIdentityProvider'
   pod 'RxCocoa'
   pod 'RealmSwift'
   pod 'RxRealm'
