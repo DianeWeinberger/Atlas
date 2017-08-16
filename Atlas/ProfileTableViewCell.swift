@@ -20,6 +20,7 @@ class ProfileTableViewCell: UITableViewCell {
 //  @IBOutlet weak var paceBlock: StatBlock!
 //  @IBOutlet weak var distanceBlock: StatBlock!
   
+  @IBOutlet weak var logoutButton: UIButton!
   @IBOutlet weak var statsCollectionView: UICollectionView!
   
   static let identifier = "PROFILE_TABLEVIEW_CELL"

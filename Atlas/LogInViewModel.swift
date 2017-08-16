@@ -16,6 +16,18 @@ struct LogInViewModel  {
   // MARK: Input
   
   // MARK: Output
+  func userDidLogIn() {
+    // TODO: Dry this out
+    let homeViewModel = HomeViewModel(coordinator: coordinator)
+    let connectViewModel = ConnectViewModel(coordinator: coordinator)
+    let tabbarViewModel = AtlasTabBarViewModel(coordinator: coordinator)
+    let profileViewModel = ProfileViewModel(coordinator: coordinator)
+    let viewModels: MainViewModels = (tabbarViewModel, homeViewModel, connectViewModel, profileViewModel)
+    
+    let mainScene = MainScene.main(viewModels)
+    
+    coordinator.transition(to: mainScene, type: TransitionType.root)
+  }
   
   init(coordinator: CoordinatorType) {
     self.coordinator = coordinator

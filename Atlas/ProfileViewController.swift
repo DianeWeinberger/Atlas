@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import RxSwift
+import Action
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, BindableType {
   
   @IBOutlet weak var tableView: UITableView!
   
   let user = MockUser.ironMan
   
+  var viewModel: ProfileViewModel!
+
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
   }
@@ -34,6 +38,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     case 0:
       let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.reuseIdentifier, for: indexPath) as! ProfileTableViewCell
       cell.configure(from: user)
+      cell.logoutButton.rx.action = viewModel.logOutAction
       return cell
       
     case 1:

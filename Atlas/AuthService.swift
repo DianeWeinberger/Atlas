@@ -18,8 +18,6 @@ enum AuthServiceError: Error {
 
 class AuthService {
   static func initialize() {
-    print("App Client Id: \(AWS.appClientId)")
-    print("Identity Pool Id: \(AWS.identityPoolId)")
 //    let credentialProvider = AWSCognitoCredentialsProvider(regionType: AWS.region, identityPoolId: AWS.identityPoolId)
     let serviceConfiguration = AWSServiceConfiguration(region: .USEast2, credentialsProvider: nil)
     let configuration = AWSCognitoIdentityUserPoolConfiguration(clientId: AWS.appClientId,
@@ -32,7 +30,7 @@ class AuthService {
     return Observable.create { observer in
       
       let userPool = AWSCognitoIdentityUserPool(forKey: "UserPool")
-      userPool.delegate = AuthenticationDelegate() as! AWSCognitoIdentityInteractiveAuthenticationDelegate
+      userPool.delegate = AuthenticationDelegate() as AWSCognitoIdentityInteractiveAuthenticationDelegate
       let attributes = AuthService.userAttributes(firstName: firstName, lastName: lastName, email: email, password: password)
       userPool
         .signUp(email, password: password, userAttributes: attributes, validationData: nil)
@@ -104,6 +102,14 @@ class AuthService {
       
       return Disposables.create()
     }
+  }
+  
+  static func logOut() {
+    let userPool = AWSCognitoIdentityUserPool(forKey: "UserPool")
+    userPool.delegate = AuthenticationDelegate()
+    userPool
+      .getUser()
+      .signOut()
   }
   
   static func signIn(email: String, password: String, _ completionBlock: @escaping (AWSTask<AWSCognitoIdentityUserSession>) -> Any?) {

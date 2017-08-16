@@ -34,11 +34,17 @@ class LogInViewController: UIViewController, BindableType {
       .flatMap { email, password -> Observable<AWSCognitoIdentityUserSession> in
         return AuthService.signIn(email: email, password: password)
       }.subscribe(onNext: { session in
+        
         print("LOGGED IN")
         print(session.accessToken, session.idToken, session.refreshToken,  session.expirationTime)
+        
+        OperationQueue.main.addOperation {
+          self.viewModel.userDidLogIn()
+        }
       }, onError: { err in
         self.alert("ERROR", message: err.localizedDescription)
       })
+      .addDisposableTo(rx_disposeBag)
     
     view.backgroundColor = UIColor.purple
   }
