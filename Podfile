@@ -31,4 +31,6 @@ target 'Atlas' do
   pod 'AvatarImageView'
   pod 'Kingfisher'
   pod 'Sourcery'
+  pod 'Moya/RxSwift'
+  pod "RxRealm"
 end

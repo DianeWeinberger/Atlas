@@ -2,6 +2,7 @@ PODS:
   - Action (3.0.0):
     - RxCocoa (~> 3.4.0)
     - RxSwift (~> 3.4.0)
+  - Alamofire (4.5.0)
   - AsyncDisplayKit (2.2):
     - AsyncDisplayKit/PINRemoteImage (= 2.2)
   - AsyncDisplayKit/Core (2.2)
@@ -31,6 +32,12 @@ PODS:
     - Lock/Classic (= 2.3.1)
   - Lock/Classic (2.3.1):
     - Auth0 (~> 1.6)
+  - Moya/Core (8.0.5):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Moya/RxSwift (8.0.5):
+    - Moya/Core
+    - RxSwift (~> 3.0)
   - NMessenger (1.0.80):
     - AsyncDisplayKit (= 2.2)
   - NSObject+Rx (2.1.0):
@@ -55,6 +62,7 @@ PODS:
   - Realm/Headers (2.6.2)
   - RealmSwift (2.6.2):
     - Realm (= 2.6.2)
+  - Result (3.2.3)
   - RxCocoa (3.4.1):
     - RxSwift (~> 3.4)
   - RxDataSources (1.0.3):
@@ -95,6 +103,7 @@ DEPENDENCIES:
   - Fakery
   - Kingfisher
   - Lock
+  - Moya/RxSwift
   - NMessenger
   - NSObject+Rx
   - Pastel
@@ -114,6 +123,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Action: fed388b9160ad787a58cb34b5064db6dbaae7e45
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AsyncDisplayKit: 1585f6cd0531ae9b30476f5912f577b73ebcb0e4
   Auth0: b23f0d9f45bdcd70652f5427d3411519d79ddaa1
   AvatarImageView: 25541e2051124e730c7a1b97f5e5b9345fbc1cfc
@@ -127,6 +137,7 @@ SPEC CHECKSUMS:
   Fakery: 97b99c23937d2e025d9135c75e2b17351ccd5031
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   Lock: ff300a4039e2191bc1b2a29f6ed956412c252ffd
+  Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   NMessenger: ca6a89073ca40d3868cf45505f6f8318853afd40
   NSObject+Rx: '09277ba78aa12a8e454c82429eb4e31bfb413131'
   Pastel: 738740c84f2b15bbcd96ebe99c4e6c2f5dd42262
@@ -135,6 +146,7 @@ SPEC CHECKSUMS:
   PINRemoteImage: c4f9f16932840c597f32e69dd288e10e111a1929
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
   RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
+  Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
   RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
   RxGesture: 1f770b247c69e8133fb8f4ef263571efd0ae91a1
@@ -148,6 +160,6 @@ SPEC CHECKSUMS:
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: 1dc7942d341c8c78b4bd97ab9fac2c27fa26ae5e
+PODFILE CHECKSUM: 92fff5fc42cc2c058b5bb40f1ac3545153f2e58c
 
 COCOAPODS: 1.2.1
