@@ -22,8 +22,6 @@ class LogInViewController: UIViewController, BindableType {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
-    
     let logInData = Observable.combineLatest(
       emailTextField.rx.text.map { $0 ?? "" },
       passwordTextField.rx.text.map { $0 ?? "" }
@@ -36,12 +34,13 @@ class LogInViewController: UIViewController, BindableType {
       }.subscribe(onNext: { session in
         
         print("LOGGED IN")
-        print(session.accessToken, session.idToken, session.refreshToken,  session.expirationTime)
+//        print(session.accessToken, session.idToken, session.refreshToken,  session.expirationTime)
         
         OperationQueue.main.addOperation {
           self.viewModel.userDidLogIn()
         }
       }, onError: { err in
+        print(err.localizedDescription)
         self.alert("ERROR", message: err.localizedDescription)
       })
       .addDisposableTo(rx_disposeBag)

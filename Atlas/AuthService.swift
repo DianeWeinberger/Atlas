@@ -10,13 +10,28 @@ import Foundation
 import AWSCognitoIdentityProvider
 import AWSCore
 import RxSwift
+import RxCocoa
 
 enum AuthServiceError: Error {
   case unknown
   case signUpFailed
+  case userNotSignedIn
 }
 
+typealias SignUpCredentials = (firstName: String, lastName: String, email: String, password: String)
+
 class AuthService {
+  
+  static var pool = AWSCognitoIdentityUserPool(forKey: "UserPool")
+  
+  static func user() throws -> AWSCognitoIdentityUser {
+    let userPool = AWSCognitoIdentityUserPool(forKey: "UserPool")
+    guard let user = userPool.currentUser() else {
+      throw AuthServiceError.userNotSignedIn
+    }
+    return user
+  }
+  
   static func initialize() {
 //    let credentialProvider = AWSCognitoCredentialsProvider(regionType: AWS.region, identityPoolId: AWS.identityPoolId)
     let serviceConfiguration = AWSServiceConfiguration(region: .USEast2, credentialsProvider: nil)
@@ -26,11 +41,16 @@ class AuthService {
     AWSCognitoIdentityUserPool.register(with: serviceConfiguration, userPoolConfiguration: configuration, forKey: "UserPool")
   }
   
+  static func signUp(data: SignUpCredentials) -> Observable<AWSCognitoIdentityUserPoolSignUpResponse> {
+    return AuthService.signUp(firstName: data.firstName, lastName: data.lastName, email: data.email, password: data.password)
+  }
+  
   static func signUp(firstName: String, lastName: String, email: String, password: String) -> Observable<AWSCognitoIdentityUserPoolSignUpResponse> {
     return Observable.create { observer in
       
       let userPool = AWSCognitoIdentityUserPool(forKey: "UserPool")
-      userPool.delegate = AuthenticationDelegate() as AWSCognitoIdentityInteractiveAuthenticationDelegate
+      userPool.delegate = AuthenticationDelegate()
+      
       let attributes = AuthService.userAttributes(firstName: firstName, lastName: lastName, email: email, password: password)
       userPool
         .signUp(email, password: password, userAttributes: attributes, validationData: nil)

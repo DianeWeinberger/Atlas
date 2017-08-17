@@ -78,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 class AuthenticationDelegate: NSObject, AWSCognitoIdentityInteractiveAuthenticationDelegate {
+  
   func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput,
                   passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
     
@@ -86,7 +87,27 @@ class AuthenticationDelegate: NSObject, AWSCognitoIdentityInteractiveAuthenticat
   }
   
   func didCompleteStepWithError(_ error: Error?) {
-    print("ERROR: \(error?.localizedDescription)")
+    print("ERROR: \(error?.localizedDescription ?? "ERROR")")
+  }
+  
+  func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {
+    return DummyPasswordAuthentication()
+  }
+  
+  func startCustomAuthentication() -> AWSCognitoIdentityCustomAuthentication {
+    return DummyCustomAuthentication()
   }
 }
+
+class DummyPasswordAuthentication: NSObject, AWSCognitoIdentityPasswordAuthentication {
+  func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput, passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {}
+  
+  func didCompleteStepWithError(_ error: Error?) {}
+}
+
+class DummyCustomAuthentication: NSObject, AWSCognitoIdentityCustomAuthentication {
+  func getCustomChallengeDetails(_ authenticationInput: AWSCognitoIdentityCustomAuthenticationInput, customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>) {}
+  func didCompleteStepWithError(_ error: Error?) {}
+}
+
 

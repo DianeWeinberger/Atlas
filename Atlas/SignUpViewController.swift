@@ -8,69 +8,98 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
+import RxSwiftExt
+import Action
 import AWSCognitoIdentityProvider
 
-class SignUpViewController: UIViewController, BindableType {
-
-  var viewModel: SignUpViewModel!
+class SignUpViewController: UIViewController {
   
   @IBOutlet weak var firstNameTextField: UITextField!
   @IBOutlet weak var lastNameTextField: UITextField!
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
-  
   @IBOutlet weak var signUpButton: UIButton!
   
+  var viewModel: SignUpViewModel!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    typealias SignUpCredentials = (firstName: String, lastName: String, email: String, password: String)
-
-    
-    let signUpData = Observable.combineLatest(
-      firstNameTextField.rx.text.map { $0 ?? "" },
-      lastNameTextField.rx.text.map { $0 ?? "" },
-      emailTextField.rx.text.map { $0 ?? "" },
-      passwordTextField.rx.text.map { $0 ?? "" }
-    ).map { firstName, lastName, email, password -> SignUpCredentials in
-      return (firstName: firstName, lastName: lastName, email: email, password: password)
-    }
-
-    signUpButton.rx.tap.asObservable()
-      .withLatestFrom(signUpData)
-      .flatMap { data -> Observable<(AWSCognitoIdentityUserPoolSignUpResponse, SignUpCredentials)> in
-        return Observable.combineLatest(
-          AuthService.signUp(firstName: data.firstName, lastName: data.lastName, email: data.email, password: data.password),
-          Observable.of(data)
-        )
+    signUpButton.rx.tap
+      .withLatestFrom(viewModel.signUpData)
+      .debug("Sign_Up_Data")
+      .flatMap { Observable.combineLatest(AuthService.signUp(data: $0), Observable.of($0)) }
+      .debug("Sign_Up_Response")
+      .flatMap { _, data -> Observable<AWSCognitoIdentityUserSession> in
+        return AuthService.signIn(email: data.email, password: data.password)
       }
-      .flatMap { response, data -> Observable<AWSCognitoIdentityUserSession> in
-        return AuthService.signIn(user: response.user, email: data.email, password: data.password)
-      }
-      .subscribe(
-        onNext: { session in
-        
-          print(session.accessToken,
-            session.idToken,
-            session.refreshToken)
-          
-          OperationQueue.main.addOperation {
-            print("done")
-            self.viewModel.userDidSignUp()
-          }
+//      .flatMap { AuthService.signIn(user: $0.user, email: $1.email, password: $1.password) }
+      .debug("Log_In_Session")
+      .map { _ in true }
+      .catchError { e -> Observable<Bool> in
+        print(e.localizedDescription)
+        //        self.coordinator.currentViewController.error(e)
+        OperationQueue.main.addOperation { self.error(e) }
 
-      }, onError: { err in
-        
-        self.alert("ERROR", message: err.localizedDescription)
-        
+        return Observable.just(false)
+      }
+      .subscribeOn(MainScheduler.instance)
+      .subscribe(onNext: { success in
+        if success {
+          OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
+        }
       })
-    .addDisposableTo(rx_disposeBag)
+      .addDisposableTo(rx_disposeBag)
+//      .flatMap { _ in self.viewModel.transitionToTabbar() }
+//      .debug("Transition")
     
+    
+//    signUpButton.rx.tap.asObservable()
+//      .withLatestFrom(viewModel.signUpData)
+//      .bind(to: viewModel.signUpButtonTapped.inputs)
+//      .addDisposableTo(rx_disposeBag)
+//
+//    // If button is working, textfields are disabled
+//    viewModel.signUpButtonTapped._enabledIf
+//      .subscribe(onNext: { self.toggleTextFieldEnabled($0) })
+//      .addDisposableTo(rx_disposeBag)
+//    
+//    // After signup, login
+//    viewModel.signUpButtonTapped.elements
+//      .takeLast(1)
+//      .subscribe(onNext: { _ in
+//        
+//      })
+//      .addDisposableTo(rx_disposeBag)
+    
+    
+    
+    
+//    signUpButton.rx.action = viewModel.signUpButtonTapped
   }
   
-  func bindViewModel() {
-    
+  func toggleTextFieldEnabled(_ enabled: Bool) {
+    [firstNameTextField, lastNameTextField, emailTextField, passwordTextField]
+      .forEach { $0?.isEnabled = enabled }
   }
+}
 
+extension SignUpViewController: BindableType {
+  func bindViewModel() {
+    firstNameTextField.rx.text.unwrap()
+      .bind(to: viewModel.firstName)
+      .addDisposableTo(rx_disposeBag)
+    
+    lastNameTextField.rx.text.unwrap()
+      .bind(to: viewModel.lastName)
+      .addDisposableTo(rx_disposeBag)
+    
+    emailTextField.rx.text.unwrap()
+      .bind(to: viewModel.email)
+      .addDisposableTo(rx_disposeBag)
+    
+    passwordTextField.rx.text.unwrap()
+      .bind(to: viewModel.password)
+      .addDisposableTo(rx_disposeBag)
+  }
 }

@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import Action
+import AWSCognitoIdentityProvider
 
 class ProfileViewModel  {
   var coordinator: CoordinatorType
@@ -16,6 +17,15 @@ class ProfileViewModel  {
   // MARK: Input
   
   // MARK: Output
+  var user: AWSCognitoIdentityUser {
+    var currentUser = AWSCognitoIdentityUser()
+    do {
+      currentUser = try AuthService.user()
+    } catch {
+      self.goToLandingScreen()
+    }
+    return currentUser
+  }
   
   // MARK: Actions
   lazy var logOutAction: CocoaAction = {
