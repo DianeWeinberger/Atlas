@@ -7,8 +7,26 @@
 //
 
 import Foundation
+import RxSwift
 
-struct AtlasTabBarViewModel  {
+protocol AtlasTabBarViewModelInputsType { }
+
+protocol AtlasTabBarViewModelOutputsType { }
+
+protocol AtlasTabBarViewModelActionsType { }
+
+protocol AtlasTabBarViewModelType {
+  var inputs: AtlasTabBarViewModelInputsType { get }
+  var outputs: AtlasTabBarViewModelOutputsType { get }
+  var actions: AtlasTabBarViewModelActionsType { get }
+  var coordinator: CoordinatorType { get set }
+}
+
+final class AtlasTabBarViewModel: AtlasTabBarViewModelType  {
+  
+  var inputs: AtlasTabBarViewModelInputsType { return self }
+  var outputs: AtlasTabBarViewModelOutputsType { return self }
+  var actions: AtlasTabBarViewModelActionsType { return self }
   var coordinator: CoordinatorType
   
   // MARK: Input
@@ -24,3 +42,6 @@ struct AtlasTabBarViewModel  {
     coordinator.transition(to: RunScene.run(runViewModel), type: .modal)
   }
 }
+
+
+extension AtlasTabBarViewModel: AtlasTabBarViewModelInputsType, AtlasTabBarViewModelOutputsType, AtlasTabBarViewModelActionsType { }

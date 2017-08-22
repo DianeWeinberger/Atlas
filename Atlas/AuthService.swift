@@ -22,18 +22,20 @@ typealias SignUpCredentials = (firstName: String, lastName: String, email: Strin
 
 class AuthService {
   
-  static let store = CognitoStore.sharedInstance
+  public static let shared = AuthService()
   
-  static func signUp(data: SignUpCredentials) -> Observable<AWSCognitoIdentityUserPoolSignUpResponse> {
-    return AuthService.signUp(firstName: data.firstName, lastName: data.lastName, email: data.email, password: data.password)
+  let store = CognitoStore.sharedInstance
+  
+  func signUp(data: SignUpCredentials) -> Observable<AWSCognitoIdentityUserPoolSignUpResponse> {
+    return signUp(firstName: data.firstName, lastName: data.lastName, email: data.email, password: data.password)
   }
   
   
-  static func signUp(firstName: String, lastName: String, email: String, password: String) -> Observable<AWSCognitoIdentityUserPoolSignUpResponse> {
+  func signUp(firstName: String, lastName: String, email: String, password: String) -> Observable<AWSCognitoIdentityUserPoolSignUpResponse> {
     return Observable.create { observer in
       
-      let attributes = AuthService.userAttributes(firstName: firstName, lastName: lastName, email: email, password: password)
-      store.userPool
+      let attributes = self.userAttributes(firstName: firstName, lastName: lastName, email: email, password: password)
+      self.store.userPool
         .signUp(email, password: password, userAttributes: attributes, validationData: nil)
         .continueWith(block: { (response) -> Any? in
           if let error = response.error {
@@ -55,10 +57,10 @@ class AuthService {
   }
   
 
-  static func signIn(email: String, password: String) -> Observable<AWSCognitoIdentityUserSession> {
+  func signIn(email: String, password: String) -> Observable<AWSCognitoIdentityUserSession> {
     return Observable.create { observer in
 
-      store.userPool
+      self.store.userPool
         .getUser(email)
         .getSession(email, password: password, validationData: nil)
         .continueWith(block: { session -> Any? in
@@ -81,7 +83,7 @@ class AuthService {
   }
   
   
-  static func logOut() {
+  func logOut() {
     store.userPool
       .getUser()
       .signOut()
@@ -91,14 +93,14 @@ class AuthService {
 
 extension AuthService {
   
-  static var isSignedIn: Bool {
+  var isSignedIn: Bool {
     let userPool = store.userPool
     
     guard let user = userPool.currentUser() else { return false }
     return user.isSignedIn
   }
   
-  fileprivate static func userAttributes(firstName: String, lastName: String, email: String, password: String) -> [AWSCognitoIdentityUserAttributeType] {
+  fileprivate func userAttributes(firstName: String, lastName: String, email: String, password: String) -> [AWSCognitoIdentityUserAttributeType] {
     let nameAttribute = AWSCognitoIdentityUserAttributeType(name: "given_name", value: firstName)
     let emailAttribute = AWSCognitoIdentityUserAttributeType(name: "email", value: email)
     let passwordAttribute = AWSCognitoIdentityUserAttributeType(name: "family_name", value: lastName)

@@ -10,7 +10,31 @@ import Foundation
 import RxSwift
 import Action
 
-class ConnectViewModel  {
+protocol ConnectViewModelInputsType {
+  var selectedIndex: Observable<Int>! { get set }
+  var filterText: Observable<String?>! { get set }
+}
+
+protocol ConnectViewModelOutputsType {
+  var displayedUsers: Observable<[User]> { get }
+}
+
+protocol ConnectViewModelActionsType {
+  func didSelectModel(user: User)
+}
+
+protocol ConnectViewModelType {
+  var inputs: ConnectViewModelInputsType { get }
+  var outputs: ConnectViewModelOutputsType { get }
+  var actions: ConnectViewModelActionsType { get }
+  var coordinator: CoordinatorType { get set }
+}
+
+final class ConnectViewModel: ConnectViewModelType {
+  
+  var inputs: ConnectViewModelInputsType { return self }
+  var outputs: ConnectViewModelOutputsType { return self }
+  var actions: ConnectViewModelActionsType { return self }
   var coordinator: CoordinatorType
   
   // MARK: Input
@@ -75,3 +99,5 @@ class ConnectViewModel  {
     self.coordinator = coordinator
   }
 }
+
+extension ConnectViewModel: ConnectViewModelInputsType, ConnectViewModelOutputsType, ConnectViewModelActionsType { }

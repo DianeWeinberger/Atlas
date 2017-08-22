@@ -30,7 +30,7 @@ class LogInViewController: UIViewController, BindableType {
     logInButton.rx.tap.asObservable()
       .withLatestFrom(logInData)
       .flatMap { email, password -> Observable<AWSCognitoIdentityUserSession> in
-        return AuthService.signIn(email: email, password: password)
+        return AuthService.shared.signIn(email: email, password: password)
       }
       .map { session -> AWSCognitoIdentityUserSession? in
         return session

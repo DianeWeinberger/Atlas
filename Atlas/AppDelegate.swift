@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
      */
     
-    if AuthService.isSignedIn {
+    if AuthService.shared.isSignedIn {
       // DRY this out
       let homeViewModel = HomeViewModel(coordinator: coordinator)
       let connectViewModel = ConnectViewModel(coordinator: coordinator)

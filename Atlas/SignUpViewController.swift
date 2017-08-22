@@ -28,10 +28,10 @@ class SignUpViewController: UIViewController {
     signUpButton.rx.tap
       .withLatestFrom(viewModel.signUpData)
       .debug("Sign_Up_Data")
-      .flatMap { Observable.combineLatest(AuthService.signUp(data: $0), Observable.of($0)) }
+      .flatMap { Observable.combineLatest(AuthService.shared.signUp(data: $0), Observable.of($0)) }
       .debug("Sign_Up_Response")
       .flatMap { _, data -> Observable<AWSCognitoIdentityUserSession> in
-        return AuthService.signIn(email: data.email, password: data.password)
+        return AuthService.shared.signIn(email: data.email, password: data.password)
       }
 //      .flatMap { AuthService.signIn(user: $0.user, email: $1.email, password: $1.password) }
       .debug("Log_In_Session")
@@ -50,30 +50,6 @@ class SignUpViewController: UIViewController {
         }
       })
       .addDisposableTo(rx_disposeBag)
-//      .flatMap { _ in self.viewModel.transitionToTabbar() }
-//      .debug("Transition")
-    
-    
-//    signUpButton.rx.tap.asObservable()
-//      .withLatestFrom(viewModel.signUpData)
-//      .bind(to: viewModel.signUpButtonTapped.inputs)
-//      .addDisposableTo(rx_disposeBag)
-//
-//    // If button is working, textfields are disabled
-//    viewModel.signUpButtonTapped._enabledIf
-//      .subscribe(onNext: { self.toggleTextFieldEnabled($0) })
-//      .addDisposableTo(rx_disposeBag)
-//    
-//    // After signup, login
-//    viewModel.signUpButtonTapped.elements
-//      .takeLast(1)
-//      .subscribe(onNext: { _ in
-//        
-//      })
-//      .addDisposableTo(rx_disposeBag)
-    
-    
-    
     
 //    signUpButton.rx.action = viewModel.signUpButtonTapped
   }

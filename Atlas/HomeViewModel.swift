@@ -10,12 +10,35 @@ import Foundation
 import RxSwift
 import Action
 
-class HomeViewModel  {
+
+protocol HomeViewModelInputsType {
+  var selectedIndex: Observable<Int>! { get set }
+}
+
+protocol HomeViewModelOutputsType {
+  var selectedActivity: Observable<[Event]> { get }
+}
+
+protocol HomeViewModelActionsType {
+  func didSelectModel(user: User)
+}
+
+protocol HomeViewModelType {
+  var inputs: HomeViewModelInputsType { get }
+  var outputs: HomeViewModelOutputsType { get }
+  var actions: HomeViewModelActionsType { get }
+  var coordinator: CoordinatorType { get set }
+}
+
+class HomeViewModel: HomeViewModelType  {
+  
+  var inputs: HomeViewModelInputsType { return self }
+  var outputs: HomeViewModelOutputsType { return self }
+  var actions: HomeViewModelActionsType { return self }
   var coordinator: CoordinatorType
   
   // MARK: Input
   var selectedIndex: Observable<Int>!
-//  var filterText: Observable<String?>!
   
   // MARK: Output
   lazy var myActivity: Observable<[Event]> = {
@@ -27,9 +50,7 @@ class HomeViewModel  {
   
   lazy var friendsActivity: Observable<[Event]> = {
     return self.user.asObservable()
-      .map { user -> [User] in
-        return user.friends.toArray()
-      }
+      .map { $0.friends.toArray() }
       .map { friends -> [Event] in
         return friends
           .flatMap { $0.history }
@@ -74,3 +95,6 @@ class HomeViewModel  {
     self.coordinator = coordinator
   }
 }
+
+extension HomeViewModel: HomeViewModelInputsType, HomeViewModelOutputsType, HomeViewModelActionsType { }
+
