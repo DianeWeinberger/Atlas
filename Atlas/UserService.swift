@@ -17,6 +17,8 @@ class UserService {
   private let api = AtlasProvider()
   
   func createUser(id: String, credentials: SignUpCredentials) -> Observable<JSONDictionary> {
+    print(id)
+    print(credentials)
     let (firstName, lastName, email, _) = credentials
     let data = [
       "id": id,
@@ -25,5 +27,9 @@ class UserService {
       "email": email
     ]
     return api.requestJSON(AtlasAPI.user(dictionary: data))
+  }
+  
+  func getUser(id: String) -> Observable<JSONDictionary> {
+    return api.requestJSON(AtlasAPI.fetchUserById(id: id))
   }
 }

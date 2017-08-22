@@ -60,12 +60,15 @@ class AuthService {
       }
   }
   
+  func user(email: String) -> AWSCognitoIdentityUser {
+    return self.store.userPool
+      .getUser(email)
+  }
 
   func signIn(email: String, password: String) -> Observable<AWSCognitoIdentityUserSession> {
     return Observable.create { observer in
 
-      self.store.userPool
-        .getUser(email)
+      self.user(email: email)
         .getSession(email, password: password, validationData: nil)
         .continueWith(block: { session -> Any? in
           if let error = session.error {

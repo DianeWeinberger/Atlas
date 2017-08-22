@@ -2,7 +2,8 @@
 //  AtlasProvider.swift
 //  Atlas
 //
-//  Created by Magfurul Abeer on 8/17/17.
+//  Created by Damian Esteban on 5/8/17.
+//  Repurposed by Magfurul Abeer on 8/17/17.
 //  Copyright © 2017 Magfurul Abeer. All rights reserved.
 //
 
@@ -15,6 +16,7 @@ import Alamofire
 import JWTDecode
 import ObjectMapper
 import RxSwiftExt
+import Dotzu
 
 // This subclass is required to override the request method (and automatically refresh the token)
 public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
@@ -48,30 +50,40 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   /// - Returns: An observable sequence that contains the token
   public func awsTokenRequest() -> Observable<String?> {
     
+    print("AWS TOKEN REQUEST")
+    
     // Is the token valid?
     if Storage.token.isValid {
       return Observable.just(Storage.token.tokenString)
     }
+    
+    print("TOKEN IS VALID")
     
     // Has the user completed the signup process?
     if UserDefaults.standard.bool(forKey: "didCompleteCognitoSignup") == false {
       return Observable.just(" ")
     }
     
+    print("DID COMPLETE SIGNUP")
+    
     // Otherwise, use cognito to fetch a new token
     let currentUser = CognitoStore.sharedInstance.currentUser
+    
     
     // TODO: - Refactor out to separate method, remove side effects. This method is doing too much.
     return Observable.create { observer in
       currentUser?.getSession().continueWith(block: { (task) -> Any? in
+         print("IN OBSERVABLE BLOCK")
         if let result = task.result {
           guard let token = result.idToken?.tokenString else { return nil }
           
+           print("TOKEN EXISTS")
           do {
             let decodedToken = try self.decodeToken(token)
             Storage.token.tokenString = decodedToken.string
             Storage.token.expiry = decodedToken.expiresAt
             observer.onNext(token)
+             print("ON NEXT TOKEN")
             observer.onCompleted()
           } catch let error {
             observer.onError(error)
@@ -91,7 +103,9 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   /// - Parameter token: The target.
   /// - Returns: An observable sequence that contains the response.
   override public func request(_ token: AtlasAPI) -> Observable<Moya.Response> {
+    print("REQUEST")
     let actualRequest = super.request(token)
+    
     
     return self.awsTokenRequest().flatMap { _ in
       actualRequest
@@ -105,7 +119,7 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   /// - Returns: An observable sequence of  - void -
   public func requestVoid(_ target: AtlasAPI) -> Observable<Void> {
     return request(target)
-      .debug()
+      .debug("requestVoid")
       // .filter(statusCode: 204) - Enable this when there are real status codes
       .map { response -> Void in
         return void(response)
@@ -121,7 +135,7 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   /// - Returns: An observable sequence that contains the response string.
   public func requestString(_ target: AtlasAPI) -> Observable<String> {
     return request(target)
-      .debug()
+      .debug("requestString")
       .mapString()
       .catchError { error in
         throw error
@@ -135,7 +149,7 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   /// - Returns: An observable sequence that contains the response as a `UIImage`
   public func requestImage(_ target: AtlasAPI) -> Observable<UIImage> {
     return request(target)
-      .debug()
+      .debug("requestImage")
       .mapImage()
       .unwrap()
       .catchError { error in
@@ -149,7 +163,7 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   /// - Returns: An observable sequence that contains the response as data.
   public func requestData(_ target: AtlasAPI) -> Observable<Data> {
     return request(target)
-      .debug()
+      .debug("requestData")
       // .filterSuccessfulStatusCodes() - Enable this when there are real status codes
       .map { response -> Data in
         return response.data
@@ -165,13 +179,14 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   /// - Returns: An observable sequence that contains the response as a json dictionary.
   public func requestJSON(_ target: AtlasAPI) -> Observable<JSONDictionary> {
     return request(target)
-      .debug()
+      .debug("requestJSON")
       // .filterSuccessfulStatusCodes() - Enable this when there are real status codes
       .map { response -> Response in
         return response.extract()
       }
       .mapDictionary()
       .catchError { error in
+        print(error)
         throw error
     }
   }
@@ -184,7 +199,7 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   /// - Returns: An observable sequence that contains the response as an object.
   public func requestObject<T: ImmutableMappable>(_ target: AtlasAPI, type: T.Type) -> Observable<T> {
     return request(target)
-      .debug()
+      .debug("requestObject")
       // .filterSuccessfulStatusCodes() - Enable this when there are real status codes
       .map { response -> Response in
         return response.extract()
@@ -203,7 +218,7 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   /// - Returns: An observable sequence that contains the response as an array of objects.
   public func requestObjects<T: ImmutableMappable>(_ target: AtlasAPI, type: T.Type) -> Observable<[T]> {
     return request(target)
-      .debug()
+      .debug("requestObjects")
       .map { response -> Response in
         response.extract()
       }
@@ -223,7 +238,7 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   /// - Returns: An observable sequence that contains the response as an array of nested objects.
   public func requestNestedObjects<T: ImmutableMappable>(_ target: AtlasAPI, type: T.Type, nestedLabel: String) -> Observable<[T]> {
     return request(target)
-      .debug()
+      .debug("requestNestedObjects")
       .map { response -> Response in
         response.extract()
       }
@@ -235,7 +250,7 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   
   public func requestTopLevelObjects<T: ImmutableMappable>(_ target: AtlasAPI, type: T.Type) -> Observable<[T]> {
     return request(target)
-      .debug()
+      .debug("requestTopLevelObjects")
       .mapNestedImmutableObjects([T].self, nestedLabel: "result")
       .catchError { error in
         throw error

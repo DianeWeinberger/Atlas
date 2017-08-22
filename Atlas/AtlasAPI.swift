@@ -62,10 +62,13 @@ extension AtlasAPI: TokenAuthAPIType {
     // MARK: - All endpoints that need a token in the header
     public var needsXAuth: Bool {
         switch self {
-        case  .user, .fetchUserById, .updateUser, .addUserLocation,
+        case  .fetchUserById, .updateUser, .addUserLocation,
               .removeUserLocation, .uploadAvatar, .fetchAvatar:
             return true
+        case .user:
+          return false
         }
+      
     }
     
     // The base url

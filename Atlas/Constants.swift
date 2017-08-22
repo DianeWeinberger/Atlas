@@ -16,7 +16,7 @@ struct Constants {
   
   struct AWS {
     static let clientId = ProcessInfo.processInfo.environment["APP_CLIENT_ID"] ?? ""
-    static let clientSecret = "---------------ras"
+    static let clientSecret = ProcessInfo.processInfo.environment["APP_CLIENT_SECRET"] ?? ""
     static let poolId = ProcessInfo.processInfo.environment["USER_POOL_ID"] ?? ""
     static let identityPoolId = ProcessInfo.processInfo.environment["IDENTITY_POOL_ID"] ?? ""
     static let userPoolKey = "UserPool"

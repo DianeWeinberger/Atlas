@@ -428,7 +428,7 @@
                     <tabBarItem key="tabBarItem" title="Connect" image="connect" id="hfa-AJ-Kbf"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="smM-Vf-CxQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="smM-Vf-CxQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -11,6 +11,7 @@ import RxSwift
 import RxSwiftExt
 import Action
 import AWSCognitoIdentityProvider
+import Dotzu
 
 class SignUpViewController: UIViewController {
   
@@ -24,28 +25,46 @@ class SignUpViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.navigationController?.setNavigationBarHidden(false, animated: false)
+
     
     // TODO: Clean up and move to viewModel
     signUpButton.rx.tap
+      
+      // MARK: Signup
       .withLatestFrom(viewModel.signUpData)
+      .debug("Sign_Up_Data")
       .flatMap { Observable.combineLatest(AuthService.shared.signUp(data: $0), Observable.of($0)) }
-      .flatMap { UserService.shared.createUser(id: $0.user.username!, credentials: $1) }
-      .map { User.deserialize($0) }
+      .debug("Sign_Up_Response")
+      
+      // MARK: LOGIN
       .withLatestFrom(viewModel.signUpData)
+      .debug("Sign_Up_Data")
       .flatMap { data -> Observable<AWSCognitoIdentityUserSession> in
         return AuthService.shared.signIn(email: data.email, password: data.password)
       }
+      .debug("Log_In_Session")
       .map { _ in true }
       .catchError { e -> Observable<Bool> in
         print(e.localizedDescription)
         OperationQueue.main.addOperation { self.error(e) }
         return Observable.just(false)
       }
+      
+      // MARK: Create and save
+      .withLatestFrom(viewModel.signUpData)
+      .flatMap { UserService.shared.createUser(id: $0.email, credentials: $0) }
+      .debug("Created User")
+      .map { User.deserialize($0) }
+      .debug("Realm User")
+      
+      // MARK: Subscribe
       .subscribeOn(MainScheduler.instance)
-      .subscribe(onNext: { success in
-        if success {
-          OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
-        }
+      .subscribe(onNext: { _ in
+        
+        OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
+
+        
       })
       .addDisposableTo(rx_disposeBag)
     

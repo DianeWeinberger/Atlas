@@ -21,7 +21,8 @@ class LogInViewController: UIViewController, BindableType {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.navigationController?.setNavigationBarHidden(false, animated: false)
+
     let logInData = Observable.combineLatest(
       emailTextField.rx.text.map { $0 ?? "" },
       passwordTextField.rx.text.map { $0 ?? "" }
@@ -40,18 +41,21 @@ class LogInViewController: UIViewController, BindableType {
         self.alert("ERROR", message: err.localizedDescription)
         return Observable.just(nil)
       })
-      .subscribe(onNext: { session in
-
-        if session != nil {
+      .filter { $0 != nil }
+      .withLatestFrom(logInData)
+      .map { email, password -> String in
+        return AWSCognitoIdentityUser().username ?? ""
+      }
+      .flatMap { id in
+        return UserService.shared.getUser(id: id)
+      }
+      .map { User.deserialize($0) }
+      .subscribe(onNext: { user in
           OperationQueue.main.addOperation {
             self.viewModel.userDidLogIn()
           }
-        }
-        
       })
-      .addDisposableTo(rx_disposeBag)
-    
-    view.backgroundColor = UIColor.purple
+      .addDisposableTo(rx_disposeBag)    
   }
   
   func bindViewModel() {
