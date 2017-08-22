@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import Action
 import AWSCognitoIdentityProvider
+import RealmSwift
 
 protocol ProfileViewModelInputsType {
 }
@@ -35,11 +36,20 @@ class ProfileViewModel  {
   // MARK: Input
   
   // MARK: Output
+  var user: User {
+    do {
+      return try Realm.currentUser()
+    } catch {
+      logOutAction.execute()
+      return User()
+    }
+  }
   
   // MARK: Actions
   lazy var logOutAction: CocoaAction = {
     return Action { _ in
       AuthService.shared.logOut()
+      Realm.clear()
       self.goToLandingScreen()
       return Observable.empty()
     }

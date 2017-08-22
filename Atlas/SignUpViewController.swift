@@ -25,22 +25,20 @@ class SignUpViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // TODO: Clean up and move to viewModel
     signUpButton.rx.tap
       .withLatestFrom(viewModel.signUpData)
-      .debug("Sign_Up_Data")
       .flatMap { Observable.combineLatest(AuthService.shared.signUp(data: $0), Observable.of($0)) }
-      .debug("Sign_Up_Response")
-      .flatMap { _, data -> Observable<AWSCognitoIdentityUserSession> in
+      .flatMap { UserService.shared.createUser(id: $0.user.username!, credentials: $1) }
+      .map { User.deserialize($0) }
+      .withLatestFrom(viewModel.signUpData)
+      .flatMap { data -> Observable<AWSCognitoIdentityUserSession> in
         return AuthService.shared.signIn(email: data.email, password: data.password)
       }
-//      .flatMap { AuthService.signIn(user: $0.user, email: $1.email, password: $1.password) }
-      .debug("Log_In_Session")
       .map { _ in true }
       .catchError { e -> Observable<Bool> in
         print(e.localizedDescription)
-        //        self.coordinator.currentViewController.error(e)
         OperationQueue.main.addOperation { self.error(e) }
-
         return Observable.just(false)
       }
       .subscribeOn(MainScheduler.instance)
@@ -51,7 +49,31 @@ class SignUpViewController: UIViewController {
       })
       .addDisposableTo(rx_disposeBag)
     
-//    signUpButton.rx.action = viewModel.signUpButtonTapped
+//    signUpButton.rx.tap
+//      .withLatestFrom(viewModel.signUpData)
+//      .flatMap { Observable.combineLatest(AuthService.shared.signUp(data: $0), Observable.of($0)) }
+//      .flatMap { response, data -> Observable<(JSONDictionary, SignUpCredentials)> in
+//        //        guard let username = response.user.username else { throw AuthServiceError.signUpFailed }
+//        let username = response.user.username!
+//        return (UserService.shared.createUser(id: username, credentials: data), data)
+//      }
+//      .map { (User.deserialize(from: $0), $1.password) }
+//      .flatMap { (user, password) -> Observable<AWSCognitoIdentityUserSession> in
+//        return AuthService.shared.signIn(email: user.email, password: password)
+//      }
+//      .map { _ in true }
+//      .catchError { e -> Observable<Bool> in
+//        print(e.localizedDescription)
+//        OperationQueue.main.addOperation { self.error(e) }
+//        return Observable.just(false)
+//      }
+//      .subscribeOn(MainScheduler.instance)
+//      .subscribe(onNext: { success in
+//        if success {
+//          OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
+//        }
+//      })
+//      .addDisposableTo(rx_disposeBag)
   }
   
   func toggleTextFieldEnabled(_ enabled: Bool) {

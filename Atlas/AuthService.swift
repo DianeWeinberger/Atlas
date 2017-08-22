@@ -44,12 +44,16 @@ class AuthService {
           
           if let result = response.result {
             observer.onNext(result)
+            print(result.user.username)
+            UserDefaults.standard.setValue(result.user.username, forKey: "username")
           }
           
+          UserDefaults.standard.set(true, forKey: "didCompleteCognitoSignup")
           observer.onCompleted()
           return Disposables.create()
           
         })
+      
       
       
       return Disposables.create()
@@ -70,6 +74,11 @@ class AuthService {
           
           if let result = session.result {
             observer.onNext(result)
+            
+            // Looks like this is taken cared of by AtlasProvider's request method
+//            var awsToken = Storage.token
+//            awsToken.tokenString = result.accessToken?.tokenString
+//            awsToken.expiry = result.expirationTime
           }
           
           observer.onCompleted()

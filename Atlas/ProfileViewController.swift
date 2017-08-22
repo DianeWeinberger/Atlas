@@ -9,12 +9,13 @@
 import UIKit
 import RxSwift
 import Action
+import RealmSwift
 
 class ProfileViewController: UIViewController, BindableType {
   
   @IBOutlet weak var tableView: UITableView!
   
-  let user = MockUser.ironMan
+  
   
   var viewModel: ProfileViewModel!
 
@@ -29,7 +30,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return section < 2 ? 1 : user.runs.count
+    return section < 2 ? 1 : viewModel.user.runs.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,18 +38,18 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
       
     case 0:
       let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.reuseIdentifier, for: indexPath) as! ProfileTableViewCell
-      cell.configure(from: user)
+      cell.configure(from: viewModel.user)
       cell.logoutButton.rx.action = viewModel.logOutAction
       return cell
       
     case 1:
       let cell = tableView.dequeueReusableCell(withIdentifier: ChartTableViewCell.reuseIdentifier, for: indexPath) as! ChartTableViewCell
-      cell.configure(from: user)
+      cell.configure(from: viewModel.user)
       return cell
       
     default:
       let cell = tableView.dequeueReusableCell(withIdentifier: RunTableViewCell.reuseIdentifier, for: indexPath) as! RunTableViewCell
-      let run = user.sortedRuns[indexPath.row]
+      let run = viewModel.user.sortedRuns[indexPath.row]
       cell.configure(run: run)
       return cell
       

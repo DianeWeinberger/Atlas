@@ -12,7 +12,8 @@ import RealmSwift
 import RxSwift
 import Dotzu
 
-class User: Object {
+
+final class User: Object {
   dynamic var id: String = ""
   dynamic var firstName: String = ""
   dynamic var lastName: String = ""
@@ -47,6 +48,27 @@ class User: Object {
     return ["firstName", "lastName", "email", "zipCode"]
   }
   
+}
+
+extension User: Deserializable {
+  static func deserialize(_ json: JSONDictionary) -> User {
+    let user = User()
+    user.id = json["id"] as! String
+    user.email = json["email"] as! String
+    user.firstName = json["firstName"] as! String
+    user.lastName = json["lastName"] as! String
+    
+    let realm = try! Realm()
+    do {
+      try realm.write {
+        realm.add(user)
+      }
+    } catch {
+      // Implement error handling
+    }
+    
+    return user
+  }
 }
 
 extension User {
