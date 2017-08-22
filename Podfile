@@ -32,5 +32,7 @@ target 'Atlas' do
   pod 'Kingfisher'
   pod 'Sourcery'
   pod 'Moya/RxSwift'
-  pod "RxRealm"
+  pod 'RxRealm'
+  pod 'JWTDecode'
+  pod 'ObjectMapper'
 end

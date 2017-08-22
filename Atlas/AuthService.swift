@@ -20,16 +20,9 @@ enum AuthServiceError: Error {
 
 typealias SignUpCredentials = (firstName: String, lastName: String, email: String, password: String)
 
-class AuthService {  
-  static func initialize() {
-//    let credentialProvider = AWSCognitoCredentialsProvider(regionType: AWS.region, identityPoolId: AWS.identityPoolId)
-    let serviceConfiguration = AWSServiceConfiguration(region: .USEast2, credentialsProvider: nil)
-    let configuration = AWSCognitoIdentityUserPoolConfiguration(clientId: AWS.appClientId,
-                                                                clientSecret: nil,
-                                                                poolId: AWS.userPoolId)
-    AWSCognitoIdentityUserPool.register(with: serviceConfiguration, userPoolConfiguration: configuration, forKey: "UserPool")
-  }
+class AuthService {
   
+  static let store = CognitoStore.sharedInstance
   
   static func signUp(data: SignUpCredentials) -> Observable<AWSCognitoIdentityUserPoolSignUpResponse> {
     return AuthService.signUp(firstName: data.firstName, lastName: data.lastName, email: data.email, password: data.password)
@@ -39,11 +32,8 @@ class AuthService {
   static func signUp(firstName: String, lastName: String, email: String, password: String) -> Observable<AWSCognitoIdentityUserPoolSignUpResponse> {
     return Observable.create { observer in
       
-      let userPool = AWSCognitoIdentityUserPool(forKey: "UserPool")
-      userPool.delegate = AuthenticationDelegate()
-      
       let attributes = AuthService.userAttributes(firstName: firstName, lastName: lastName, email: email, password: password)
-      userPool
+      store.userPool
         .signUp(email, password: password, userAttributes: attributes, validationData: nil)
         .continueWith(block: { (response) -> Any? in
           if let error = response.error {
@@ -67,11 +57,8 @@ class AuthService {
 
   static func signIn(email: String, password: String) -> Observable<AWSCognitoIdentityUserSession> {
     return Observable.create { observer in
-      
-      let userPool = AWSCognitoIdentityUserPool(forKey: "UserPool")
-      userPool.delegate = AuthenticationDelegate()
 
-      userPool
+      store.userPool
         .getUser(email)
         .getSession(email, password: password, validationData: nil)
         .continueWith(block: { session -> Any? in
@@ -95,9 +82,7 @@ class AuthService {
   
   
   static func logOut() {
-    let userPool = AWSCognitoIdentityUserPool(forKey: "UserPool")
-    userPool.delegate = AuthenticationDelegate()
-    userPool
+    store.userPool
       .getUser()
       .signOut()
   }
@@ -107,7 +92,7 @@ class AuthService {
 extension AuthService {
   
   static var isSignedIn: Bool {
-    let userPool = AWSCognitoIdentityUserPool(forKey: "UserPool")
+    let userPool = store.userPool
     
     guard let user = userPool.currentUser() else { return false }
     return user.isSignedIn

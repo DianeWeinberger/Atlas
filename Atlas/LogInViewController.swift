@@ -31,17 +31,23 @@ class LogInViewController: UIViewController, BindableType {
       .withLatestFrom(logInData)
       .flatMap { email, password -> Observable<AWSCognitoIdentityUserSession> in
         return AuthService.signIn(email: email, password: password)
-      }.subscribe(onNext: { session in
-        
-        print("LOGGED IN")
-//        print(session.accessToken, session.idToken, session.refreshToken,  session.expirationTime)
-        
-        OperationQueue.main.addOperation {
-          self.viewModel.userDidLogIn()
-        }
-      }, onError: { err in
+      }
+      .map { session -> AWSCognitoIdentityUserSession? in
+        return session
+      }
+      .catchError({ (err) -> Observable<AWSCognitoIdentityUserSession?> in
         print(err.localizedDescription)
         self.alert("ERROR", message: err.localizedDescription)
+        return Observable.just(nil)
+      })
+      .subscribe(onNext: { session in
+
+        if session != nil {
+          OperationQueue.main.addOperation {
+            self.viewModel.userDidLogIn()
+          }
+        }
+        
       })
       .addDisposableTo(rx_disposeBag)
     

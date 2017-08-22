@@ -28,7 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let coordinator = Coordinator(window: window!)
     
-    AuthService.initialize()
+    let cognitoStore = CognitoStore.sharedInstance
+    cognitoStore.delegate = self
+    
+//    cognitoStore
     /*
     let realm = try! Realm()
     let ironMan = realm.object(ofType: User.self, forPrimaryKey: "0")
@@ -76,8 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
 }
 
-
-class AuthenticationDelegate: NSObject, AWSCognitoIdentityInteractiveAuthenticationDelegate {
+extension AppDelegate: AWSCognitoIdentityInteractiveAuthenticationDelegate {
   
   func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput,
                   passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
