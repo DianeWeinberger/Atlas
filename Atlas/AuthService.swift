@@ -99,6 +99,8 @@ class AuthService {
     store.userPool
       .getUser()
       .signOut()
+    
+    store.userPool.clearAll()
   }
 }
 

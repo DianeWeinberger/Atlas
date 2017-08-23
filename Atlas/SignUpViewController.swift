@@ -49,8 +49,8 @@ class SignUpViewController: UIViewController {
       .debug("Log_In_Session")
       .map { _ in true }
       .catchError { e -> Observable<Bool> in
-        print(e.localizedDescription)
-        OperationQueue.main.addOperation { self.error(e) }
+        print(e.message)
+        OperationQueue.main.addOperation { self.awsError(e) }
         return Observable.just(false)
       }
       .filter { $0 }

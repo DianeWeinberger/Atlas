@@ -52,6 +52,8 @@ final class User: Object {
 
 extension User: Deserializable {
   static func deserialize(_ json: JSONDictionary) -> User {
+    print("DESERIALIZING JSON")
+    print(json)
     let user = User()
     user.id = json["id"] as! String
     user.email = json["email"] as! String

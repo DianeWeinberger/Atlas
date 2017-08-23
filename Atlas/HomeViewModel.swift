@@ -83,7 +83,7 @@ class HomeViewModel: HomeViewModelType  {
   
   fileprivate let allUsers = Variable<[User]>([MockUser.dareDevil])
   
-  fileprivate let user = Variable<User>(try! Realm.currentUser())
+  fileprivate let user = Variable<User>(Realm.currentUser())
   
   fileprivate lazy var friends: Observable<[User]> = {
     return self.user.asObservable()

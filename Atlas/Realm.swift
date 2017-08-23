@@ -15,10 +15,18 @@ extension Realm {
   static var shared = try! Realm()
   
   // Make safer
-  static func currentUser() throws -> User {
+//  static func currentUser() throws -> User {
+//    let id = UserDefaults.standard.string(forKey: "username")
+//    guard let user = Realm.shared.object(ofType: User.self, forPrimaryKey: id ?? "") else {
+//      throw Realm.Error(.fileNotFound)
+//    }
+//    return user
+//  }
+  
+  static func currentUser() -> User {
     let id = UserDefaults.standard.string(forKey: "username")
     guard let user = Realm.shared.object(ofType: User.self, forPrimaryKey: id ?? "") else {
-      throw Realm.Error(.fileNotFound)
+      return User()
     }
     return user
   }

@@ -9,6 +9,10 @@
 import UIKit
 
 extension UIViewController {
+  func awsError(_ err: Error) {
+    alert("ERROR", message: err.message)
+  }
+  
   func error(_ err: Error) {
     alert("ERROR", message: err.localizedDescription)
   }
