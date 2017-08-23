@@ -23,7 +23,13 @@ class SignUpViewModel  {
   
   // MARK: Output
   
-  // MARK: Actions
+  // MARK: Action
+  lazy var backAction: Action<Void, Void> = {
+    return Action { _ in
+      self.coordinator.pop()
+      return Observable.empty()
+    }
+  }()
     
 //  lazy var signUpButtonTapped: CocoaAction = { _ in
 //    let action = CocoaAction { _ in

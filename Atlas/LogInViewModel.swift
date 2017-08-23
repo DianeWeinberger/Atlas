@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import Action
 
-struct LogInViewModel  {
+class LogInViewModel  {
   var coordinator: CoordinatorType
   
   // MARK: Input
@@ -28,6 +28,14 @@ struct LogInViewModel  {
     
     coordinator.transition(to: mainScene, type: TransitionType.root)
   }
+  
+  // MARK: Action
+  lazy var backAction: Action<Void, Void> = {
+    return Action { _ in
+      self.coordinator.pop()
+      return Observable.empty()
+    }
+  }()
   
   init(coordinator: CoordinatorType) {
     self.coordinator = coordinator

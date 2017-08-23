@@ -12,14 +12,14 @@ class LandingViewController: UIViewController, BindableType {
   
   @IBOutlet weak var logInButton: UIButton!
   @IBOutlet weak var signUpButton: UIButton!
+  @IBOutlet weak var noAccountLabel: UILabel!
   
   var viewModel: LandingViewModel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.navigationController?.setNavigationBarHidden(true, animated: false)
-    view.backgroundColor = UIColor(191, 104, 135)
+    self.navigationController?.navigationBar.isHidden = true    
     
     
     logInButton.rx.action = viewModel.logInAction
@@ -28,6 +28,18 @@ class LandingViewController: UIViewController, BindableType {
   
   func bindViewModel() {
     
+  }
+  
+  func fadeInAnimation() {
+    logInButton.isHidden = true
+    signUpButton.isHidden = true
+    noAccountLabel.isHidden = true
+    
+    UIView.animate(withDuration: 0.5) { 
+      self.logInButton.isHidden = false
+      self.signUpButton.isHidden = false
+      self.noAccountLabel.isHidden = false
+    }
   }
   
 }

@@ -20,12 +20,15 @@ class SignUpViewController: UIViewController {
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var signUpButton: UIButton!
+  @IBOutlet weak var backButton: UIButton!
   
   var viewModel: SignUpViewModel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationController?.setNavigationBarHidden(false, animated: false)
+
+    backButton.rx.action = viewModel.backAction
 
     
     // TODO: Clean up and move to viewModel
@@ -67,34 +70,7 @@ class SignUpViewController: UIViewController {
 
         
       })
-      .addDisposableTo(rx_disposeBag)
-    
-//    signUpButton.rx.tap
-//      .withLatestFrom(viewModel.signUpData)
-//      .flatMap { Observable.combineLatest(AuthService.shared.signUp(data: $0), Observable.of($0)) }
-//      .flatMap { response, data -> Observable<(JSONDictionary, SignUpCredentials)> in
-//        //        guard let username = response.user.username else { throw AuthServiceError.signUpFailed }
-//        let username = response.user.username!
-//        return (UserService.shared.createUser(id: username, credentials: data), data)
-//      }
-//      .map { (User.deserialize(from: $0), $1.password) }
-//      .flatMap { (user, password) -> Observable<AWSCognitoIdentityUserSession> in
-//        return AuthService.shared.signIn(email: user.email, password: password)
-//      }
-//      .map { _ in true }
-//      .catchError { e -> Observable<Bool> in
-//        print(e.localizedDescription)
-//        OperationQueue.main.addOperation { self.error(e) }
-//        return Observable.just(false)
-//      }
-//      .subscribeOn(MainScheduler.instance)
-//      .subscribe(onNext: { success in
-//        if success {
-//          OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
-//        }
-//      })
-//      .addDisposableTo(rx_disposeBag)
-  }
+      .addDisposableTo(rx_disposeBag)  }
   
   func toggleTextFieldEnabled(_ enabled: Bool) {
     [firstNameTextField, lastNameTextField, emailTextField, passwordTextField]

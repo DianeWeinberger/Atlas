@@ -16,12 +16,16 @@ class LogInViewController: UIViewController, BindableType {
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var logInButton: UIButton!
+  @IBOutlet weak var backButton: UIButton!
   
   var viewModel: LogInViewModel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.navigationController?.setNavigationBarHidden(false, animated: false)
+    self.navigationController?.navigationBar.isHidden = false
+    
+    backButton.rx.action = viewModel.backAction
+
 
     let logInData = Observable.combineLatest(
       emailTextField.rx.text.map { $0 ?? "" },
