@@ -7,16 +7,17 @@
 //
 
 import Foundation
-import Realm
 import RealmSwift
+import RxRealm
+import RxSwift
 
 extension Realm {
+  static var shared = try! Realm()
   
   // Make safer
   static func currentUser() throws -> User {
-    let realm = try! Realm()
     let id = UserDefaults.standard.string(forKey: "username")
-    guard let user = realm.object(ofType: User.self, forPrimaryKey: id ?? "") else {
+    guard let user = Realm.shared.object(ofType: User.self, forPrimaryKey: id ?? "") else {
       throw Realm.Error(.fileNotFound)
     }
     return user

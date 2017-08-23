@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import Action
+import RealmSwift
 
 protocol ConnectViewModelInputsType {
   var selectedIndex: Observable<Int>! { get set }
@@ -83,7 +84,7 @@ final class ConnectViewModel: ConnectViewModelType {
   
   fileprivate let allUsers = Variable<[User]>(MockUser.users.toArray())
   
-  let user = Variable<User>(MockUser.ironMan)
+  let user = Variable<User>(try! Realm.currentUser())
 
   fileprivate lazy var friends: Observable<[User]> = {
     return self.user.asObservable()

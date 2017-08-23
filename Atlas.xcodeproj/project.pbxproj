@@ -33,6 +33,7 @@
 		2376D81C1F2BE2BF00AE4084 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2376D8121F2BE2B300AE4084 /* OpenSans-Regular.ttf */; };
 		2376D81D1F2BE2BF00AE4084 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2376D8131F2BE2B300AE4084 /* OpenSans-SemiBold.ttf */; };
 		2376D81E1F2BE2BF00AE4084 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2376D8141F2BE2B300AE4084 /* OpenSans-SemiBoldItalic.ttf */; };
+		2378B4991F4DD32500DEBD8B /* RealmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378B4981F4DD32500DEBD8B /* RealmStore.swift */; };
 		237BA7E81F2FE24D009F3F27 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237BA7E71F2FE24D009F3F27 /* ProfileViewController.swift */; };
 		237BA7EA1F2FE2BD009F3F27 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237BA7E91F2FE2BD009F3F27 /* ProfileTableViewCell.swift */; };
 		237BA7EC1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237BA7EB1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift */; };
@@ -129,6 +130,7 @@
 		2376D8121F2BE2B300AE4084 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		2376D8131F2BE2B300AE4084 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		2376D8141F2BE2B300AE4084 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		2378B4981F4DD32500DEBD8B /* RealmStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmStore.swift; sourceTree = "<group>"; };
 		237BA7E71F2FE24D009F3F27 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		237BA7E91F2FE2BD009F3F27 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		237BA7EB1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatBlockCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				238727561F4647680022146C /* AtlasProvider.swift */,
 				23FCE4031F3CBD7A00CBCAA0 /* AuthService.swift */,
 				231A55801F4C8CE4003F5925 /* UserService.swift */,
+				2378B4981F4DD32500DEBD8B /* RealmStore.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -810,6 +813,7 @@
 				23E23A9C1F34D120003FCE4E /* HeaderCollapsible.swift in Sources */,
 				238727571F4647680022146C /* AtlasAPI.swift in Sources */,
 				239B2C3A1F322273007BC817 /* DispatchQueue.swift in Sources */,
+				2378B4991F4DD32500DEBD8B /* RealmStore.swift in Sources */,
 				237BA7EC1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift in Sources */,
 				23C8C2371F1FEACE0056B4F2 /* AuthScene.swift in Sources */,
 				23CB16C11F27A2A200310857 /* LogInViewModel.swift in Sources */,

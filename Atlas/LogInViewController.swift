@@ -28,28 +28,32 @@ class LogInViewController: UIViewController, BindableType {
       passwordTextField.rx.text.map { $0 ?? "" }
     )
     
+    // TODO: Clean up and move to viewModel
     logInButton.rx.tap.asObservable()
+      
+      // MARK: Login
       .withLatestFrom(logInData)
+      .debug("Log_In_Data")
       .flatMap { email, password -> Observable<AWSCognitoIdentityUserSession> in
         return AuthService.shared.signIn(email: email, password: password)
       }
-      .map { session -> AWSCognitoIdentityUserSession? in
-        return session
+      .debug("Log_In_Session")
+      .map { _ in true }
+      .catchError { e -> Observable<Bool> in
+        print(e.localizedDescription)
+        OperationQueue.main.addOperation { self.error(e) }
+        return Observable.just(false)
       }
-      .catchError({ (err) -> Observable<AWSCognitoIdentityUserSession?> in
-        print(err.localizedDescription)
-        self.alert("ERROR", message: err.localizedDescription)
-        return Observable.just(nil)
-      })
-      .filter { $0 != nil }
+      .filter { $0 }
+      
+      // MARK: Create and Save
       .withLatestFrom(logInData)
-      .map { email, password -> String in
-        return AWSCognitoIdentityUser().username ?? ""
-      }
-      .flatMap { id in
-        return UserService.shared.getUser(id: id)
-      }
+      .flatMap { UserService.shared.getUser(id: $0.0) }
+      .debug("Created_User")
       .map { User.deserialize($0) }
+      .debug("Realm_User")
+      
+      // Mark: SUBSCRIBE
       .subscribe(onNext: { user in
           OperationQueue.main.addOperation {
             self.viewModel.userDidLogIn()

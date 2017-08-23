@@ -58,10 +58,9 @@ extension User: Deserializable {
     user.firstName = json["firstName"] as! String
     user.lastName = json["lastName"] as! String
     
-    let realm = try! Realm()
     do {
-      try realm.write {
-        realm.add(user)
+      try Realm.shared.write {
+        Realm.shared.add(user)
       }
     } catch {
       // Implement error handling

@@ -107,6 +107,7 @@ extension AuthService {
   
   var isSignedIn: Bool {
     let userPool = store.userPool
+//    userPool.clearAll()
     
     guard let user = userPool.currentUser() else { return false }
     return user.isSignedIn

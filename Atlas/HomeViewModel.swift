@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 import Action
-
+import RealmSwift
 
 protocol HomeViewModelInputsType {
   var selectedIndex: Observable<Int>! { get set }
@@ -83,7 +83,7 @@ class HomeViewModel: HomeViewModelType  {
   
   fileprivate let allUsers = Variable<[User]>([MockUser.dareDevil])
   
-  fileprivate let user = Variable<User>(MockUser.ironMan)
+  fileprivate let user = Variable<User>(try! Realm.currentUser())
   
   fileprivate lazy var friends: Observable<[User]> = {
     return self.user.asObservable()

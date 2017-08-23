@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController {
       .flatMap { Observable.combineLatest(AuthService.shared.signUp(data: $0), Observable.of($0)) }
       .debug("Sign_Up_Response")
       
-      // MARK: LOGIN
+      // MARK: Login
       .withLatestFrom(viewModel.signUpData)
       .debug("Sign_Up_Data")
       .flatMap { data -> Observable<AWSCognitoIdentityUserSession> in
@@ -50,13 +50,14 @@ class SignUpViewController: UIViewController {
         OperationQueue.main.addOperation { self.error(e) }
         return Observable.just(false)
       }
+      .filter { $0 }
       
       // MARK: Create and save
       .withLatestFrom(viewModel.signUpData)
       .flatMap { UserService.shared.createUser(id: $0.email, credentials: $0) }
-      .debug("Created User")
+      .debug("Created_User")
       .map { User.deserialize($0) }
-      .debug("Realm User")
+      .debug("Realm_User")
       
       // MARK: Subscribe
       .subscribeOn(MainScheduler.instance)

@@ -76,7 +76,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   
-  
+  func applicationWillTerminate(_ application: UIApplication) {
+    AuthService.shared.logOut()
+  }
 }
 
 extension AppDelegate: AWSCognitoIdentityInteractiveAuthenticationDelegate {
