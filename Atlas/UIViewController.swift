@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxKeyboard
 
 extension UIViewController {
   func awsError(_ err: Error) {
@@ -31,6 +32,16 @@ extension UIViewController {
     let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
     controller.addAction(ok)
     present(controller, animated: true, completion: completion)
+  }
+  
+  func setUpKeyboardDismissOnTap() {
+    self.view.rx.tapGesture()
+      .withLatestFrom(RxKeyboard.instance.visibleHeight)
+      .filter { _ in self.view.transform != CGAffineTransform.identity }
+      .subscribe(onNext: { _ in
+        self.view.endEditing(true)
+      })
+      .addDisposableTo(rx_disposeBag)
   }
 }
 

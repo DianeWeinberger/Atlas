@@ -89,7 +89,8 @@ class SignUpViewController: UIViewController {
           OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
         },
         onError: { err in
-          OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
+//          OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
+          CognitoStore.sharedInstance.currentUser?.signOut()
           CognitoStore.sharedInstance.userPool.clearAll()
         })
       .addDisposableTo(rx_disposeBag)  }

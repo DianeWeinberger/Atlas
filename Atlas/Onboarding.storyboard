@@ -19,10 +19,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Get Started View Controller-->
         <scene sceneID="hjE-bL-kkz">
             <objects>
-                <viewController id="MDB-l2-F4s" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="getStarted" id="MDB-l2-F4s" customClass="GetStartedViewController" customModule="Atlas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l1f-ff-DLd"/>
                         <viewControllerLayoutGuide type="bottom" id="BU4-11-qqQ"/>
@@ -93,15 +93,18 @@ ATLAS RUNNING</string>
                             <constraint firstItem="HTL-aq-Drh" firstAttribute="centerX" secondItem="Hnv-KK-2bF" secondAttribute="centerX" id="xsn-Df-2kJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="letsBeginButton" destination="OdF-Wm-fzP" id="dvT-jA-ytf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="702-oH-bj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-47.200000000000003" y="126.38680659670166"/>
         </scene>
-        <!--View Controller-->
+        <!--About Yourself View Controller-->
         <scene sceneID="qTW-ye-ehR">
             <objects>
-                <viewController id="12P-f6-RN7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aboutYourself" id="12P-f6-RN7" customClass="AboutYourselfViewController" customModule="Atlas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="laZ-ho-IG8"/>
                         <viewControllerLayoutGuide type="bottom" id="0Ua-b4-fjG"/>
@@ -196,6 +199,13 @@ ATLAS RUNNING</string>
                             <constraint firstItem="f6v-Fc-4Do" firstAttribute="centerX" secondItem="03p-8D-fqA" secondAttribute="centerX" id="x06-01-mgg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="genderTextField" destination="f6v-Fc-4Do" id="ukW-E5-11c"/>
+                        <outlet property="heightTextField" destination="Aep-qH-j6P" id="BHH-pe-uYa"/>
+                        <outlet property="nextButton" destination="5UN-SY-5Pk" id="5sZ-p3-vVW"/>
+                        <outlet property="skipButton" destination="6u2-7C-xIT" id="ljA-ZB-hn1"/>
+                        <outlet property="weightTextField" destination="03p-8D-fqA" id="zar-Us-y5s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8on-DY-pGc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

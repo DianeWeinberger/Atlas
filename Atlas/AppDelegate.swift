@@ -35,49 +35,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var realmStore = RealmStore.shared
     realmStore.realm = realm
     
-//    cognitoStore
-    /*
-    let realm = try! Realm()
-    let ironMan = realm.object(ofType: User.self, forPrimaryKey: "0")
-    
-    if ironMan == nil {
-      let tony = MockUser.ironMan()
-      let steve = MockUser.captainAmerica()
-      let bruce = MockUser.hulk()
-      
-      tony.friends.append(objectsIn: [steve, bruce])
-      do {
-        try realm.write {
-          realm.add([tony, steve, bruce])
-        }
-      } catch {
-        print("Could not save to realm")
-      }
-    }
-     */
-    
-    print(AWSToken().tokenString)
-    
-    if AuthService.shared.isSignedIn {
-      // DRY this out
-      let homeViewModel = HomeViewModel(coordinator: coordinator)
-      let connectViewModel = ConnectViewModel(coordinator: coordinator)
-      let profileViewModel = ProfileViewModel(coordinator: coordinator)
-      let tabbarViewModel = AtlasTabBarViewModel(coordinator: coordinator)
-      let viewModels: MainViewModels = (tabbarViewModel, homeViewModel, connectViewModel, profileViewModel)
-      
-      let mainScene = MainScene.main(viewModels)
-      coordinator.transition(to: mainScene, type: .root)
-      
-    } else {
-      
-      let landingViewModel = LandingViewModel(coordinator: coordinator)
-      let landingScene = AuthScene.landing(landingViewModel)
-      coordinator.transition(to: landingScene, type: .root)
-      
-    }
-
-    
+    let vm = GetStartedViewModel(coordinator: coordinator)
+    coordinator.transition(to: OnboardingScene.getStarted(vm), type: .root)
+//    if AuthService.shared.isSignedIn {
+//      // DRY this out
+//      let homeViewModel = HomeViewModel(coordinator: coordinator)
+//      let connectViewModel = ConnectViewModel(coordinator: coordinator)
+//      let profileViewModel = ProfileViewModel(coordinator: coordinator)
+//      let tabbarViewModel = AtlasTabBarViewModel(coordinator: coordinator)
+//      let viewModels: MainViewModels = (tabbarViewModel, homeViewModel, connectViewModel, profileViewModel)
+//      
+//      let mainScene = MainScene.main(viewModels)
+//      coordinator.transition(to: mainScene, type: .root)
+//      
+//    } else {
+//      
+//      let landingViewModel = LandingViewModel(coordinator: coordinator)
+//      let landingScene = AuthScene.landing(landingViewModel)
+//      coordinator.transition(to: landingScene, type: .root)
+//      
+//    }
     return true
   }
   
