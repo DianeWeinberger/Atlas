@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="hjE-bL-kkz">
+            <objects>
+                <viewController id="MDB-l2-F4s" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l1f-ff-DLd"/>
+                        <viewControllerLayoutGuide type="bottom" id="BU4-11-qqQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hnv-KK-2bF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 1" translatesAutoresizingMaskIntoConstraints="NO" id="HTL-aq-Drh">
+                                <rect key="frame" x="117.5" y="87" width="140" height="157"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HTL-aq-Drh" secondAttribute="height" multiplier="140:157" id="YyS-hA-9w1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JdM-Ed-VIN">
+                                <rect key="frame" x="106" y="281" width="163.5" height="54.5"/>
+                                <string key="text">WELCOME TO 
+ATLAS RUNNING</string>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
+                                <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Run by yourself or with a group. Use Atlas to track your progress and meet other runners on the same level as you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv6-37-fgJ">
+                                <rect key="frame" x="30" y="368.5" width="315" height="57.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get started, we just need a little more information to optimize your Atlas account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS5-go-Svm">
+                                <rect key="frame" x="30" y="448" width="315" height="38.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdF-Wm-fzP">
+                                <rect key="frame" x="61.5" y="519.5" width="252" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.38823529410000002" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kun-wQ-Nqg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
+                                <state key="normal" title="LET'S BEGIN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DS5-go-Svm" firstAttribute="top" secondItem="Bv6-37-fgJ" secondAttribute="bottom" constant="22" id="8UA-4J-INh"/>
+                            <constraint firstItem="JdM-Ed-VIN" firstAttribute="top" secondItem="HTL-aq-Drh" secondAttribute="bottom" constant="37" id="LPw-p1-zkL"/>
+                            <constraint firstItem="Bv6-37-fgJ" firstAttribute="top" secondItem="JdM-Ed-VIN" secondAttribute="bottom" constant="33" id="MrC-TX-7Qd"/>
+                            <constraint firstItem="JdM-Ed-VIN" firstAttribute="centerX" secondItem="Hnv-KK-2bF" secondAttribute="centerX" id="QOx-iu-DlS"/>
+                            <constraint firstItem="OdF-Wm-fzP" firstAttribute="width" secondItem="Hnv-KK-2bF" secondAttribute="width" multiplier="252/375" id="TE0-T7-BT6"/>
+                            <constraint firstItem="DS5-go-Svm" firstAttribute="width" secondItem="Bv6-37-fgJ" secondAttribute="width" id="a0G-pu-9rx"/>
+                            <constraint firstItem="OdF-Wm-fzP" firstAttribute="top" secondItem="DS5-go-Svm" secondAttribute="bottom" constant="33" id="e22-TF-fpF"/>
+                            <constraint firstItem="Bv6-37-fgJ" firstAttribute="width" secondItem="Hnv-KK-2bF" secondAttribute="width" multiplier="300/357" id="g0q-HI-pYK"/>
+                            <constraint firstItem="DS5-go-Svm" firstAttribute="centerX" secondItem="Bv6-37-fgJ" secondAttribute="centerX" id="iIR-de-XgT"/>
+                            <constraint firstItem="OdF-Wm-fzP" firstAttribute="centerX" secondItem="Hnv-KK-2bF" secondAttribute="centerX" id="riB-XO-yRv"/>
+                            <constraint firstItem="HTL-aq-Drh" firstAttribute="width" secondItem="Hnv-KK-2bF" secondAttribute="width" multiplier="140/375" id="wm5-ae-xJl"/>
+                            <constraint firstItem="Bv6-37-fgJ" firstAttribute="centerX" secondItem="Hnv-KK-2bF" secondAttribute="centerX" id="xCg-sU-37O"/>
+                            <constraint firstItem="HTL-aq-Drh" firstAttribute="top" secondItem="l1f-ff-DLd" secondAttribute="bottom" constant="67" id="xRS-Lz-VIH"/>
+                            <constraint firstItem="HTL-aq-Drh" firstAttribute="centerX" secondItem="Hnv-KK-2bF" secondAttribute="centerX" id="xsn-Df-2kJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="702-oH-bj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-47.200000000000003" y="126.38680659670166"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Page 1" width="140" height="157"/>
+    </resources>
+</document>

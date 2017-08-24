@@ -35,6 +35,7 @@
 		2376D81E1F2BE2BF00AE4084 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2376D8141F2BE2B300AE4084 /* OpenSans-SemiBoldItalic.ttf */; };
 		2378B4991F4DD32500DEBD8B /* RealmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378B4981F4DD32500DEBD8B /* RealmStore.swift */; };
 		2378B49B1F4E048D00DEBD8B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378B49A1F4E048D00DEBD8B /* Error.swift */; };
+		2378B49D1F4F5D8C00DEBD8B /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2378B49C1F4F5D8C00DEBD8B /* Onboarding.storyboard */; };
 		237BA7E81F2FE24D009F3F27 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237BA7E71F2FE24D009F3F27 /* ProfileViewController.swift */; };
 		237BA7EA1F2FE2BD009F3F27 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237BA7E91F2FE2BD009F3F27 /* ProfileTableViewCell.swift */; };
 		237BA7EC1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237BA7EB1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift */; };
@@ -133,6 +134,7 @@
 		2376D8141F2BE2B300AE4084 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		2378B4981F4DD32500DEBD8B /* RealmStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmStore.swift; sourceTree = "<group>"; };
 		2378B49A1F4E048D00DEBD8B /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		2378B49C1F4F5D8C00DEBD8B /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		237BA7E71F2FE24D009F3F27 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		237BA7E91F2FE2BD009F3F27 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		237BA7EB1F2FE5E3009F3F27 /* StatBlockCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatBlockCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 				2385A2C51F1EAD6C00DD0FDE /* Cells */,
 				2385A2AF1F1EACAF00DD0FDE /* LaunchScreen.storyboard */,
 				23C8C2271F1FE7030056B4F2 /* Auth.storyboard */,
+				2378B49C1F4F5D8C00DEBD8B /* Onboarding.storyboard */,
 				2385A2AA1F1EACAF00DD0FDE /* Main.storyboard */,
 				23C8C2291F1FE7870056B4F2 /* Home.storyboard */,
 				23C8C22B1F1FE78E0056B4F2 /* Connect.storyboard */,
@@ -694,6 +697,7 @@
 				23C8C22E1F1FE7960056B4F2 /* Run.storyboard in Resources */,
 				2385A2B11F1EACAF00DD0FDE /* LaunchScreen.storyboard in Resources */,
 				2376D81B1F2BE2BF00AE4084 /* OpenSans-LightItalic.ttf in Resources */,
+				2378B49D1F4F5D8C00DEBD8B /* Onboarding.storyboard in Resources */,
 				2376D8161F2BE2BF00AE4084 /* OpenSans-BoldItalic.ttf in Resources */,
 				23218F231F2A457000F651CC /* Auth0.plist in Resources */,
 				2376D81A1F2BE2BF00AE4084 /* OpenSans-Light.ttf in Resources */,
@@ -972,7 +976,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = W64MT7ZTAM;
 				INFOPLIST_FILE = Atlas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -990,7 +994,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = W64MT7ZTAM;
 				INFOPLIST_FILE = Atlas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
