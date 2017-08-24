@@ -86,7 +86,7 @@ class SignUpViewController: UIViewController {
       .subscribeOn(MainScheduler.instance)
       .subscribe(
         onNext: { _ in
-          OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
+          OperationQueue.main.addOperation { self.viewModel.transitionToOnboarding() }
         },
         onError: { err in
 //          OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }

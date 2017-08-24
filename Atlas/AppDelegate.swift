@@ -30,31 +30,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let cognitoStore = CognitoStore.sharedInstance
     cognitoStore.delegate = self
+    cognitoStore.currentUser?.signOut()
+    cognitoStore.userPool.clearAll()
     
     let realm = try! Realm()
     var realmStore = RealmStore.shared
     realmStore.realm = realm
     
-    let vm = GetStartedViewModel(coordinator: coordinator)
-    coordinator.transition(to: OnboardingScene.getStarted(vm), type: .root)
-//    if AuthService.shared.isSignedIn {
-//      // DRY this out
-//      let homeViewModel = HomeViewModel(coordinator: coordinator)
-//      let connectViewModel = ConnectViewModel(coordinator: coordinator)
-//      let profileViewModel = ProfileViewModel(coordinator: coordinator)
-//      let tabbarViewModel = AtlasTabBarViewModel(coordinator: coordinator)
-//      let viewModels: MainViewModels = (tabbarViewModel, homeViewModel, connectViewModel, profileViewModel)
-//      
-//      let mainScene = MainScene.main(viewModels)
-//      coordinator.transition(to: mainScene, type: .root)
-//      
-//    } else {
-//      
-//      let landingViewModel = LandingViewModel(coordinator: coordinator)
-//      let landingScene = AuthScene.landing(landingViewModel)
-//      coordinator.transition(to: landingScene, type: .root)
-//      
-//    }
+    
+    if AuthService.shared.isSignedIn {
+      // DRY this out
+      let homeViewModel = HomeViewModel(coordinator: coordinator)
+      let connectViewModel = ConnectViewModel(coordinator: coordinator)
+      let profileViewModel = ProfileViewModel(coordinator: coordinator)
+      let tabbarViewModel = AtlasTabBarViewModel(coordinator: coordinator)
+      let viewModels: MainViewModels = (tabbarViewModel, homeViewModel, connectViewModel, profileViewModel)
+      
+      let mainScene = MainScene.main(viewModels)
+      coordinator.transition(to: mainScene, type: .root)
+      
+    } else {
+      
+      let landingViewModel = LandingViewModel(coordinator: coordinator)
+      let landingScene = AuthScene.landing(landingViewModel)
+      coordinator.transition(to: landingScene, type: .root)
+      
+    }
     return true
   }
   

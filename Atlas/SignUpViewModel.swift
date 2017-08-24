@@ -73,16 +73,9 @@ class SignUpViewModel  {
   
   // TODO: DRY this out. Used in many places
   @discardableResult
-  func transitionToTabbar() -> Observable<Void> {
-    let homeViewModel = HomeViewModel(coordinator: coordinator)
-    let connectViewModel = ConnectViewModel(coordinator: coordinator)
-    let profileViewModel = ProfileViewModel(coordinator: coordinator)
-    let tabbarViewModel = AtlasTabBarViewModel(coordinator: coordinator)
-    let viewModels: MainViewModels = (tabbarViewModel, homeViewModel, connectViewModel, profileViewModel)
-    
-    let mainScene = MainScene.main(viewModels)
-    
-    return coordinator.transition(to: mainScene, type: TransitionType.root)
+  func transitionToOnboarding() -> Observable<Void> {
+    let vm = GetStartedViewModel(coordinator: coordinator)
+    return coordinator.transition(to: OnboardingScene.getStarted(vm), type: .root)
   }
   
   init(coordinator: CoordinatorType) {
