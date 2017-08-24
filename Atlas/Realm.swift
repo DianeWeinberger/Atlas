@@ -24,8 +24,9 @@ extension Realm {
 //  }
   
   static func currentUser() -> User {
-    let id = UserDefaults.standard.string(forKey: "username")
+    let id = UserDefaults.standard.string(forKey: "currentUserId")
     guard let user = Realm.shared.object(ofType: User.self, forPrimaryKey: id ?? "") else {
+      print("")
       return User()
     }
     return user

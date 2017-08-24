@@ -57,14 +57,11 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
       return Observable.just(Storage.token.tokenString)
     }
     
-    print("TOKEN IS VALID")
-    
+
     // Has the user completed the signup process?
     if UserDefaults.standard.bool(forKey: "didCompleteCognitoSignup") == false {
       return Observable.just(" ")
     }
-    
-    print("DID COMPLETE SIGNUP")
     
     // Otherwise, use cognito to fetch a new token
     let currentUser = CognitoStore.sharedInstance.currentUser
@@ -73,17 +70,14 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
     // TODO: - Refactor out to separate method, remove side effects. This method is doing too much.
     return Observable.create { observer in
       currentUser?.getSession().continueWith(block: { (task) -> Any? in
-         print("IN OBSERVABLE BLOCK")
         if let result = task.result {
           guard let token = result.idToken?.tokenString else { return nil }
           
-           print("TOKEN EXISTS")
           do {
             let decodedToken = try self.decodeToken(token)
             Storage.token.tokenString = decodedToken.string
             Storage.token.expiry = decodedToken.expiresAt
             observer.onNext(token)
-             print("ON NEXT TOKEN")
             observer.onCompleted()
           } catch let error {
             observer.onError(error)
@@ -103,7 +97,6 @@ public final class AtlasProvider: RxMoyaProvider<AtlasAPI> {
   /// - Parameter token: The target.
   /// - Returns: An observable sequence that contains the response.
   override public func request(_ token: AtlasAPI) -> Observable<Moya.Response> {
-    print("REQUEST")
     let actualRequest = super.request(token)
     
     

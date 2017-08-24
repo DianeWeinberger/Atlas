@@ -55,21 +55,43 @@ class SignUpViewController: UIViewController {
       }
       .filter { $0 }
       
-      // MARK: Create and save
-      .withLatestFrom(viewModel.signUpData)
-      .flatMap { UserService.shared.createUser(id: $0.email, credentials: $0) }
+      // MARK: Get sub value
+      .flatMap { _ -> Observable<AWSCognitoIdentityUserGetDetailsResponse> in
+        return AuthService.shared.currentUserDetails()
+      }
+      .map { details -> String in
+        guard let attributes = details.userAttributes else {
+          throw AuthServiceError.userAttributesDoesNotExist
+        }
+        
+        // TODO: Handle this when it's either this or attributes dont exist
+        guard let sub = attributes.filter({ $0.name == "sub" }).first?.value else {
+          throw AuthServiceError.userHasNoSubValue
+        }
+        
+        UserDefaults.standard.setValue(sub, forKey: "currentUserId")
+        return sub
+      }
+      
+      // MARK: Create and save user
+      .withLatestFrom(viewModel.signUpData, resultSelector: { (sub, data) -> (String, SignUpCredentials) in
+        return (sub, data)
+      })
+      .flatMap { UserService.shared.createUser(id: $0, credentials: $1) }
       .debug("Created_User")
       .map { User.deserialize($0) }
       .debug("Realm_User")
       
       // MARK: Subscribe
       .subscribeOn(MainScheduler.instance)
-      .subscribe(onNext: { _ in
-        
-        OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
-
-        
-      })
+      .subscribe(
+        onNext: { _ in
+          OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
+        },
+        onError: { err in
+          OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
+          CognitoStore.sharedInstance.userPool.clearAll()
+        })
       .addDisposableTo(rx_disposeBag)  }
   
   func toggleTextFieldEnabled(_ enabled: Bool) {

@@ -50,20 +50,53 @@ class LogInViewController: UIViewController, BindableType {
       }
       .filter { $0 }
       
-      // MARK: Create and Save
-      .withLatestFrom(logInData)
-      .flatMap { UserService.shared.getUser(id: $0.0) }
-      .debug("Created_User")
+      // MARK: Get Sub
+      .flatMap { _ -> Observable<AWSCognitoIdentityUserGetDetailsResponse> in
+        return AuthService.shared.currentUserDetails()
+      }
+      .map { details -> String in
+        guard let attributes = details.userAttributes else {
+          throw AuthServiceError.userAttributesDoesNotExist
+        }
+        
+        // TODO: Handle this when it's either this or attributes dont exist
+        guard let sub = attributes.filter({ $0.name == "sub" }).first?.value else {
+          throw AuthServiceError.userHasNoSubValue
+        }
+        UserDefaults.standard.setValue(sub, forKey: "currentUserId")
+        return sub
+      }
+      .debug("Get_Details")
+      
+      // MARK: Get and Save User
+      .flatMap { UserService.shared.getUser(id: $0) }
+      .debug("Get_User")
       .map { User.deserialize($0) }
       .debug("Realm_User")
-      
-      // Mark: SUBSCRIBE
-      .subscribe(onNext: { user in
+
+    
+       //Mark: SUBSCRIBE
+      .subscribe(
+        onNext: { user in
+          
+          guard !user.id.isEmpty else {
+            CognitoStore.sharedInstance.currentUser?.signOut()
+            CognitoStore.sharedInstance.userPool.clearAll()
+            return
+          }
+          
           OperationQueue.main.addOperation {
             self.viewModel.userDidLogIn()
           }
-      })
-      .addDisposableTo(rx_disposeBag)    
+        },
+        onError: { err in
+          OperationQueue.main.addOperation {
+            CognitoStore.sharedInstance.currentUser?.signOut()
+            CognitoStore.sharedInstance.userPool.clearAll()
+            self.awsError(err)
+          }
+        })
+      .addDisposableTo(rx_disposeBag)
   }
   
   func bindViewModel() {

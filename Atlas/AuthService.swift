@@ -16,6 +16,8 @@ enum AuthServiceError: Error {
   case unknown
   case signUpFailed
   case userNotSignedIn
+  case userAttributesDoesNotExist
+  case userHasNoSubValue
 }
 
 typealias SignUpCredentials = (firstName: String, lastName: String, email: String, password: String)
@@ -26,11 +28,13 @@ class AuthService {
   
   let store = CognitoStore.sharedInstance
   
+  // TODO: Use awsTaskToObservable
   func signUp(data: SignUpCredentials) -> Observable<AWSCognitoIdentityUserPoolSignUpResponse> {
     return signUp(firstName: data.firstName, lastName: data.lastName, email: data.email, password: data.password)
   }
   
   
+  // TODO: Use awsTaskToObservable
   func signUp(firstName: String, lastName: String, email: String, password: String) -> Observable<AWSCognitoIdentityUserPoolSignUpResponse> {
     return Observable.create { observer in
       
@@ -44,8 +48,6 @@ class AuthService {
           
           if let result = response.result {
             observer.onNext(result)
-            print(result.user.username)
-            UserDefaults.standard.setValue(result.user.username, forKey: "username")
           }
           
           UserDefaults.standard.set(true, forKey: "didCompleteCognitoSignup")
@@ -65,6 +67,7 @@ class AuthService {
       .getUser(email)
   }
 
+  // TODO: Use awsTaskToObservable
   func signIn(email: String, password: String) -> Observable<AWSCognitoIdentityUserSession> {
     return Observable.create { observer in
 
@@ -77,11 +80,6 @@ class AuthService {
           
           if let result = session.result {
             observer.onNext(result)
-            
-            // Looks like this is taken cared of by AtlasProvider's request method
-//            var awsToken = Storage.token
-//            awsToken.tokenString = result.accessToken?.tokenString
-//            awsToken.expiry = result.expirationTime
           }
           
           observer.onCompleted()
@@ -92,6 +90,36 @@ class AuthService {
       
       return Disposables.create()
     }
+  }
+  
+  // TODO: Use awsTaskToObservable
+  func currentUserDetails() -> Observable<AWSCognitoIdentityUserGetDetailsResponse> {
+    return Observable.create { observer in
+      
+      CognitoStore.sharedInstance.currentUser?
+        .getDetails()
+        .continueWith(block: { details -> Any? in
+          
+          if let error = details.error {
+            observer.onError(error)
+          }
+          
+          
+          
+          if let result = details.result {
+            observer.onNext(result)
+          }
+          
+          observer.onCompleted()
+          return Disposables.create()
+          
+        })
+      
+      
+      return Disposables.create()
+    }
+    
+    
   }
   
   

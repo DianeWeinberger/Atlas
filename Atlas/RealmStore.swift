@@ -16,13 +16,5 @@ enum RealmStoreError {
 struct RealmStore {
   static let shared = RealmStore()
   
-//  var realm: Realm!
-//  
-//  init() {
-//    do {
-//      self.realm = try Realm()
-//    } catch {
-//      throw RealmStoreError.couldNotInitializeRealm
-//    }
-//  }
+  var realm: Realm!
 }

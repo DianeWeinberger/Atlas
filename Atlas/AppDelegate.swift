@@ -31,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let cognitoStore = CognitoStore.sharedInstance
     cognitoStore.delegate = self
     
+    let realm = try! Realm()
+    var realmStore = RealmStore.shared
+    realmStore.realm = realm
+    
 //    cognitoStore
     /*
     let realm = try! Realm()
@@ -51,6 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     }
      */
+    
+    print(AWSToken().tokenString)
     
     if AuthService.shared.isSignedIn {
       // DRY this out

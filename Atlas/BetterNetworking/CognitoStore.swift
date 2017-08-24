@@ -25,7 +25,7 @@ public final class CognitoStore: NSObject {
     public var currentUser: AWSCognitoIdentityUser? {
         return self.userPool.currentUser()
     }
-    
+  
     // The VC that starts the login/signup process should be set as the delegate.
     public var delegate: AWSCognitoIdentityInteractiveAuthenticationDelegate {
         get {
