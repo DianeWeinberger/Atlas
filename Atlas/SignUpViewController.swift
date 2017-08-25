@@ -12,6 +12,7 @@ import RxSwiftExt
 import Action
 import AWSCognitoIdentityProvider
 import Dotzu
+import RxKeyboard
 
 class SignUpViewController: UIViewController {
   
@@ -30,23 +31,20 @@ class SignUpViewController: UIViewController {
 
     backButton.rx.action = viewModel.backAction
 
+    setUpKeyboardAdjustable()
     
     // TODO: Clean up and move to viewModel
     signUpButton.rx.tap
       
       // MARK: Signup
       .withLatestFrom(viewModel.signUpData)
-      .debug("Sign_Up_Data")
       .flatMap { Observable.combineLatest(AuthService.shared.signUp(data: $0), Observable.of($0)) }
-      .debug("Sign_Up_Response")
       
       // MARK: Login
       .withLatestFrom(viewModel.signUpData)
-      .debug("Sign_Up_Data")
       .flatMap { data -> Observable<AWSCognitoIdentityUserSession> in
         return AuthService.shared.signIn(email: data.email, password: data.password)
       }
-      .debug("Log_In_Session")
       .map { _ in true }
       .catchError { e -> Observable<Bool> in
         print(e.message)
@@ -78,9 +76,7 @@ class SignUpViewController: UIViewController {
         return (sub, data)
       })
       .flatMap { UserService.shared.createUser(id: $0, credentials: $1) }
-      .debug("Created_User")
       .map { User.deserialize($0) }
-      .debug("Realm_User")
       
       // MARK: Subscribe
       .subscribeOn(MainScheduler.instance)
@@ -89,11 +85,12 @@ class SignUpViewController: UIViewController {
           OperationQueue.main.addOperation { self.viewModel.transitionToOnboarding() }
         },
         onError: { err in
-//          OperationQueue.main.addOperation { self.viewModel.transitionToTabbar() }
           CognitoStore.sharedInstance.currentUser?.signOut()
           CognitoStore.sharedInstance.userPool.clearAll()
         })
-      .addDisposableTo(rx_disposeBag)  }
+      .addDisposableTo(rx_disposeBag)
+  
+  }
   
   func toggleTextFieldEnabled(_ enabled: Bool) {
     [firstNameTextField, lastNameTextField, emailTextField, passwordTextField]
@@ -118,5 +115,12 @@ extension SignUpViewController: BindableType {
     passwordTextField.rx.text.unwrap()
       .bind(to: viewModel.password)
       .addDisposableTo(rx_disposeBag)
+  }
+}
+
+
+extension SignUpViewController: KeyboardAdjustable {
+  var adjustableTrigger: UIView {
+    return self.signUpButton
   }
 }

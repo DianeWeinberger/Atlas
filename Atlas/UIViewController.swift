@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import RxSwift
 import RxKeyboard
 
 extension UIViewController {
+  func catchError(_ err: Error) -> Observable<Bool> {
+    alert("ERROR", message: err.message)
+    return Observable.just(false)
+  }
+  
   func awsError(_ err: Error) {
     alert("ERROR", message: err.message)
   }
@@ -28,20 +34,12 @@ extension UIViewController {
   }
   
   func alert(_ title: String?, message: String?, _ completion: @escaping () -> Void) {
-    let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-    controller.addAction(ok)
-    present(controller, animated: true, completion: completion)
-  }
-  
-  func setUpKeyboardDismissOnTap() {
-    self.view.rx.tapGesture()
-      .withLatestFrom(RxKeyboard.instance.visibleHeight)
-      .filter { _ in self.view.transform != CGAffineTransform.identity }
-      .subscribe(onNext: { _ in
-        self.view.endEditing(true)
-      })
-      .addDisposableTo(rx_disposeBag)
+    OperationQueue.main.addOperation {
+      let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+      let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+      controller.addAction(ok)
+      self.present(controller, animated: true, completion: completion)
+    }
   }
 }
 

@@ -25,7 +25,7 @@ class LogInViewController: UIViewController, BindableType {
     self.navigationController?.navigationBar.isHidden = false
     
     backButton.rx.action = viewModel.backAction
-
+    setUpKeyboardAdjustable()
 
     let logInData = Observable.combineLatest(
       emailTextField.rx.text.map { $0 ?? "" },
@@ -34,48 +34,15 @@ class LogInViewController: UIViewController, BindableType {
     
     // TODO: Clean up and move to viewModel
     logInButton.rx.tap.asObservable()
-      
-      // MARK: Login
       .withLatestFrom(logInData)
-      .debug("Log_In_Data")
-      .flatMap { email, password -> Observable<AWSCognitoIdentityUserSession> in
-        return AuthService.shared.signIn(email: email, password: password)
-      }
-      .debug("Log_In_Session")
+      .flatMap { AuthService.shared.signIn(email: $0, password: $1) }
       .map { _ in true }
-      .catchError { e -> Observable<Bool> in
-        print(e.message)
-        OperationQueue.main.addOperation { self.awsError(e) }
-        return Observable.just(false)
-      }
+      .catchError(self.catchError)
       .filter { $0 }
-      
-      // MARK: Get Sub
-      .flatMap { _ -> Observable<AWSCognitoIdentityUserGetDetailsResponse> in
-        return AuthService.shared.currentUserDetails()
-      }
-      .map { details -> String in
-        guard let attributes = details.userAttributes else {
-          throw AuthServiceError.userAttributesDoesNotExist
-        }
-        
-        // TODO: Handle this when it's either this or attributes dont exist
-        guard let sub = attributes.filter({ $0.name == "sub" }).first?.value else {
-          throw AuthServiceError.userHasNoSubValue
-        }
-        UserDefaults.standard.setValue(sub, forKey: "currentUserId")
-        return sub
-      }
-      .debug("Get_Details")
-      
-      // MARK: Get and Save User
-      .flatMap { UserService.shared.getUser(id: $0) }
-      .debug("Get_User")
-      .map { User.deserialize($0) }
-      .debug("Realm_User")
-
-    
-       //Mark: SUBSCRIBE
+      .flatMap { _ in AuthService.shared.currentUserDetails() }
+      .map(AuthService.shared.getUserSub)
+      .flatMap(UserService.shared.getUser)
+      .map(User.deserialize)
       .subscribe(
         onNext: { user in
           
@@ -105,5 +72,11 @@ class LogInViewController: UIViewController, BindableType {
   
   @IBAction func loginButton(_ sender: UIButton) {
 
+  }
+}
+
+extension LogInViewController: KeyboardAdjustable {
+  var adjustableTrigger: UIView {
+    return logInButton
   }
 }

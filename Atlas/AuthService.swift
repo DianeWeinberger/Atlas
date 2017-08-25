@@ -114,12 +114,21 @@ class AuthService {
           return Disposables.create()
           
         })
-      
-      
       return Disposables.create()
     }
+  }
+  
+  func getUserSub(details: AWSCognitoIdentityUserGetDetailsResponse) throws -> String {
+    guard let attributes = details.userAttributes else {
+      throw AuthServiceError.userAttributesDoesNotExist
+    }
     
-    
+    // TODO: Handle this when it's either this or attributes dont exist
+    guard let sub = attributes.filter({ $0.name == "sub" }).first?.value else {
+      throw AuthServiceError.userHasNoSubValue
+    }
+    UserDefaults.standard.setValue(sub, forKey: "currentUserId")
+    return sub
   }
   
   

@@ -11,7 +11,6 @@ import UIKit
 class GetStartedViewController: UIViewController, BindableType {
 
   @IBOutlet weak var letsBeginButton: UIButton!
-
   var viewModel: GetStartedViewModel!
 
   override func viewDidLoad() {

@@ -94,7 +94,7 @@ extension AtlasAPI: TokenAuthAPIType {
     
     public var path: String {
         switch self {
-        case .user(dictionary: _):
+        case .user(dictionary: _), .updateUser(dictionary: _):
           return "/users"
         case .fetchUserById(let id):
           return "/users/\(id)"

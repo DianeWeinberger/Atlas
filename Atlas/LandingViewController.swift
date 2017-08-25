@@ -26,10 +26,6 @@ class LandingViewController: UIViewController, BindableType {
     signUpButton.rx.action = viewModel.signUpAction
   }
   
-  func bindViewModel() {
-    
-  }
-  
   func fadeInAnimation() {
     logInButton.isHidden = true
     signUpButton.isHidden = true
