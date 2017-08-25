@@ -19,7 +19,7 @@ protocol ProfileViewModelOutputsType {
 }
 
 protocol ProfileViewModelActionsType {
-  var logOutAction: CocoaAction { get }
+  var editAction: CocoaAction { get }
 }
 
 protocol ProfileViewModelType {
@@ -40,27 +40,22 @@ class ProfileViewModel  {
     do {
       return try Realm.currentUser()
     } catch {
-      logOutAction.execute()
+//      logOutAction.execute()
       return User()
     }
   }
   
   // MARK: Actions
-  lazy var logOutAction: CocoaAction = {
+
+  
+  lazy var editAction: CocoaAction = {
     return Action { _ in
-      AuthService.shared.logOut()
-      Realm.clear()
-      self.goToLandingScreen()
+      let settingsViewModel = SettingsViewModel(coordinator: self.coordinator)
+      let settingsScene = ProfileScene.setting(settingsViewModel)
+      self.coordinator.transition(to: settingsScene, type: .modal)
       return Observable.empty()
     }
   }()
-  
-  func goToLandingScreen() {
-    // TODO: DRY this out
-    let landingViewModel = LandingViewModel(coordinator: coordinator)
-    let landingScene = AuthScene.landing(landingViewModel)
-    coordinator.transition(to: landingScene, type: .root)
-  }
   
   init(coordinator: CoordinatorType) {
     self.coordinator = coordinator

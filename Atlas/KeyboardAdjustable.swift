@@ -30,7 +30,6 @@ extension KeyboardAdjustable where Self: UIViewController {
   func setUpKeyboardAvoiding() {
     RxKeyboard.instance.visibleHeight
       .drive(onNext: { height in
-        print(height)
         let triggerFrame = self.adjustableTrigger.frame
         let triggerBottom = triggerFrame.origin.y + triggerFrame.size.height
 

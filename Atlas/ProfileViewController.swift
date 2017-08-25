@@ -15,8 +15,6 @@ class ProfileViewController: UIViewController, BindableType {
   
   @IBOutlet weak var tableView: UITableView!
   
-  
-  
   var viewModel: ProfileViewModel!
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -39,7 +37,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     case 0:
       let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.reuseIdentifier, for: indexPath) as! ProfileTableViewCell
       cell.configure(from: viewModel.user)
-      cell.logoutButton.rx.action = viewModel.logOutAction
+      cell.editButton.rx.action = viewModel.editAction
       return cell
       
     case 1:

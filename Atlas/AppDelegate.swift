@@ -30,12 +30,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let cognitoStore = CognitoStore.sharedInstance
     cognitoStore.delegate = self
-    cognitoStore.currentUser?.signOut()
-    cognitoStore.userPool.clearAll()
+
     
     let realm = try! Realm()
     var realmStore = RealmStore.shared
     realmStore.realm = realm
+    
+    // Run this when things go wrong
+//    cognitoStore.currentUser?.signOut()
+//    cognitoStore.userPool.clearAll()
+//    try! realm.write {
+//      realm.deleteAll()
+//    }
     
     
     if AuthService.shared.isSignedIn {

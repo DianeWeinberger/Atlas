@@ -88,6 +88,7 @@ PODS:
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - SimpleKeychain (0.8.0)
+  - SkyFloatingLabelTextField (3.2.0)
   - Sourcery (0.7.2)
   - SwiftyImage (1.1.0)
   - Whisper (5.0.0)
@@ -121,6 +122,7 @@ DEPENDENCIES:
   - RxSwiftExt
   - SDWebImage
   - SimpleKeychain
+  - SkyFloatingLabelTextField
   - Sourcery
   - SwiftyImage
   - Whisper
@@ -162,10 +164,11 @@ SPEC CHECKSUMS:
   RxSwiftExt: ec25c6df68d15ad6fe326792d60452b52e83d606
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SimpleKeychain: 84c748463eec601dfee5e7990f55cc82edc5488d
+  SkyFloatingLabelTextField: 4e2d2f7160af660ed1da6bb9d0027b5c474b4b79
   Sourcery: abd498f5fd7dd74a85af911013bd521c1dfbb6ff
   SwiftyImage: 4d3feb0211beb7217b39ac553e3ee64ceb72d611
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: 883d937e4ea45883120af290fbd16a3c4c9bb3f3
+PODFILE CHECKSUM: 5d97eb42fd0232fe5217837aca80f391ebde2a1f
 
 COCOAPODS: 1.2.1

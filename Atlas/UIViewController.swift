@@ -11,6 +11,10 @@ import RxSwift
 import RxKeyboard
 
 extension UIViewController {
+  static var storyboardId: String {
+    return String(describing: self.self)
+  }
+  
   func catchError(_ err: Error) -> Observable<Bool> {
     alert("ERROR", message: err.message)
     return Observable.just(false)

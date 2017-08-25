@@ -35,4 +35,5 @@ target 'Atlas' do
   pod 'RxRealm'
   pod 'JWTDecode'
   pod 'ObjectMapper'
+  pod 'SkyFloatingLabelTextField'
 end
