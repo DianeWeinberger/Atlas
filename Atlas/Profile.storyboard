@@ -344,7 +344,7 @@
         <scene sceneID="pgM-yL-7SR">
             <objects>
                 <tableViewController storyboardIdentifier="settings" id="bjk-LA-GFw" customClass="SettingsViewController" customModule="Atlas" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wec-Ad-VC3">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wec-Ad-VC3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -354,11 +354,11 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8K-fd-T8Q">
-                                    <rect key="frame" x="10" y="11" width="10" height="22"/>
+                                    <rect key="frame" x="10" y="26" width="10" height="22"/>
                                     <state key="normal" image="-"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY PROFILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhc-Pk-dQH">
-                                    <rect key="frame" x="159.5" y="15" width="56" height="14"/>
+                                    <rect key="frame" x="159.5" y="30" width="56" height="14"/>
                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="10"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -366,8 +366,8 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="Hhc-Pk-dQH" firstAttribute="centerY" secondItem="FXY-KV-Rk9" secondAttribute="centerY" id="2ao-wh-7Cb"/>
                                 <constraint firstItem="Hhc-Pk-dQH" firstAttribute="centerX" secondItem="FXY-KV-Rk9" secondAttribute="centerX" id="3w0-Pt-Dqq"/>
+                                <constraint firstAttribute="bottom" secondItem="Hhc-Pk-dQH" secondAttribute="bottom" id="Dpq-WH-JS3"/>
                                 <constraint firstItem="U8K-fd-T8Q" firstAttribute="leading" secondItem="FXY-KV-Rk9" secondAttribute="leading" constant="10" id="Tv2-Ct-q9N"/>
                                 <constraint firstItem="U8K-fd-T8Q" firstAttribute="centerY" secondItem="Hhc-Pk-dQH" secondAttribute="centerY" id="xId-jg-GuZ"/>
                             </constraints>
@@ -383,7 +383,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EmF-oa-dTh" customClass="AvatarImageView" customModule="AvatarImageView">
-                                                    <rect key="frame" x="137" y="8" width="100" height="100"/>
+                                                    <rect key="frame" x="137" y="18" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="EmF-oa-dTh" secondAttribute="height" multiplier="1:1" id="r6b-uP-kcO"/>
                                                     </constraints>
@@ -395,19 +395,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zach Gordon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE6-PF-4CY">
-                                                    <rect key="frame" x="118" y="116" width="139" height="30"/>
+                                                    <rect key="frame" x="118" y="126" width="139" height="30"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="22"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Queens, NY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOP-XY-z7L">
-                                                    <rect key="frame" x="150" y="146" width="76" height="19.5"/>
+                                                    <rect key="frame" x="150" y="156" width="76" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Pace: 4:45" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXx-HS-mTi">
-                                                    <rect key="frame" x="127" y="165" width="122" height="19.5"/>
+                                                    <rect key="frame" x="127" y="175" width="122" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -424,7 +424,7 @@
                                                 <constraint firstItem="qY2-R1-AQ3" firstAttribute="centerX" secondItem="EmF-oa-dTh" secondAttribute="centerX" id="UKg-rI-DuL"/>
                                                 <constraint firstItem="bOP-XY-z7L" firstAttribute="top" secondItem="ZE6-PF-4CY" secondAttribute="bottom" id="soX-F7-pf4"/>
                                                 <constraint firstItem="EmF-oa-dTh" firstAttribute="centerX" secondItem="v5b-pL-Of6" secondAttribute="centerX" id="wCZ-Bn-sVd"/>
-                                                <constraint firstAttribute="topMargin" secondItem="EmF-oa-dTh" secondAttribute="top" id="xyp-6w-UNl"/>
+                                                <constraint firstAttribute="topMargin" secondItem="EmF-oa-dTh" secondAttribute="top" constant="-10" id="xyp-6w-UNl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
