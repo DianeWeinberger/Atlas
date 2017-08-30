@@ -21,7 +21,7 @@ class AboutYourselfViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    setUpKeyboardAdjustable()
+    setUpOnTapDismiss()
   }
 }
 
@@ -30,12 +30,5 @@ extension AboutYourselfViewController: BindableType {
   func bindViewModel() {
     nextButton.rx.action = viewModel.nextAction
     skipButton.rx.action = viewModel.skipAction
-  }
-}
-
-
-extension AboutYourselfViewController: KeyboardAdjustable {
-  var adjustableTrigger: UIView {
-    return self.skipButton
   }
 }

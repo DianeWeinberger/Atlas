@@ -28,10 +28,10 @@ class SignUpViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationController?.setNavigationBarHidden(false, animated: false)
-
+    
     backButton.rx.action = viewModel.backAction
 
-    setUpKeyboardAdjustable()
+    setUpOnTapDismiss()
     
     // TODO: Clean up and move to viewModel
     signUpButton.rx.tap
@@ -115,12 +115,5 @@ extension SignUpViewController: BindableType {
     passwordTextField.rx.text.unwrap()
       .bind(to: viewModel.password)
       .addDisposableTo(rx_disposeBag)
-  }
-}
-
-
-extension SignUpViewController: KeyboardAdjustable {
-  var adjustableTrigger: UIView {
-    return self.signUpButton
   }
 }

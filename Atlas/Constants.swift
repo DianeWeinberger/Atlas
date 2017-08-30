@@ -22,4 +22,8 @@ struct Constants {
     static let userPoolKey = "UserPool"
     static let region = AWSRegionType.USEast2
   }
+  
+  struct UIMeasurements {
+    static let keyboardHeight = 216
+  }
 }

@@ -15,6 +15,15 @@ extension UIViewController {
     return String(describing: self.self)
   }
   
+  func setUpOnTapDismiss() {
+    let tap = UITapGestureRecognizer(target: self, action: #selector(onTapDismissKeyboard))
+    view.addGestureRecognizer(tap)
+  }
+  
+  func onTapDismissKeyboard() {
+    self.view.endEditing(true)
+  }
+  
   func catchError(_ err: Error) -> Observable<Bool> {
     alert("ERROR", message: err.message)
     return Observable.just(false)

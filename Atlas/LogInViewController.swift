@@ -25,7 +25,7 @@ class LogInViewController: UIViewController, BindableType {
     self.navigationController?.navigationBar.isHidden = false
     
     backButton.rx.action = viewModel.backAction
-    setUpKeyboardAdjustable()
+    setUpOnTapDismiss()
 
     let logInData = Observable.combineLatest(
       emailTextField.rx.text.map { $0 ?? "" },
@@ -72,11 +72,5 @@ class LogInViewController: UIViewController, BindableType {
   
   @IBAction func loginButton(_ sender: UIButton) {
 
-  }
-}
-
-extension LogInViewController: KeyboardAdjustable {
-  var adjustableTrigger: UIView {
-    return logInButton
   }
 }

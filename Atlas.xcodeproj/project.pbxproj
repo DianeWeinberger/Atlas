@@ -41,7 +41,6 @@
 		2378B4BC1F4F6A0200DEBD8B /* AboutYourselfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378B4BB1F4F6A0200DEBD8B /* AboutYourselfViewController.swift */; };
 		2378B4BE1F4F6A1300DEBD8B /* GetStartedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378B4BD1F4F6A1300DEBD8B /* GetStartedViewModel.swift */; };
 		2378B4C01F4F6A2000DEBD8B /* AboutYourselfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378B4BF1F4F6A2000DEBD8B /* AboutYourselfViewModel.swift */; };
-		2378B4C21F506E6D00DEBD8B /* KeyboardAdjustable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378B4C11F506E6D00DEBD8B /* KeyboardAdjustable.swift */; };
 		2378B4C51F50AA7400DEBD8B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378B4C41F50AA7400DEBD8B /* SettingsViewController.swift */; };
 		2378B4C71F50AAD800DEBD8B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378B4C61F50AAD800DEBD8B /* SettingsViewModel.swift */; };
 		2378B4C91F50AC6A00DEBD8B /* ProfileScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378B4C81F50AC6A00DEBD8B /* ProfileScene.swift */; };
@@ -150,7 +149,6 @@
 		2378B4BB1F4F6A0200DEBD8B /* AboutYourselfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutYourselfViewController.swift; sourceTree = "<group>"; };
 		2378B4BD1F4F6A1300DEBD8B /* GetStartedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStartedViewModel.swift; sourceTree = "<group>"; };
 		2378B4BF1F4F6A2000DEBD8B /* AboutYourselfViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutYourselfViewModel.swift; sourceTree = "<group>"; };
-		2378B4C11F506E6D00DEBD8B /* KeyboardAdjustable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdjustable.swift; sourceTree = "<group>"; };
 		2378B4C41F50AA7400DEBD8B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2378B4C61F50AAD800DEBD8B /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		2378B4C81F50AC6A00DEBD8B /* ProfileScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScene.swift; sourceTree = "<group>"; };
@@ -439,7 +437,6 @@
 				237BA7ED1F30C37F009F3F27 /* CellType.swift */,
 				23E23A9B1F34D120003FCE4E /* HeaderCollapsible.swift */,
 				231A55821F4C96DF003F5925 /* Deserializable.swift */,
-				2378B4C11F506E6D00DEBD8B /* KeyboardAdjustable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -908,7 +905,6 @@
 				230996A81F26380D00F94FD9 /* Colors.swift in Sources */,
 				23C8C2161F1FDF140056B4F2 /* LandingViewController.swift in Sources */,
 				231A55811F4C8CE4003F5925 /* UserService.swift in Sources */,
-				2378B4C21F506E6D00DEBD8B /* KeyboardAdjustable.swift in Sources */,
 				233473A11F2A9B93003DB1C8 /* ConnectTableViewCell.swift in Sources */,
 				23BF377F1F2141DB0066DC9D /* UITabBarController+Rx.swift in Sources */,
 				23E0D6671F2B9E1C005E8E9F /* TwicketSegmentedControl+Rx.swift in Sources */,
